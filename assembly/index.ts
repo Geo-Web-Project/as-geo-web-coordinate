@@ -20,8 +20,10 @@ export class GeoWebCoordinate {
     return (u64(lonGW) << 32) | latGW;
   }
 
-  // Note: to_gps will round results to nearest 10 digits.
-  // This may result in small rounding errors that makes converting to and from coordinates not deterministic
+  static to_gps_hex(gwCoord: string): f64[][] {
+    return this.to_gps(<u64>Number.parseInt(gwCoord, 16))
+  }
+
   static to_gps(gwCoord: u64): f64[][] {
     let lonGW: u32 = u32(gwCoord >> 32);
     let latGW: u32 = u32(gwCoord & u32((2 ** 32) - 1));
