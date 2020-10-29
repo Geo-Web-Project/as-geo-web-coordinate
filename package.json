@@ -1,0 +1,26 @@
+{
+  "name": "as-geo-web-coordinate",
+  "version": "0.1.0",
+  "description": "A small library to handle Geo Web Coordinates",
+  "main": "index.ts",
+  "scripts": {
+    "test": "asp --nortrace --verbose",
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --target release",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+  },
+  "keywords": [
+    "geoweb"
+  ],
+  "author": "Cody Hatfield <cody.hatfield@me.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@assemblyscript/loader": "^0.17.0",
+    "as-bignum": "^0.2.6"
+  },
+  "devDependencies": {
+    "@as-pect/cli": "^4.0.0",
+    "assemblyscript": "^0.17.0",
+    "ts-node": "^9.0.0"
+  }
+}
