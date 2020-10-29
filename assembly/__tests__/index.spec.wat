@@ -1,11 +1,11 @@
 (module
  (type $none_=>_none (func))
  (type $i32_=>_none (func (param i32)))
- (type $i32_=>_i32 (func (param i32) (result i32)))
  (type $i32_i32_=>_none (func (param i32 i32)))
+ (type $i32_=>_i32 (func (param i32) (result i32)))
  (type $i32_i32_=>_i32 (func (param i32 i32) (result i32)))
- (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
  (type $i32_i32_i32_=>_none (func (param i32 i32 i32)))
+ (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
  (type $i64_=>_i32 (func (param i64) (result i32)))
  (type $none_=>_i32 (func (result i32)))
  (type $f64_=>_i32 (func (param f64) (result i32)))
@@ -70,22 +70,21 @@
  (data (i32.const 3740) "2\00\00\00\01\00\00\00\00\00\00\00\01\00\00\002\00\00\00L\00a\00t\00i\00t\00u\00d\00e\00 \00i\00s\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
  (data (i32.const 3820) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\00I\00n\00d\00e\00x\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e")
  (data (i32.const 3884) "\1a\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1a\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
- (data (i32.const 3932) "^\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00^\00\00\00E\00l\00e\00m\00e\00n\00t\00 \00t\00y\00p\00e\00 \00m\00u\00s\00t\00 \00b\00e\00 \00n\00u\00l\00l\00a\00b\00l\00e\00 \00i\00f\00 \00a\00r\00r\00a\00y\00 \00i\00s\00 \00h\00o\00l\00e\00y")
- (data (i32.const 4060) "\06\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\06\00\00\00f\006\004")
- (data (i32.const 4092) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\13")
- (data (i32.const 4124) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\14")
- (data (i32.const 4156) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\15")
- (data (i32.const 4188) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\16")
- (data (i32.const 4220) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\17")
- (data (i32.const 4252) "H\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00H\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00o\00n\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
- (data (i32.const 4348) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\18")
- (data (i32.const 4380) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\19")
- (data (i32.const 4412) "H\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00H\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00a\00t\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
- (data (i32.const 4508) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1a")
- (data (i32.const 4540) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1b")
- (data (i32.const 4572) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1c")
- (data (i32.const 4604) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1d")
- (data (i32.const 4640) "\0c\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\000\t\02\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\01")
+ (data (i32.const 3932) "\06\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\06\00\00\00f\006\004")
+ (data (i32.const 3964) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\13")
+ (data (i32.const 3996) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\14")
+ (data (i32.const 4028) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\15")
+ (data (i32.const 4060) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\16")
+ (data (i32.const 4092) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\17")
+ (data (i32.const 4124) "H\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00H\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00o\00n\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
+ (data (i32.const 4220) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\18")
+ (data (i32.const 4252) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\19")
+ (data (i32.const 4284) "H\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00H\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00a\00t\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
+ (data (i32.const 4380) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1a")
+ (data (i32.const 4412) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1b")
+ (data (i32.const 4444) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1c")
+ (data (i32.const 4476) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1d")
+ (data (i32.const 4512) "\0b\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\000\t\02\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\01")
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
  (import "__aspect" "createReflectedLong" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedLong (param i32 i32 i32 i32 i32 i32) (result i32)))
  (import "__aspect" "attachStackTraceToReflectedValue" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/attachStackTraceToReflectedValue (param i32)))
@@ -101,11 +100,9 @@
  (table $0 30 funcref)
  (elem (i32.const 1) $start:assembly/__tests__/index.spec~anonymous|0~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10 $start:assembly/__tests__/index.spec~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|6~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|1 $start:node_modules/@as-pect/assembly/assembly/internal/noOp~anonymous|0)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
- (global $assembly//index/GW_MAX_LAT (mut i32) (i32.const 0))
- (global $assembly//index/GW_MAX_LON (mut i32) (i32.const 0))
  (global $~argumentsLength (mut i32) (i32.const 0))
  (global $~started (mut i32) (i32.const 0))
- (global $~lib/rt/__rtti_base i32 (i32.const 4640))
+ (global $~lib/rt/__rtti_base i32 (i32.const 4512))
  (export "_start" (func $~start))
  (export "memory" (memory $0))
  (export "table" (table $0))
@@ -685,10 +682,10 @@
   if
    unreachable
   end
-  i32.const 4752
+  i32.const 4608
   i32.const 0
   i32.store
-  i32.const 6320
+  i32.const 6176
   i32.const 0
   i32.store
   loop $for-loop|0
@@ -699,7 +696,7 @@
     local.get $1
     i32.const 2
     i32.shl
-    i32.const 4752
+    i32.const 4608
     i32.add
     i32.const 0
     i32.store offset=4
@@ -717,7 +714,7 @@
       i32.add
       i32.const 2
       i32.shl
-      i32.const 4752
+      i32.const 4608
       i32.add
       i32.const 0
       i32.store offset=96
@@ -735,13 +732,13 @@
     br $for-loop|0
    end
   end
-  i32.const 4752
-  i32.const 6324
+  i32.const 4608
+  i32.const 6180
   memory.size
   i32.const 16
   i32.shl
   call $~lib/rt/tlsf/addMemory
-  i32.const 4752
+  i32.const 4608
   global.set $~lib/rt/tlsf/ROOT
  )
  (func $~lib/rt/tlsf/prepareSize (param $0 i32) (result i32)
@@ -1363,7 +1360,7 @@
   i32.and
   call $~lib/memory/memory.copy
   local.get $1
-  i32.const 4740
+  i32.const 4604
   i32.ge_u
   if
    local.get $0
@@ -1405,7 +1402,7 @@
   i32.add
   local.set $2
   local.get $0
-  i32.const 4740
+  i32.const 4604
   i32.lt_u
   if
    global.get $~lib/rt/tlsf/ROOT
@@ -1500,7 +1497,7 @@
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  i32.const 4740
+  i32.const 4604
   i32.gt_u
   if
    local.get $0
@@ -1547,7 +1544,7 @@
  )
  (func $~lib/rt/pure/__release (param $0 i32)
   local.get $0
-  i32.const 4740
+  i32.const 4604
   i32.gt_u
   if
    local.get $0
@@ -1555,38 +1552,6 @@
    i32.sub
    call $~lib/rt/pure/decrement
   end
- )
- (func $~lib/math/ipow32 (param $0 i32) (result i32)
-  (local $1 i32)
-  (local $2 i32)
-  i32.const 2
-  local.set $1
-  i32.const 1
-  local.set $2
-  loop $while-continue|0
-   local.get $0
-   if
-    local.get $1
-    local.get $2
-    i32.mul
-    local.get $2
-    local.get $0
-    i32.const 1
-    i32.and
-    select
-    local.set $2
-    local.get $0
-    i32.const 1
-    i32.shr_u
-    local.set $0
-    local.get $1
-    local.get $1
-    i32.mul
-    local.set $1
-    br $while-continue|0
-   end
-  end
-  local.get $2
  )
  (func $assembly//index/GeoWebCoordinate.from_gps (param $0 f64) (param $1 f64) (result i64)
   i32.const 1
@@ -2682,56 +2647,22 @@
   i32.const 3584
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
  )
- (func $~lib/rt/__newArray (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
-  (local $3 i32)
-  i32.const 16
-  local.get $2
-  call $~lib/rt/pure/__new
-  local.tee $2
-  local.get $0
-  local.get $1
-  i32.shl
-  local.tee $1
-  i32.const 0
-  call $~lib/rt/pure/__new
-  local.tee $3
-  call $~lib/rt/pure/__retain
-  i32.store
-  local.get $2
-  local.get $3
-  i32.store offset=4
-  local.get $2
-  local.get $1
-  i32.store offset=8
-  local.get $2
-  local.get $0
-  i32.store offset=12
-  local.get $2
- )
  (func $assembly//index/GeoWebCoordinate.to_gps (param $0 i64) (result i32)
   (local $1 i32)
   (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
+  (local $3 f64)
+  (local $4 f64)
   (local $5 f64)
   (local $6 f64)
-  (local $7 f64)
-  (local $8 f64)
   local.get $0
-  i32.const 32
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
-  i64.extend_i32_u
-  i64.and
   i32.wrap_i64
   local.set $1
   local.get $0
   i64.const 32
   i64.shr_u
   i32.wrap_i64
-  local.tee $4
-  global.get $assembly//index/GW_MAX_LON
+  local.tee $2
+  i32.const 16777215
   i32.gt_u
   if
    i32.const 3680
@@ -2742,7 +2673,7 @@
    unreachable
   end
   local.get $1
-  global.get $assembly//index/GW_MAX_LAT
+  i32.const 8388607
   i32.gt_u
   if
    i32.const 3760
@@ -2752,132 +2683,74 @@
    call $~lib/builtins/abort
    unreachable
   end
-  local.get $4
+  local.get $2
   f64.convert_i32_u
   f64.const 2.1457672119140625e-05
   f64.mul
   f64.const 180
   f64.sub
-  local.tee $5
+  local.tee $3
   f64.const 2.1457672119140625e-05
   f64.add
-  local.set $6
+  local.set $4
   local.get $1
   f64.convert_i32_u
   f64.const 2.1457672119140625e-05
   f64.mul
   f64.const 90
   f64.sub
-  local.tee $7
+  local.tee $5
   f64.const 2.1457672119140625e-05
   f64.add
-  local.set $8
-  i32.const 4
-  i32.const 2
-  i32.const 8
-  call $~lib/rt/__newArray
-  call $~lib/rt/pure/__retain
-  local.tee $4
-  i32.load offset=4
-  local.set $1
-  i32.const 2
-  i32.const 3
+  local.set $6
+  i32.const 16
   i32.const 7
-  call $~lib/rt/__newArray
-  call $~lib/rt/pure/__retain
-  local.tee $3
-  i32.load offset=4
+  call $~lib/rt/pure/__new
+  local.tee $1
+  i32.const 64
+  i32.const 0
+  call $~lib/rt/pure/__new
   local.tee $2
-  local.get $5
-  f64.store
-  local.get $2
-  local.get $7
-  f64.store offset=8
-  local.get $1
-  local.get $3
+  call $~lib/rt/pure/__retain
   i32.store
-  i32.const 2
-  i32.const 3
-  i32.const 7
-  call $~lib/rt/__newArray
-  call $~lib/rt/pure/__retain
-  local.tee $3
-  i32.load offset=4
-  local.tee $2
-  local.get $6
-  f64.store
-  local.get $2
-  local.get $7
-  f64.store offset=8
   local.get $1
-  local.get $3
+  local.get $2
   i32.store offset=4
-  i32.const 2
-  i32.const 3
-  i32.const 7
-  call $~lib/rt/__newArray
-  call $~lib/rt/pure/__retain
-  local.tee $3
-  i32.load offset=4
-  local.tee $2
-  local.get $6
-  f64.store
-  local.get $2
-  local.get $8
-  f64.store offset=8
   local.get $1
-  local.get $3
+  i32.const 64
   i32.store offset=8
   local.get $1
-  i32.const 2
-  i32.const 3
-  i32.const 7
-  call $~lib/rt/__newArray
+  i32.const 8
+  i32.store offset=12
+  local.get $1
   call $~lib/rt/pure/__retain
-  local.tee $1
+  local.tee $2
   i32.load offset=4
-  local.tee $3
-  local.get $5
-  f64.store
+  local.tee $1
   local.get $3
-  local.get $8
+  f64.store
+  local.get $1
+  local.get $5
   f64.store offset=8
   local.get $1
-  i32.store offset=12
   local.get $4
- )
- (func $~lib/array/Array<~lib/array/Array<f64>>#__get (param $0 i32) (param $1 i32) (result i32)
+  f64.store offset=16
   local.get $1
-  local.get $0
-  i32.load offset=12
-  i32.ge_u
-  if
-   i32.const 3840
-   i32.const 3904
-   i32.const 104
-   i32.const 42
-   call $~lib/builtins/abort
-   unreachable
-  end
-  local.get $0
-  i32.load offset=4
+  local.get $5
+  f64.store offset=24
   local.get $1
-  i32.const 2
-  i32.shl
-  i32.add
-  i32.load
-  call $~lib/rt/pure/__retain
-  local.tee $0
-  i32.eqz
-  if
-   i32.const 3952
-   i32.const 3904
-   i32.const 108
-   i32.const 40
-   call $~lib/builtins/abort
-   unreachable
-  end
-  local.get $0
+  local.get $4
+  f64.store offset=32
+  local.get $1
+  local.get $6
+  f64.store offset=40
+  local.get $1
+  local.get $3
+  f64.store offset=48
+  local.get $1
+  local.get $6
+  f64.store offset=56
+  local.get $2
  )
  (func $~lib/array/Array<f64>#__get (param $0 i32) (param $1 i32) (result f64)
   local.get $1
@@ -2903,7 +2776,7 @@
  (func $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64> (param $0 f64) (result i32)
   (local $1 i32)
   i32.const 16
-  i32.const 10
+  i32.const 9
   call $~lib/rt/pure/__new
   call $~lib/rt/pure/__retain
   local.tee $1
@@ -2940,7 +2813,7 @@
   i32.const 0
   i32.const 8
   i32.const 8
-  i32.const 4080
+  i32.const 3952
   local.get $0
   call $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedNumber
   local.set $3
@@ -2998,84 +2871,64 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  (local $9 i32)
-  (local $10 i32)
-  (local $11 i32)
-  (local $12 i32)
   i32.const 13514979
   i32.const 5965232
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
   i32.const 0
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $1
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $1
+  f64.const 109.99998807907104
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 1
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $2
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $2
+  f64.const 37.99999237060547
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 2
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $3
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $3
+  f64.const 110.00000953674316
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $4
-  local.get $1
-  i32.const 0
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $4
+  f64.const 37.99999237060547
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
+  local.get $0
+  i32.const 4
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const 109.99998807907104
+  f64.const 110.00000953674316
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $1
-  i32.const 1
+  local.get $0
+  i32.const 5
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const 37.99999237060547
+  f64.const 38.00001382827759
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 0
+  local.get $0
+  i32.const 6
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $7
-  f64.const 110.00000953674316
+  f64.const 109.99998807907104
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 1
+  local.get $0
+  i32.const 7
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const 37.99999237060547
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $9
-  f64.const 110.00000953674316
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $10
-  f64.const 38.00001382827759
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $11
-  f64.const 109.99998807907104
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $12
   f64.const 38.00001382827759
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
@@ -3095,14 +2948,6 @@
   local.get $7
   call $~lib/rt/pure/__release
   local.get $8
-  call $~lib/rt/pure/__release
-  local.get $9
-  call $~lib/rt/pure/__release
-  local.get $10
-  call $~lib/rt/pure/__release
-  local.get $11
-  call $~lib/rt/pure/__release
-  local.get $12
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|1
@@ -3115,84 +2960,64 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  (local $9 i32)
-  (local $10 i32)
-  (local $11 i32)
-  (local $12 i32)
   i32.const 0
   i32.const 0
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
   i32.const 0
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $1
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $1
+  f64.const -180
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 1
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $2
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $2
+  f64.const -90
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 2
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $3
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $3
+  f64.const -179.99997854232788
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $4
-  local.get $1
-  i32.const 0
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $4
+  f64.const -90
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
+  local.get $0
+  i32.const 4
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const -180
+  f64.const -179.99997854232788
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $1
-  i32.const 1
+  local.get $0
+  i32.const 5
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const -90
+  f64.const -89.99997854232788
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 0
+  local.get $0
+  i32.const 6
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $7
-  f64.const -179.99997854232788
+  f64.const -180
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 1
+  local.get $0
+  i32.const 7
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const -90
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $9
-  f64.const -179.99997854232788
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $10
-  f64.const -89.99997854232788
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $11
-  f64.const -180
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $12
   f64.const -89.99997854232788
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
@@ -3212,14 +3037,6 @@
   local.get $7
   call $~lib/rt/pure/__release
   local.get $8
-  call $~lib/rt/pure/__release
-  local.get $9
-  call $~lib/rt/pure/__release
-  local.get $10
-  call $~lib/rt/pure/__release
-  local.get $11
-  call $~lib/rt/pure/__release
-  local.get $12
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|2
@@ -3232,84 +3049,64 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  (local $9 i32)
-  (local $10 i32)
-  (local $11 i32)
-  (local $12 i32)
   i32.const 8388608
   i32.const 4194304
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
   i32.const 0
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $1
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $1
+  f64.const 0
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 1
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $2
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $2
+  f64.const 0
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 2
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $3
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $3
+  f64.const 2.1457672119140625e-05
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $4
-  local.get $1
-  i32.const 0
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $4
+  f64.const 0
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
+  local.get $0
+  i32.const 4
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const 0
+  f64.const 2.1457672119140625e-05
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $1
-  i32.const 1
+  local.get $0
+  i32.const 5
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const 0
+  f64.const 2.1457672119140625e-05
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 0
+  local.get $0
+  i32.const 6
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $7
-  f64.const 2.1457672119140625e-05
+  f64.const 0
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 1
+  local.get $0
+  i32.const 7
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const 0
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $9
-  f64.const 2.1457672119140625e-05
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $10
-  f64.const 2.1457672119140625e-05
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $11
-  f64.const 0
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $12
   f64.const 2.1457672119140625e-05
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
@@ -3329,14 +3126,6 @@
   local.get $7
   call $~lib/rt/pure/__release
   local.get $8
-  call $~lib/rt/pure/__release
-  local.get $9
-  call $~lib/rt/pure/__release
-  local.get $10
-  call $~lib/rt/pure/__release
-  local.get $11
-  call $~lib/rt/pure/__release
-  local.get $12
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|3
@@ -3349,84 +3138,64 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  (local $9 i32)
-  (local $10 i32)
-  (local $11 i32)
-  (local $12 i32)
   i32.const 16777215
   i32.const 4194304
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
   i32.const 0
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $1
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $1
+  f64.const 179.99997854232788
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 1
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $2
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $2
+  f64.const 0
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 2
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $3
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $3
+  f64.const 180
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $4
-  local.get $1
-  i32.const 0
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $4
+  f64.const 0
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
+  local.get $0
+  i32.const 4
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const 179.99997854232788
+  f64.const 180
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $1
-  i32.const 1
+  local.get $0
+  i32.const 5
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const 0
+  f64.const 2.1457672119140625e-05
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 0
+  local.get $0
+  i32.const 6
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $7
-  f64.const 180
+  f64.const 179.99997854232788
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 1
+  local.get $0
+  i32.const 7
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const 0
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $9
-  f64.const 180
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $10
-  f64.const 2.1457672119140625e-05
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $11
-  f64.const 179.99997854232788
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $12
   f64.const 2.1457672119140625e-05
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
@@ -3446,14 +3215,6 @@
   local.get $7
   call $~lib/rt/pure/__release
   local.get $8
-  call $~lib/rt/pure/__release
-  local.get $9
-  call $~lib/rt/pure/__release
-  local.get $10
-  call $~lib/rt/pure/__release
-  local.get $11
-  call $~lib/rt/pure/__release
-  local.get $12
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|4
@@ -3466,84 +3227,64 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  (local $9 i32)
-  (local $10 i32)
-  (local $11 i32)
-  (local $12 i32)
   i32.const 8388608
   i32.const 8388607
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
   i32.const 0
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $1
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $1
+  f64.const 0
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 1
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $2
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $2
+  f64.const 89.99997854232788
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 2
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $3
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $3
+  f64.const 2.1457672119140625e-05
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
-  call $~lib/array/Array<~lib/array/Array<f64>>#__get
-  local.set $4
-  local.get $1
-  i32.const 0
+  call $~lib/array/Array<f64>#__get
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
+  local.tee $4
+  f64.const 89.99997854232788
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
+  local.get $0
+  i32.const 4
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const 0
+  f64.const 2.1457672119140625e-05
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $1
-  i32.const 1
+  local.get $0
+  i32.const 5
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const 89.99997854232788
+  f64.const 90
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 0
+  local.get $0
+  i32.const 6
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $7
-  f64.const 2.1457672119140625e-05
+  f64.const 0
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $2
-  i32.const 1
+  local.get $0
+  i32.const 7
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const 89.99997854232788
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $9
-  f64.const 2.1457672119140625e-05
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $3
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $10
-  f64.const 90
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 0
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $11
-  f64.const 0
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
-  local.get $4
-  i32.const 1
-  call $~lib/array/Array<f64>#__get
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
-  local.tee $12
   f64.const 90
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
@@ -3564,14 +3305,6 @@
   call $~lib/rt/pure/__release
   local.get $8
   call $~lib/rt/pure/__release
-  local.get $9
-  call $~lib/rt/pure/__release
-  local.get $10
-  call $~lib/rt/pure/__release
-  local.get $11
-  call $~lib/rt/pure/__release
-  local.get $12
-  call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|5~anonymous|0
   i32.const 16777216
@@ -3582,7 +3315,7 @@
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|5
   (local $0 i32)
-  i32.const 4368
+  i32.const 4240
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<%28%29=>void>
   local.tee $0
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<%28%29=>void>#toThrow
@@ -3598,7 +3331,7 @@
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|6
   (local $0 i32)
-  i32.const 4528
+  i32.const 4400
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<%28%29=>void>
   local.tee $0
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<%28%29=>void>#toThrow
@@ -3607,25 +3340,25 @@
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1
   i32.const 1296
-  i32.const 4112
+  i32.const 3984
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
   i32.const 1984
-  i32.const 4144
+  i32.const 4016
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
   i32.const 2080
-  i32.const 4176
+  i32.const 4048
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
   i32.const 2208
-  i32.const 4208
+  i32.const 4080
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
   i32.const 2320
-  i32.const 4240
+  i32.const 4112
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
+  i32.const 4144
   i32.const 4272
-  i32.const 4400
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
+  i32.const 4304
   i32.const 4432
-  i32.const 4560
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
  )
  (func $start:node_modules/@as-pect/assembly/assembly/internal/noOp~anonymous|0
@@ -3647,7 +3380,7 @@
   nop
  )
  (func $node_modules/@as-pect/assembly/assembly/internal/RTrace/__getUsizeArrayId (result i32)
-  i32.const 11
+  i32.const 10
  )
  (func $~start
   global.get $~started
@@ -3657,28 +3390,16 @@
    i32.const 1
    global.set $~started
   end
-  i32.const 23
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
-  global.set $assembly//index/GW_MAX_LAT
-  i32.const 24
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
-  global.set $assembly//index/GW_MAX_LON
   i32.const 1248
   i32.const 3616
   call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
   i32.const 3648
-  i32.const 4592
+  i32.const 4464
   call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
  )
  (func $~lib/rt/pure/decrement (param $0 i32)
   (local $1 i32)
   (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
   local.get $0
   i32.load offset=4
   local.tee $2
@@ -3704,79 +3425,45 @@
    block $__inlined_func$~lib/rt/__visit_members
     block $folding-inner0
      block $switch$1$default
-      block $switch$1$case$10
-       block $switch$1$case$8
-        block $switch$1$case$7
-         block $switch$1$case$6
-          block $switch$1$case$4
-           local.get $0
-           i32.const 12
-           i32.add
-           i32.load
-           br_table $__inlined_func$~lib/rt/__visit_members $__inlined_func$~lib/rt/__visit_members $switch$1$case$4 $__inlined_func$~lib/rt/__visit_members $switch$1$case$6 $switch$1$case$7 $switch$1$case$8 $folding-inner0 $switch$1$case$10 $folding-inner0 $__inlined_func$~lib/rt/__visit_members $folding-inner0 $switch$1$default
-          end
+      block $switch$1$case$8
+       block $switch$1$case$7
+        block $switch$1$case$6
+         block $switch$1$case$4
           local.get $0
-          i32.load offset=20
-          local.tee $1
-          if
-           local.get $1
-           call $~lib/rt/pure/__visit
-          end
-          br $__inlined_func$~lib/rt/__visit_members
+          i32.const 12
+          i32.add
+          i32.load
+          br_table $__inlined_func$~lib/rt/__visit_members $__inlined_func$~lib/rt/__visit_members $switch$1$case$4 $__inlined_func$~lib/rt/__visit_members $switch$1$case$6 $switch$1$case$7 $switch$1$case$8 $folding-inner0 $folding-inner0 $__inlined_func$~lib/rt/__visit_members $folding-inner0 $switch$1$default
          end
          local.get $0
          i32.load offset=20
-         call $~lib/rt/pure/__visit
-         local.get $0
-         i32.load offset=28
-         call $~lib/rt/pure/__visit
+         local.tee $1
+         if
+          local.get $1
+          call $~lib/rt/pure/__visit
+         end
          br $__inlined_func$~lib/rt/__visit_members
         end
         local.get $0
-        i32.load offset=24
+        i32.load offset=20
+        call $~lib/rt/pure/__visit
+        local.get $0
+        i32.load offset=28
         call $~lib/rt/pure/__visit
         br $__inlined_func$~lib/rt/__visit_members
        end
        local.get $0
        i32.load offset=24
-       local.tee $1
-       if
-        local.get $1
-        call $~lib/rt/pure/__visit
-       end
+       call $~lib/rt/pure/__visit
        br $__inlined_func$~lib/rt/__visit_members
       end
       local.get $0
       i32.load offset=24
       local.tee $1
-      local.get $0
-      i32.load offset=32
-      i32.const 2
-      i32.shl
-      i32.add
-      local.set $3
-      loop $while-continue|0
+      if
        local.get $1
-       local.get $3
-       i32.lt_u
-       if
-        local.get $1
-        i32.load
-        local.tee $4
-        if
-         local.get $4
-         call $~lib/rt/pure/__visit
-        end
-        local.get $1
-        i32.const 4
-        i32.add
-        local.set $1
-        br $while-continue|0
-       end
+       call $~lib/rt/pure/__visit
       end
-      local.get $0
-      i32.load offset=20
-      call $~lib/rt/pure/__visit
       br $__inlined_func$~lib/rt/__visit_members
      end
      unreachable
@@ -3824,7 +3511,7 @@
  )
  (func $~lib/rt/pure/__visit (param $0 i32)
   local.get $0
-  i32.const 4740
+  i32.const 4604
   i32.lt_u
   if
    return

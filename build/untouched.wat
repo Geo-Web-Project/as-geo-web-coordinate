@@ -4,8 +4,8 @@
  (type $i32_i32_=>_i32 (func (param i32 i32) (result i32)))
  (type $i32_=>_none (func (param i32)))
  (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
- (type $none_=>_none (func))
  (type $i32_i32_i32_=>_none (func (param i32 i32 i32)))
+ (type $none_=>_none (func))
  (type $i32_i32_i32_i32_=>_none (func (param i32 i32 i32 i32)))
  (type $i32_i32_i32_i32_=>_i32 (func (param i32 i32 i32 i32) (result i32)))
  (type $i64_=>_i32 (func (param i64) (result i32)))
@@ -21,16 +21,16 @@
  (data (i32.const 364) "N\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00N\00\00\00L\00o\00n\00g\00i\00t\00u\00d\00e\00 \00m\00u\00s\00t\00 \00b\00e\00 \00b\00e\00t\00w\00e\00e\00n\00 \00-\001\008\000\00 \00a\00n\00d\00 \00<\001\008\000\00")
  (data (i32.const 476) "4\00\00\00\01\00\00\00\00\00\00\00\01\00\00\004\00\00\00L\00o\00n\00g\00i\00t\00u\00d\00e\00 \00i\00s\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s\00")
  (data (i32.const 556) "2\00\00\00\01\00\00\00\00\00\00\00\01\00\00\002\00\00\00L\00a\00t\00i\00t\00u\00d\00e\00 \00i\00s\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s\00")
- (data (i32.const 640) "\07\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\t\00\00\00\00\00\00")
+ (data (i32.const 640) "\06\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00")
  (table $0 1 funcref)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
  (global $~lib/ASC_LOW_MEMORY_LIMIT i32 (i32.const 0))
  (global $~lib/ASC_SHRINK_LEVEL i32 (i32.const 0))
- (global $assembly/index/GW_MAX_LAT (mut i32) (i32.const 0))
- (global $assembly/index/GW_MAX_LON (mut i32) (i32.const 0))
- (global $assembly/index/GW_INCRE (mut f64) (f64.const 2.1457672119140625e-05))
+ (global $assembly/index/GW_MAX_LAT i32 (i32.const 8388607))
+ (global $assembly/index/GW_MAX_LON i32 (i32.const 16777215))
+ (global $assembly/index/GW_INCRE f64 (f64.const 2.1457672119140625e-05))
  (global $~lib/rt/__rtti_base i32 (i32.const 640))
- (global $~lib/memory/__heap_base i32 (i32.const 700))
+ (global $~lib/memory/__heap_base i32 (i32.const 692))
  (global $assembly/index/GeoWebCoordinate i32 (i32.const 3))
  (export "memory" (memory $0))
  (export "__new" (func $~lib/rt/pure/__new))
@@ -43,7 +43,6 @@
  (export "GeoWebCoordinate.from_gps" (func $assembly/index/GeoWebCoordinate.from_gps))
  (export "GeoWebCoordinate.to_gps" (func $assembly/index/GeoWebCoordinate.to_gps))
  (export "GeoWebCoordinate.make_gw_coord" (func $assembly/index/GeoWebCoordinate.make_gw_coord))
- (start $~start)
  (func $~lib/rt/tlsf/removeBlock (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -3003,225 +3002,6 @@
    call $~lib/rt/pure/decrement
   end
  )
- (func $~lib/math/ipow32 (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  i32.const 1
-  local.set $2
-  i32.const 0
-  i32.const 1
-  i32.lt_s
-  drop
-  local.get $1
-  i32.const 0
-  i32.le_s
-  if
-   local.get $0
-   i32.const -1
-   i32.eq
-   if
-    i32.const -1
-    i32.const 1
-    local.get $1
-    i32.const 1
-    i32.and
-    select
-    return
-   end
-   local.get $1
-   i32.const 0
-   i32.eq
-   local.get $0
-   i32.const 1
-   i32.eq
-   i32.or
-   return
-  else
-   local.get $1
-   i32.const 1
-   i32.eq
-   if
-    local.get $0
-    return
-   else
-    local.get $1
-    i32.const 2
-    i32.eq
-    if
-     local.get $0
-     local.get $0
-     i32.mul
-     return
-    else
-     local.get $1
-     i32.const 32
-     i32.lt_s
-     if
-      i32.const 32
-      local.get $1
-      i32.clz
-      i32.sub
-      local.set $3
-      block $break|0
-       block $case4|0
-        block $case3|0
-         block $case2|0
-          block $case1|0
-           block $case0|0
-            local.get $3
-            local.set $4
-            local.get $4
-            i32.const 5
-            i32.eq
-            br_if $case0|0
-            local.get $4
-            i32.const 4
-            i32.eq
-            br_if $case1|0
-            local.get $4
-            i32.const 3
-            i32.eq
-            br_if $case2|0
-            local.get $4
-            i32.const 2
-            i32.eq
-            br_if $case3|0
-            local.get $4
-            i32.const 1
-            i32.eq
-            br_if $case4|0
-            br $break|0
-           end
-           local.get $1
-           i32.const 1
-           i32.and
-           if
-            local.get $2
-            local.get $0
-            i32.mul
-            local.set $2
-           end
-           local.get $1
-           i32.const 1
-           i32.shr_u
-           local.set $1
-           local.get $0
-           local.get $0
-           i32.mul
-           local.set $0
-          end
-          local.get $1
-          i32.const 1
-          i32.and
-          if
-           local.get $2
-           local.get $0
-           i32.mul
-           local.set $2
-          end
-          local.get $1
-          i32.const 1
-          i32.shr_u
-          local.set $1
-          local.get $0
-          local.get $0
-          i32.mul
-          local.set $0
-         end
-         local.get $1
-         i32.const 1
-         i32.and
-         if
-          local.get $2
-          local.get $0
-          i32.mul
-          local.set $2
-         end
-         local.get $1
-         i32.const 1
-         i32.shr_u
-         local.set $1
-         local.get $0
-         local.get $0
-         i32.mul
-         local.set $0
-        end
-        local.get $1
-        i32.const 1
-        i32.and
-        if
-         local.get $2
-         local.get $0
-         i32.mul
-         local.set $2
-        end
-        local.get $1
-        i32.const 1
-        i32.shr_u
-        local.set $1
-        local.get $0
-        local.get $0
-        i32.mul
-        local.set $0
-       end
-       local.get $1
-       i32.const 1
-       i32.and
-       if
-        local.get $2
-        local.get $0
-        i32.mul
-        local.set $2
-       end
-      end
-      local.get $2
-      return
-     end
-    end
-   end
-  end
-  loop $while-continue|1
-   local.get $1
-   local.set $3
-   local.get $3
-   if
-    local.get $1
-    i32.const 1
-    i32.and
-    if
-     local.get $2
-     local.get $0
-     i32.mul
-     local.set $2
-    end
-    local.get $1
-    i32.const 1
-    i32.shr_u
-    local.set $1
-    local.get $0
-    local.get $0
-    i32.mul
-    local.set $0
-    br $while-continue|1
-   end
-  end
-  local.get $2
- )
- (func $start:assembly/index
-  i32.const 2
-  i32.const 23
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
-  global.set $assembly/index/GW_MAX_LAT
-  i32.const 2
-  i32.const 24
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
-  global.set $assembly/index/GW_MAX_LON
- )
  (func $assembly/index/GeoWebCoordinate.from_gps (param $0 f64) (param $1 f64) (result i64)
   (local $2 f64)
   (local $3 f64)
@@ -3349,21 +3129,12 @@
   (local $10 f64)
   (local $11 i32)
   (local $12 i32)
-  (local $13 i32)
-  (local $14 i32)
   local.get $0
   i64.const 32
   i64.shr_u
   i32.wrap_i64
   local.set $1
   local.get $0
-  i32.const 2
-  i32.const 32
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
-  i64.extend_i32_u
-  i64.and
   i32.wrap_i64
   local.set $2
   local.get $1
@@ -3418,9 +3189,9 @@
   local.set $9
   local.get $6
   local.set $10
+  i32.const 8
+  i32.const 3
   i32.const 4
-  i32.const 2
-  i32.const 5
   i32.const 0
   call $~lib/rt/__newArray
   call $~lib/rt/pure/__retain
@@ -3429,81 +3200,29 @@
   i32.load offset=4
   local.set $12
   local.get $12
-  i32.const 2
-  i32.const 3
-  i32.const 4
-  i32.const 0
-  call $~lib/rt/__newArray
-  call $~lib/rt/pure/__retain
-  local.set $13
-  local.get $13
-  i32.load offset=4
-  local.set $14
-  local.get $14
   local.get $3
   f64.store
-  local.get $14
+  local.get $12
   local.get $4
   f64.store offset=8
-  local.get $13
-  i32.store
   local.get $12
-  i32.const 2
-  i32.const 3
-  i32.const 4
-  i32.const 0
-  call $~lib/rt/__newArray
-  call $~lib/rt/pure/__retain
-  local.set $14
-  local.get $14
-  i32.load offset=4
-  local.set $13
-  local.get $13
   local.get $7
-  f64.store
-  local.get $13
+  f64.store offset=16
+  local.get $12
   local.get $8
-  f64.store offset=8
-  local.get $14
-  i32.store offset=4
+  f64.store offset=24
   local.get $12
-  i32.const 2
-  i32.const 3
-  i32.const 4
-  i32.const 0
-  call $~lib/rt/__newArray
-  call $~lib/rt/pure/__retain
-  local.set $13
-  local.get $13
-  i32.load offset=4
-  local.set $14
-  local.get $14
   local.get $5
-  f64.store
-  local.get $14
-  local.get $6
-  f64.store offset=8
-  local.get $13
-  i32.store offset=8
+  f64.store offset=32
   local.get $12
-  i32.const 2
-  i32.const 3
-  i32.const 4
-  i32.const 0
-  call $~lib/rt/__newArray
-  call $~lib/rt/pure/__retain
-  local.set $14
-  local.get $14
-  i32.load offset=4
-  local.set $13
-  local.get $13
+  local.get $6
+  f64.store offset=40
+  local.get $12
   local.get $9
-  f64.store
-  local.get $13
+  f64.store offset=48
+  local.get $12
   local.get $10
-  f64.store offset=8
-  local.get $14
-  i32.store offset=12
+  f64.store offset=56
   local.get $11
  )
  (func $assembly/index/GeoWebCoordinate.make_gw_coord (param $0 i32) (param $1 i32) (result i64)
@@ -3526,9 +3245,6 @@
    local.set $0
   end
   local.get $0
- )
- (func $~start
-  call $start:assembly/index
  )
  (func $~lib/rt/pure/finalize (param $0 i32)
   i32.const 0
@@ -3659,51 +3375,6 @@
   local.get $1
   call $~lib/rt/pure/__visit
  )
- (func $~lib/array/Array<~lib/array/Array<f64>>#__visit_impl (param $0 i32) (param $1 i32)
-  (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  (local $5 i32)
-  i32.const 1
-  drop
-  local.get $0
-  i32.load offset=4
-  local.set $2
-  local.get $2
-  local.get $0
-  i32.load offset=12
-  i32.const 2
-  i32.shl
-  i32.add
-  local.set $3
-  loop $while-continue|0
-   local.get $2
-   local.get $3
-   i32.lt_u
-   local.set $4
-   local.get $4
-   if
-    local.get $2
-    i32.load
-    local.set $5
-    local.get $5
-    if
-     local.get $5
-     local.get $1
-     call $~lib/rt/pure/__visit
-    end
-    local.get $2
-    i32.const 4
-    i32.add
-    local.set $2
-    br $while-continue|0
-   end
-  end
-  local.get $0
-  i32.load
-  local.get $1
-  call $~lib/rt/pure/__visit
- )
  (func $~lib/array/Array<i32>#__visit_impl (param $0 i32) (param $1 i32)
   i32.const 0
   drop
@@ -3715,37 +3386,31 @@
  (func $~lib/rt/__visit_members (param $0 i32) (param $1 i32)
   (local $2 i32)
   block $switch$1$default
-   block $switch$1$case$8
-    block $switch$1$case$7
-     block $switch$1$case$6
-      block $switch$1$case$4
-       block $switch$1$case$2
-        local.get $0
-        i32.const 8
-        i32.sub
-        i32.load
-        br_table $switch$1$case$2 $switch$1$case$2 $switch$1$case$4 $switch$1$case$2 $switch$1$case$6 $switch$1$case$7 $switch$1$case$8 $switch$1$default
-       end
-       return
-      end
-      local.get $0
-      i32.load
-      local.tee $2
-      if
-       local.get $2
-       local.get $1
-       call $~lib/rt/pure/__visit
+   block $switch$1$case$7
+    block $switch$1$case$6
+     block $switch$1$case$4
+      block $switch$1$case$2
+       local.get $0
+       i32.const 8
+       i32.sub
+       i32.load
+       br_table $switch$1$case$2 $switch$1$case$2 $switch$1$case$4 $switch$1$case$2 $switch$1$case$6 $switch$1$case$7 $switch$1$default
       end
       return
      end
      local.get $0
-     local.get $1
-     call $~lib/array/Array<f64>#__visit_impl
+     i32.load
+     local.tee $2
+     if
+      local.get $2
+      local.get $1
+      call $~lib/rt/pure/__visit
+     end
      return
     end
     local.get $0
     local.get $1
-    call $~lib/array/Array<~lib/array/Array<f64>>#__visit_impl
+    call $~lib/array/Array<f64>#__visit_impl
     return
    end
    local.get $0
