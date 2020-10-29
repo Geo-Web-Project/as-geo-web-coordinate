@@ -20,8 +20,13 @@ export class GeoWebCoordinate {
     return (u64(lonGW) << 32) | latGW;
   }
 
-  static to_gps_hex(gwCoord: string): f64[][] {
-    return this.to_gps(<u64>Number.parseInt(gwCoord, 16))
+  static to_gps_hex(gwCoord: string): string[][] {
+    let result = this.to_gps(<u64>Number.parseInt(gwCoord, 16))
+    return result.map<string[]>((v1: f64[]) => {
+      return v1.map<string>((v2: f64) => {
+        return v2.toString()
+      })
+    })
   }
 
   static to_gps(gwCoord: u64): f64[][] {
