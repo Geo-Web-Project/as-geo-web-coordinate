@@ -72,6 +72,44 @@ describe('to_gps', () => {
     expect(tl[1]).toBe(38.00001382827759);
   })
 
+  test('should convert basic hex', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(13514979, 5965232);
+
+    let gpsCoords = GeoWebCoordinate.to_gps_hex(gwCoord.toString(16));
+  
+    let bl = gpsCoords[0];
+    let br = gpsCoords[1];
+    let tr = gpsCoords[2];
+    let tl = gpsCoords[3];
+  
+    expect(bl[0]).toBe(109.99998807907104);
+    expect(bl[1]).toBe(37.99999237060547);
+    expect(br[0]).toBe(110.00000953674316);
+    expect(br[1]).toBe(37.99999237060547);
+    expect(tr[0]).toBe(110.00000953674316);
+    expect(tr[1]).toBe(38.00001382827759);
+    expect(tl[0]).toBe(109.99998807907104);
+    expect(tl[1]).toBe(38.00001382827759);
+  })
+
+  test('should convert basic hex with 0x', () => {
+    let gpsCoords = GeoWebCoordinate.to_gps_hex("0xce38e3005b05b0");
+  
+    let bl = gpsCoords[0];
+    let br = gpsCoords[1];
+    let tr = gpsCoords[2];
+    let tl = gpsCoords[3];
+  
+    expect(bl[0]).toBe(109.99998807907104);
+    expect(bl[1]).toBe(37.99999237060547);
+    expect(br[0]).toBe(110.00000953674316);
+    expect(br[1]).toBe(37.99999237060547);
+    expect(tr[0]).toBe(110.00000953674316);
+    expect(tr[1]).toBe(38.00001382827759);
+    expect(tl[0]).toBe(109.99998807907104);
+    expect(tl[1]).toBe(38.00001382827759);
+  })
+
   test('should convert origin', () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
 
