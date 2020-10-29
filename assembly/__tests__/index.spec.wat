@@ -2712,50 +2712,17 @@
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
-  (local $4 i64)
-  (local $5 i64)
-  (local $6 i64)
-  (local $7 i32)
+  (local $4 i32)
+  (local $5 f64)
+  (local $6 f64)
+  (local $7 f64)
   (local $8 f64)
-  (local $9 f64)
-  (local $10 f64)
-  (local $11 f64)
-  i64.const 2
-  local.set $4
-  i64.const 32
-  local.set $5
-  i64.const 1
-  local.set $6
-  loop $while-continue|0
-   local.get $5
-   i64.const 0
-   i64.ne
-   if
-    local.get $4
-    local.get $6
-    i64.mul
-    local.get $6
-    local.get $5
-    i64.const 1
-    i64.and
-    i32.wrap_i64
-    select
-    local.set $6
-    local.get $5
-    i64.const 1
-    i64.shr_u
-    local.set $5
-    local.get $4
-    local.get $4
-    i64.mul
-    local.set $4
-    br $while-continue|0
-   end
-  end
   local.get $0
-  local.get $6
-  i64.const 1
-  i64.sub
+  i32.const 32
+  call $~lib/math/ipow32
+  i32.const 1
+  i32.sub
+  i64.extend_i32_u
   i64.and
   i32.wrap_i64
   local.set $1
@@ -2763,7 +2730,7 @@
   i64.const 32
   i64.shr_u
   i32.wrap_i64
-  local.tee $7
+  local.tee $4
   global.get $assembly//index/GW_MAX_LON
   i32.gt_u
   if
@@ -2785,32 +2752,32 @@
    call $~lib/builtins/abort
    unreachable
   end
-  local.get $7
+  local.get $4
   f64.convert_i32_u
   f64.const 2.1457672119140625e-05
   f64.mul
   f64.const 180
   f64.sub
-  local.tee $8
+  local.tee $5
   f64.const 2.1457672119140625e-05
   f64.add
-  local.set $9
+  local.set $6
   local.get $1
   f64.convert_i32_u
   f64.const 2.1457672119140625e-05
   f64.mul
   f64.const 90
   f64.sub
-  local.tee $10
+  local.tee $7
   f64.const 2.1457672119140625e-05
   f64.add
-  local.set $11
+  local.set $8
   i32.const 4
   i32.const 2
   i32.const 8
   call $~lib/rt/__newArray
   call $~lib/rt/pure/__retain
-  local.tee $7
+  local.tee $4
   i32.load offset=4
   local.set $1
   i32.const 2
@@ -2821,10 +2788,10 @@
   local.tee $3
   i32.load offset=4
   local.tee $2
-  local.get $8
+  local.get $5
   f64.store
   local.get $2
-  local.get $10
+  local.get $7
   f64.store offset=8
   local.get $1
   local.get $3
@@ -2837,10 +2804,10 @@
   local.tee $3
   i32.load offset=4
   local.tee $2
-  local.get $9
+  local.get $6
   f64.store
   local.get $2
-  local.get $10
+  local.get $7
   f64.store offset=8
   local.get $1
   local.get $3
@@ -2853,10 +2820,10 @@
   local.tee $3
   i32.load offset=4
   local.tee $2
-  local.get $9
+  local.get $6
   f64.store
   local.get $2
-  local.get $11
+  local.get $8
   f64.store offset=8
   local.get $1
   local.get $3
@@ -2870,14 +2837,14 @@
   local.tee $1
   i32.load offset=4
   local.tee $3
-  local.get $8
+  local.get $5
   f64.store
   local.get $3
-  local.get $11
+  local.get $8
   f64.store offset=8
   local.get $1
   i32.store offset=12
-  local.get $7
+  local.get $4
  )
  (func $~lib/array/Array<~lib/array/Array<f64>>#__get (param $0 i32) (param $1 i32) (result i32)
   local.get $1

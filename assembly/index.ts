@@ -1,6 +1,6 @@
-const GW_MAX_LAT: u32 = u32((2 ** 23)-1);
-const GW_MAX_LON: u32 = u32((2 ** 24)-1);
-const GW_INCRE: f64 = 0.000021457672119140625;
+let GW_MAX_LAT: u32 = u32((2 ** 23)-1);
+let GW_MAX_LON: u32 = u32((2 ** 24)-1);
+let GW_INCRE: f64 = 0.000021457672119140625;
 
 export class GeoWebCoordinate {
   static from_gps(lon: f64, lat: f64): u64 {
@@ -24,7 +24,7 @@ export class GeoWebCoordinate {
   // This may result in small rounding errors that makes converting to and from coordinates not deterministic
   static to_gps(gwCoord: u64): f64[][] {
     let lonGW: u32 = u32(gwCoord >> 32);
-    let latGW: u32 = u32(gwCoord & ((2 ** 32) - 1));
+    let latGW: u32 = u32(gwCoord & u32((2 ** 32) - 1));
 
     if (lonGW > GW_MAX_LON) {
       throw new Error("Longitude is out of bounds");
