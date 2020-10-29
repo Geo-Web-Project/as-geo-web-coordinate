@@ -1,5 +1,5 @@
-const GW_MAX_LAT: u32 = ((2 ** 23)-1);
-const GW_MAX_LON: u32 = ((2 ** 24)-1);
+const GW_MAX_LAT: u32 = u32((2 ** 23)-1);
+const GW_MAX_LON: u32 = u32((2 ** 24)-1);
 const GW_INCRE: f64 = 0.000021457672119140625;
 
 export class GeoWebCoordinate {
