@@ -1,4 +1,4 @@
-import { GeoWebCoordinate } from '../';
+import { GeoWebCoordinate, Direction } from '../';
 
 describe('from_gps', () => {
   test('should convert basic', () => {
@@ -196,5 +196,63 @@ describe('to_gps', () => {
 
   test('should not convert lat out of bounds', () => {
     expect(() => { GeoWebCoordinate.to_gps(GeoWebCoordinate.make_gw_coord(16777215, 8388608)) }).toThrow();
+  })
+})
+
+describe('traverse', () => {
+  test('should traverse north', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
+
+    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.North);
+  
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 1));
+  })
+
+  test('should traverse south', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(0, 1);
+
+    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.South);
+  
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 0));
+  })
+
+  test('should traverse east', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
+
+    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.East);
+  
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(1, 0));
+  })
+
+  test('should traverse west', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(1, 0);
+
+    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.West);
+  
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 0));
+  })
+
+  test('should not traverse too far north', () => {
+    expect(() => { GeoWebCoordinate.traverse(GeoWebCoordinate.make_gw_coord(0, u32((2 ** 23)-1)), Direction.North) }).toThrow();
+  })
+
+  test('should not traverse too far south', () => {
+    expect(() => { GeoWebCoordinate.traverse(GeoWebCoordinate.make_gw_coord(0, 0), Direction.South) }).toThrow();
+  })
+
+  test('should traverse meridian east -> west', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(u32((2 ** 24)-1), 0);
+
+    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.East);
+  
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 0));
+  })
+
+  test('should traverse meridian west -> east', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
+
+    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.West);
+  
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(u32((2 ** 24)-1), 0));
   })
 })
