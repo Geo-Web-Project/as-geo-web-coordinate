@@ -2,6 +2,13 @@ const GW_MAX_LAT: u32 = (1 << 23) - 1;
 const GW_MAX_LON: u32 = (1 << 24) - 1;
 const GW_INCRE = 0.000021457672119140625;
 
+export enum Direction {
+  North = 0,
+  South,
+  East,
+  West
+}
+
 export class GeoWebCoordinate {
   static from_gps(lon: f64, lat: f64): u64 {
     if (lat < -90 || lat >= 90) {
@@ -54,6 +61,47 @@ export class GeoWebCoordinate {
       tr_lon, tr_lat,
       tl_lon, tl_lat,
     ];
+  }
+
+  static traverse(gwCoord: u64, direction: Direction): u64 {
+    let originX: u32 = u32(gwCoord >> 32);
+    let originY: u32 = u32(gwCoord & u32((2 ** 32) - 1));
+
+    switch (direction) {
+      case Direction.North:
+        originY += 1;
+        if (originY > GW_MAX_LAT) {
+          throw new Error("Direction went too far north");
+        }
+        break;
+      case Direction.South:
+        if (originY <= 0) {
+          throw new Error("Direction went too far south");
+        }
+        originY -= 1;
+        break;
+      case Direction.East:
+        if(originX >= GW_MAX_LON) {
+          // Wrap to west
+          originX = 0;
+        } else {
+          originX += 1;
+        }
+        break;
+      case Direction.West:
+        if(originX == 0) {
+          // Wrap to east
+          originX = GW_MAX_LON;
+        } else {
+          originX -= 1;
+        }
+        break;
+      default:
+        throw new Error("Unknown direction");
+        break;
+    }
+
+    return this.make_gw_coord(originX, originY);
   }
 
   static make_gw_coord(x: u32, y: u32): u64 {

@@ -12,6 +12,7 @@
  (type $i64_i32_i64_i32_i64_i32_=>_i32 (func (param i64 i32 i64 i32 i64 i32) (result i32)))
  (type $f64_=>_i32 (func (param f64) (result i32)))
  (type $i32_i32_=>_i64 (func (param i32 i32) (result i64)))
+ (type $i64_i32_=>_i64 (func (param i64 i32) (result i64)))
  (type $f64_f64_=>_i64 (func (param f64 f64) (result i64)))
  (type $i32_=>_f64 (func (param i32) (result f64)))
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
@@ -32,17 +33,24 @@
  (data (i32.const 2560) "<\fbW\fbr\fb\8c\fb\a7\fb\c1\fb\dc\fb\f6\fb\11\fc,\fcF\fca\fc{\fc\96\fc\b1\fc\cb\fc\e6\fc\00\fd\1b\fd5\fdP\fdk\fd\85\fd\a0\fd\ba\fd\d5\fd\ef\fd\n\fe%\fe?\feZ\fet\fe\8f\fe\a9\fe\c4\fe\df\fe\f9\fe\14\ff.\ffI\ffc\ff~\ff\99\ff\b3\ff\ce\ff\e8\ff\03\00\1e\008\00S\00m\00\88\00\a2\00\bd\00\d8\00\f2\00\0d\01\'\01B\01\\\01w\01\92\01\ac\01\c7\01\e1\01\fc\01\16\021\02L\02f\02\81\02\9b\02\b6\02\d0\02\eb\02\06\03 \03;\03U\03p\03\8b\03\a5\03\c0\03\da\03\f5\03\0f\04*\04")
  (data (i32.const 2736) "\01\00\00\00\n\00\00\00d\00\00\00\e8\03\00\00\10\'\00\00\a0\86\01\00@B\0f\00\80\96\98\00\00\e1\f5\05\00\ca\9a;")
  (data (i32.const 2780) "\08\00\00\00\01\00\00\00\00\00\00\00\07\00\00\00\08\00\00\00\01")
- (data (i32.const 2816) "\08\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 ")
+ (data (i32.const 2812) "8\00\00\00\01\00\00\00\00\00\00\00\01\00\00\008\00\00\00D\00i\00r\00e\00c\00t\00i\00o\00n\00 \00w\00e\00n\00t\00 \00t\00o\00o\00 \00f\00a\00r\00 \00n\00o\00r\00t\00h")
+ (data (i32.const 2892) "8\00\00\00\01\00\00\00\00\00\00\00\01\00\00\008\00\00\00D\00i\00r\00e\00c\00t\00i\00o\00n\00 \00w\00e\00n\00t\00 \00t\00o\00o\00 \00f\00a\00r\00 \00s\00o\00u\00t\00h")
+ (data (i32.const 2972) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\00U\00n\00k\00n\00o\00w\00n\00 \00d\00i\00r\00e\00c\00t\00i\00o\00n")
+ (data (i32.const 3040) "\08\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 ")
  (table $0 2 funcref)
  (elem (i32.const 1) $assembly/index/GeoWebCoordinate.to_gps_hex~anonymous|0)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
+ (global $assembly/index/Direction.North i32 (i32.const 0))
+ (global $assembly/index/Direction.South i32 (i32.const 1))
+ (global $assembly/index/Direction.East i32 (i32.const 2))
+ (global $assembly/index/Direction.West i32 (i32.const 3))
  (global $~lib/util/number/_frc_plus (mut i64) (i64.const 0))
  (global $~lib/util/number/_frc_minus (mut i64) (i64.const 0))
  (global $~lib/util/number/_exp (mut i32) (i32.const 0))
  (global $~lib/util/number/_K (mut i32) (i32.const 0))
  (global $~lib/util/number/_frc_pow (mut i64) (i64.const 0))
  (global $~lib/util/number/_exp_pow (mut i32) (i32.const 0))
- (global $~lib/rt/__rtti_base i32 (i32.const 2816))
+ (global $~lib/rt/__rtti_base i32 (i32.const 3040))
  (global $assembly/index/GeoWebCoordinate i32 (i32.const 3))
  (export "memory" (memory $0))
  (export "__new" (func $~lib/rt/pure/__new))
@@ -50,11 +58,16 @@
  (export "__retain" (func $~lib/rt/pure/__retain))
  (export "__release" (func $~lib/rt/pure/__release))
  (export "__rtti_base" (global $~lib/rt/__rtti_base))
+ (export "Direction.North" (global $assembly/index/Direction.North))
+ (export "Direction.South" (global $assembly/index/Direction.South))
+ (export "Direction.East" (global $assembly/index/Direction.East))
+ (export "Direction.West" (global $assembly/index/Direction.West))
  (export "GeoWebCoordinate" (global $assembly/index/GeoWebCoordinate))
  (export "GeoWebCoordinate#constructor" (func $assembly/index/GeoWebCoordinate#constructor))
  (export "GeoWebCoordinate.from_gps" (func $assembly/index/GeoWebCoordinate.from_gps))
  (export "GeoWebCoordinate.to_gps_hex" (func $assembly/index/GeoWebCoordinate.to_gps_hex))
  (export "GeoWebCoordinate.to_gps" (func $assembly/index/GeoWebCoordinate.to_gps))
+ (export "GeoWebCoordinate.traverse" (func $assembly/index/GeoWebCoordinate.traverse))
  (export "GeoWebCoordinate.make_gw_coord" (func $assembly/index/GeoWebCoordinate.make_gw_coord))
  (func $~lib/rt/tlsf/removeBlock (param $0 i32) (param $1 i32)
   (local $2 i32)
@@ -623,10 +636,10 @@
   if
    unreachable
   end
-  i32.const 2896
+  i32.const 3120
   i32.const 0
   i32.store
-  i32.const 4464
+  i32.const 4688
   i32.const 0
   i32.store
   loop $for-loop|0
@@ -637,7 +650,7 @@
     local.get $1
     i32.const 2
     i32.shl
-    i32.const 2896
+    i32.const 3120
     i32.add
     i32.const 0
     i32.store offset=4
@@ -655,7 +668,7 @@
       i32.add
       i32.const 2
       i32.shl
-      i32.const 2896
+      i32.const 3120
       i32.add
       i32.const 0
       i32.store offset=96
@@ -673,13 +686,13 @@
     br $for-loop|0
    end
   end
-  i32.const 2896
-  i32.const 4468
+  i32.const 3120
+  i32.const 4692
   memory.size
   i32.const 16
   i32.shl
   call $~lib/rt/tlsf/addMemory
-  i32.const 2896
+  i32.const 3120
   global.set $~lib/rt/tlsf/ROOT
  )
  (func $~lib/rt/tlsf/prepareSize (param $0 i32) (result i32)
@@ -1301,7 +1314,7 @@
   i32.and
   call $~lib/memory/memory.copy
   local.get $1
-  i32.const 2884
+  i32.const 3108
   i32.ge_u
   if
    local.get $0
@@ -1343,7 +1356,7 @@
   i32.add
   local.set $2
   local.get $0
-  i32.const 2884
+  i32.const 3108
   i32.lt_u
   if
    global.get $~lib/rt/tlsf/ROOT
@@ -1438,7 +1451,7 @@
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  i32.const 2884
+  i32.const 3108
   i32.gt_u
   if
    local.get $0
@@ -1485,7 +1498,7 @@
  )
  (func $~lib/rt/pure/__release (param $0 i32)
   local.get $0
-  i32.const 2884
+  i32.const 3108
   i32.gt_u
   if
    local.get $0
@@ -1506,7 +1519,7 @@
   if
    i32.const 1248
    i32.const 1344
-   i32.const 8
+   i32.const 15
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -1522,7 +1535,7 @@
   if
    i32.const 1408
    i32.const 1344
-   i32.const 11
+   i32.const 18
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -1825,7 +1838,7 @@
   if
    i32.const 1520
    i32.const 1344
-   i32.const 32
+   i32.const 39
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -1836,7 +1849,7 @@
   if
    i32.const 1600
    i32.const 1344
-   i32.const 36
+   i32.const 43
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -3009,6 +3022,126 @@
   i64.shl
   i64.or
  )
+ (func $assembly/index/GeoWebCoordinate.traverse (param $0 i64) (param $1 i32) (result i64)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  local.get $0
+  i64.const 32
+  i64.shr_u
+  i32.wrap_i64
+  local.set $3
+  i32.const 2
+  local.set $2
+  i32.const 32
+  local.set $4
+  i32.const 1
+  local.set $5
+  loop $while-continue|0
+   local.get $4
+   if
+    local.get $2
+    local.get $5
+    i32.mul
+    local.get $5
+    local.get $4
+    i32.const 1
+    i32.and
+    select
+    local.set $5
+    local.get $4
+    i32.const 1
+    i32.shr_u
+    local.set $4
+    local.get $2
+    local.get $2
+    i32.mul
+    local.set $2
+    br $while-continue|0
+   end
+  end
+  local.get $0
+  local.get $5
+  i32.const 1
+  i32.sub
+  i64.extend_i32_u
+  i64.and
+  i32.wrap_i64
+  local.set $2
+  block $break|0
+   block $case4|0
+    block $case3|0
+     block $case2|0
+      block $case1|0
+       block $case0|0
+        local.get $1
+        br_table $case0|0 $case1|0 $case2|0 $case3|0 $case4|0
+       end
+       local.get $2
+       i32.const 1
+       i32.add
+       local.tee $2
+       i32.const 8388607
+       i32.gt_u
+       if
+        i32.const 2832
+        i32.const 1344
+        i32.const 74
+        i32.const 11
+        call $~lib/builtins/abort
+        unreachable
+       end
+       br $break|0
+      end
+      local.get $2
+      i32.const 0
+      i32.le_u
+      if
+       i32.const 2912
+       i32.const 1344
+       i32.const 79
+       i32.const 11
+       call $~lib/builtins/abort
+       unreachable
+      end
+      local.get $2
+      i32.const 1
+      i32.sub
+      local.set $2
+      br $break|0
+     end
+     i32.const 0
+     local.get $3
+     i32.const 1
+     i32.add
+     local.get $3
+     i32.const 16777215
+     i32.ge_u
+     select
+     local.set $3
+     br $break|0
+    end
+    local.get $3
+    i32.const 1
+    i32.sub
+    i32.const 16777215
+    local.get $3
+    select
+    local.set $3
+    br $break|0
+   end
+   i32.const 2992
+   i32.const 1344
+   i32.const 100
+   i32.const 9
+   call $~lib/builtins/abort
+   unreachable
+  end
+  local.get $3
+  local.get $2
+  call $assembly/index/GeoWebCoordinate.make_gw_coord
+ )
  (func $assembly/index/GeoWebCoordinate#constructor (param $0 i32) (result i32)
   local.get $0
   if (result i32)
@@ -3158,7 +3291,7 @@
  )
  (func $~lib/rt/pure/__visit (param $0 i32)
   local.get $0
-  i32.const 2884
+  i32.const 3108
   i32.lt_u
   if
    return
