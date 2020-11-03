@@ -216,6 +216,14 @@ describe('traverse', () => {
   
     expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(u32((2 ** 24)-1), 0));
   })
+
+  test('should traverse hex', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
+
+    let newGwCoord = GeoWebCoordinate.traverse_hex(gwCoord.toString(16), Direction.North);
+  
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 1));
+  })
 })
 
 describe('GeoWebCoordinatePath', () => {

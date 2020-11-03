@@ -67,6 +67,10 @@ export class GeoWebCoordinate {
     ];
   }
 
+  static traverse_hex(gwCoord: string, direction: Direction): u64 {
+    return this.traverse(<u64>Number.parseInt(gwCoord, 16), direction)
+  }
+
   static traverse(gwCoord: u64, direction: Direction): u64 {
     let originX: u32 = u32(gwCoord >> 32);
     let originY: u32 = u32(gwCoord & u32((2 ** 32) - 1));

@@ -7,6 +7,7 @@
  (type $i32_i32_i32_=>_none (func (param i32 i32 i32)))
  (type $none_=>_none (func))
  (type $f64_i32_i32_=>_i32 (func (param f64 i32 i32) (result i32)))
+ (type $i32_i32_=>_i64 (func (param i32 i32) (result i64)))
  (type $i32_i32_=>_f64 (func (param i32 i32) (result f64)))
  (type $i32_i32_i32_i32_=>_none (func (param i32 i32 i32 i32)))
  (type $i32_i32_i32_i32_=>_i32 (func (param i32 i32 i32 i32) (result i32)))
@@ -17,7 +18,6 @@
  (type $f64_=>_i32 (func (param f64) (result i32)))
  (type $f64_i32_=>_i32 (func (param f64 i32) (result i32)))
  (type $i32_=>_i64 (func (param i32) (result i64)))
- (type $i32_i32_=>_i64 (func (param i32 i32) (result i64)))
  (type $i64_i32_=>_i64 (func (param i64 i32) (result i64)))
  (type $f64_f64_=>_i64 (func (param f64 f64) (result i64)))
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
@@ -86,6 +86,7 @@
  (export "GeoWebCoordinate.from_gps" (func $assembly/index/GeoWebCoordinate.from_gps))
  (export "GeoWebCoordinate.to_gps_hex" (func $assembly/index/GeoWebCoordinate.to_gps_hex))
  (export "GeoWebCoordinate.to_gps" (func $assembly/index/GeoWebCoordinate.to_gps))
+ (export "GeoWebCoordinate.traverse_hex" (func $assembly/index/GeoWebCoordinate.traverse_hex))
  (export "GeoWebCoordinate.traverse" (func $assembly/index/GeoWebCoordinate.traverse))
  (export "GeoWebCoordinate.make_gw_coord" (func $assembly/index/GeoWebCoordinate.make_gw_coord))
  (export "DirectionPath" (global $assembly/index/DirectionPath))
@@ -5793,7 +5794,7 @@
        if
         i32.const 2208
         i32.const 320
-        i32.const 78
+        i32.const 82
         i32.const 11
         call $~lib/builtins/abort
         unreachable
@@ -5806,7 +5807,7 @@
       if
        i32.const 2288
        i32.const 320
-       i32.const 83
+       i32.const 87
        i32.const 11
        call $~lib/builtins/abort
        unreachable
@@ -5847,7 +5848,7 @@
    end
    i32.const 2368
    i32.const 320
-   i32.const 104
+   i32.const 108
    i32.const 9
    call $~lib/builtins/abort
    unreachable
@@ -5855,6 +5856,22 @@
   local.get $2
   local.get $3
   call $assembly/index/GeoWebCoordinate.make_gw_coord
+ )
+ (func $assembly/index/GeoWebCoordinate.traverse_hex (param $0 i32) (param $1 i32) (result i64)
+  (local $2 i64)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $0
+  i32.const 16
+  call $~lib/number/F64.parseInt
+  i64.trunc_f64_u
+  local.get $1
+  call $assembly/index/GeoWebCoordinate.traverse
+  local.set $2
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $2
  )
  (func $assembly/index/GeoWebCoordinate#constructor (param $0 i32) (result i32)
   local.get $0
