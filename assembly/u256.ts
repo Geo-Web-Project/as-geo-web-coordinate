@@ -99,7 +99,7 @@ export class u256 {
     let hi1: u64 = 0;
     let hi2: u64 = 0;
     for (let i = 0; i < array.length; i++) {
-      const element: u8 = array[i];
+      let element: u8 = array[i];
       if (i < 8) {
         lo1 = (lo1 << 8) | element;
       } else if (i < 16) {
