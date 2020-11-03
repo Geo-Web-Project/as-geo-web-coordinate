@@ -5790,29 +5790,39 @@
  (func $start:assembly/__tests__/index.spec~anonymous|2~anonymous|8
   (local $0 i32)
   (local $1 i32)
-  (local $2 i64)
+  (local $2 i32)
+  (local $3 i32)
   i32.const 0
   i32.const 0
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $~lib/util/number/utoa64
-  local.tee $1
+  local.tee $2
   call $~lib/rt/pure/__retain
   local.tee $0
   call $~lib/number/F64.parseInt
   i64.trunc_f64_u
   i32.const 0
   call $assembly//index/GeoWebCoordinate.traverse
+  call $~lib/util/number/utoa64
+  local.set $1
   local.get $0
   call $~lib/rt/pure/__release
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
+  local.get $1
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
   local.tee $0
   i32.const 0
   i32.const 1
   call $assembly//index/GeoWebCoordinate.make_gw_coord
-  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<u64>#toBe
+  call $~lib/util/number/utoa64
+  local.tee $3
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
+  local.get $2
+  call $~lib/rt/pure/__release
   local.get $1
   call $~lib/rt/pure/__release
   local.get $0
+  call $~lib/rt/pure/__release
+  local.get $3
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|2

@@ -13,13 +13,13 @@
  (type $i32_i64_i64_i64_i64_=>_i32 (func (param i32 i64 i64 i64 i64) (result i32)))
  (type $f64_=>_i32 (func (param f64) (result i32)))
  (type $f64_i32_i32_=>_i32 (func (param f64 i32 i32) (result i32)))
- (type $i32_i32_=>_i64 (func (param i32 i32) (result i64)))
  (type $i32_=>_f64 (func (param i32) (result f64)))
  (type $none_=>_none (func))
  (type $i32_i32_i32_i32_=>_none (func (param i32 i32 i32 i32)))
  (type $i32_i32_i32_i32_i32_i32_i32_i32_=>_i32 (func (param i32 i32 i32 i32 i32 i32 i32 i32) (result i32)))
  (type $i64_i32_i64_i32_i64_i32_=>_i32 (func (param i64 i32 i64 i32 i64 i32) (result i32)))
  (type $f32_=>_i32 (func (param f32) (result i32)))
+ (type $i32_i32_=>_i64 (func (param i32 i32) (result i64)))
  (type $i64_=>_i64 (func (param i64) (result i64)))
  (type $i64_i32_=>_i64 (func (param i64 i32) (result i64)))
  (type $f64_f64_=>_i64 (func (param f64 f64) (result i64)))
@@ -44,11 +44,15 @@
  (data (i32.const 2812) "8\00\00\00\01\00\00\00\00\00\00\00\01\00\00\008\00\00\00D\00i\00r\00e\00c\00t\00i\00o\00n\00 \00w\00e\00n\00t\00 \00t\00o\00o\00 \00f\00a\00r\00 \00n\00o\00r\00t\00h")
  (data (i32.const 2892) "8\00\00\00\01\00\00\00\00\00\00\00\01\00\00\008\00\00\00D\00i\00r\00e\00c\00t\00i\00o\00n\00 \00w\00e\00n\00t\00 \00t\00o\00o\00 \00f\00a\00r\00 \00s\00o\00u\00t\00h")
  (data (i32.const 2972) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\00U\00n\00k\00n\00o\00w\00n\00 \00d\00i\00r\00e\00c\00t\00i\00o\00n")
- (data (i32.const 3036) " \00\00\00\01\00\00\00\00\00\00\00\01\00\00\00 \00\00\00a\00s\00s\00e\00m\00b\00l\00y\00/\00u\002\005\006\00.\00t\00s")
- (data (i32.const 3100) "\1c\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1c\00\00\00I\00n\00v\00a\00l\00i\00d\00 \00l\00e\00n\00g\00t\00h")
- (data (i32.const 3148) "\1a\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1a\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
- (data (i32.const 3196) "&\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
- (data (i32.const 3264) "\0d\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00b\00\00\00\00\00\00\00a\00\00\00\02")
+ (data (i32.const 3036) "d\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00d\00\00\00t\00o\00S\00t\00r\00i\00n\00g\00(\00)\00 \00r\00a\00d\00i\00x\00 \00a\00r\00g\00u\00m\00e\00n\00t\00 \00m\00u\00s\00t\00 \00b\00e\00 \00b\00e\00t\00w\00e\00e\00n\00 \002\00 \00a\00n\00d\00 \003\006")
+ (data (i32.const 3164) "&\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00u\00t\00i\00l\00/\00n\00u\00m\00b\00e\00r\00.\00t\00s")
+ (data (i32.const 3228) "\02\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\02\00\00\000")
+ (data (i32.const 3260) "H\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00H\00\00\000\001\002\003\004\005\006\007\008\009\00a\00b\00c\00d\00e\00f\00g\00h\00i\00j\00k\00l\00m\00n\00o\00p\00q\00r\00s\00t\00u\00v\00w\00x\00y\00z")
+ (data (i32.const 3356) " \00\00\00\01\00\00\00\00\00\00\00\01\00\00\00 \00\00\00a\00s\00s\00e\00m\00b\00l\00y\00/\00u\002\005\006\00.\00t\00s")
+ (data (i32.const 3420) "\1c\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1c\00\00\00I\00n\00v\00a\00l\00i\00d\00 \00l\00e\00n\00g\00t\00h")
+ (data (i32.const 3468) "\1a\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1a\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
+ (data (i32.const 3516) "&\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
+ (data (i32.const 3584) "\0d\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00b\00\00\00\00\00\00\00a\00\00\00\02")
  (table $0 2 funcref)
  (elem (i32.const 1) $assembly/index/GeoWebCoordinate.to_gps_hex~anonymous|0)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
@@ -63,7 +67,7 @@
  (global $~lib/util/number/_frc_pow (mut i64) (i64.const 0))
  (global $~lib/util/number/_exp_pow (mut i32) (i32.const 0))
  (global $~argumentsLength (mut i32) (i32.const 0))
- (global $~lib/rt/__rtti_base i32 (i32.const 3264))
+ (global $~lib/rt/__rtti_base i32 (i32.const 3584))
  (global $assembly/index/GeoWebCoordinate i32 (i32.const 3))
  (global $assembly/index/DirectionPath i32 (i32.const 8))
  (global $assembly/index/GeoWebCoordinatePath i32 (i32.const 10))
@@ -730,10 +734,10 @@
   if
    unreachable
   end
-  i32.const 3376
+  i32.const 3696
   i32.const 0
   i32.store
-  i32.const 4944
+  i32.const 5264
   i32.const 0
   i32.store
   loop $for-loop|0
@@ -744,7 +748,7 @@
     local.get $1
     i32.const 2
     i32.shl
-    i32.const 3376
+    i32.const 3696
     i32.add
     i32.const 0
     i32.store offset=4
@@ -762,7 +766,7 @@
       i32.add
       i32.const 2
       i32.shl
-      i32.const 3376
+      i32.const 3696
       i32.add
       i32.const 0
       i32.store offset=96
@@ -780,13 +784,13 @@
     br $for-loop|0
    end
   end
-  i32.const 3376
-  i32.const 4948
+  i32.const 3696
+  i32.const 5268
   memory.size
   i32.const 16
   i32.shl
   call $~lib/rt/tlsf/addMemory
-  i32.const 3376
+  i32.const 3696
   global.set $~lib/rt/tlsf/ROOT
  )
  (func $~lib/rt/tlsf/prepareSize (param $0 i32) (result i32)
@@ -1408,7 +1412,7 @@
   i32.and
   call $~lib/memory/memory.copy
   local.get $1
-  i32.const 3372
+  i32.const 3692
   i32.ge_u
   if
    local.get $0
@@ -1450,7 +1454,7 @@
   i32.add
   local.set $2
   local.get $0
-  i32.const 3372
+  i32.const 3692
   i32.lt_u
   if
    global.get $~lib/rt/tlsf/ROOT
@@ -1545,7 +1549,7 @@
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  i32.const 3372
+  i32.const 3692
   i32.gt_u
   if
    local.get $0
@@ -1592,7 +1596,7 @@
  )
  (func $~lib/rt/pure/__release (param $0 i32)
   local.get $0
-  i32.const 3372
+  i32.const 3692
   i32.gt_u
   if
    local.get $0
@@ -3250,16 +3254,75 @@
   local.get $2
   call $assembly/index/GeoWebCoordinate.make_gw_coord
  )
- (func $assembly/index/GeoWebCoordinate.traverse_hex (param $0 i32) (param $1 i32) (result i64)
+ (func $assembly/index/GeoWebCoordinate.traverse_hex (param $0 i32) (param $1 i32) (result i32)
   (local $2 i64)
-  local.get $0
-  call $~lib/rt/pure/__retain
-  local.tee $0
-  call $~lib/number/F64.parseInt
-  i64.trunc_f64_u
-  local.get $1
-  call $assembly/index/GeoWebCoordinate.traverse
-  local.get $0
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i64)
+  block $__inlined_func$~lib/util/number/utoa64 (result i32)
+   i32.const 3248
+   local.get $0
+   call $~lib/rt/pure/__retain
+   local.tee $3
+   call $~lib/number/F64.parseInt
+   i64.trunc_f64_u
+   local.get $1
+   call $assembly/index/GeoWebCoordinate.traverse
+   local.tee $2
+   i64.eqz
+   br_if $__inlined_func$~lib/util/number/utoa64
+   drop
+   i32.const 63
+   local.get $2
+   i64.clz
+   i32.wrap_i64
+   i32.sub
+   i32.const 2
+   i32.shr_s
+   i32.const 1
+   i32.add
+   local.tee $0
+   i32.const 1
+   i32.shl
+   i32.const 1
+   call $~lib/rt/pure/__new
+   local.tee $1
+   local.set $4
+   loop $do-continue|0
+    local.get $4
+    local.get $0
+    i32.const 1
+    i32.sub
+    local.tee $0
+    i32.const 1
+    i32.shl
+    i32.add
+    local.get $2
+    i64.const 15
+    i64.and
+    i64.const 48
+    i64.or
+    local.tee $5
+    i64.const 39
+    i64.const 0
+    local.get $5
+    i64.const 57
+    i64.gt_u
+    select
+    i64.add
+    i64.store16
+    local.get $2
+    i64.const 4
+    i64.shr_u
+    local.tee $2
+    i64.const 0
+    i64.ne
+    br_if $do-continue|0
+   end
+   local.get $1
+   call $~lib/rt/pure/__retain
+  end
+  local.get $3
   call $~lib/rt/pure/__release
  )
  (func $assembly/index/GeoWebCoordinate#constructor (param $0 i32) (result i32)
@@ -3956,7 +4019,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 3056
+   i32.const 3376
    i32.const 71
    i32.const 5
    call $~lib/builtins/abort
@@ -4021,7 +4084,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 3056
+   i32.const 3376
    i32.const 83
    i32.const 5
    call $~lib/builtins/abort
@@ -4064,7 +4127,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 3056
+   i32.const 3376
    i32.const 95
    i32.const 5
    call $~lib/builtins/abort
@@ -4103,7 +4166,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 3056
+   i32.const 3376
    i32.const 107
    i32.const 5
    call $~lib/builtins/abort
@@ -5516,7 +5579,7 @@
  )
  (func $~lib/rt/pure/__visit (param $0 i32)
   local.get $0
-  i32.const 3372
+  i32.const 3692
   i32.lt_u
   if
    return

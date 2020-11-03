@@ -221,7 +221,7 @@ describe('traverse', () => {
 
     let newGwCoord = GeoWebCoordinate.traverse_hex(gwCoord.toString(16), Direction.North);
   
-    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 1));
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 1).toString(16));
   })
 })
 

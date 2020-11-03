@@ -65,8 +65,8 @@ export class GeoWebCoordinate {
     ];
   }
 
-  static traverse_hex(gwCoord: string, direction: Direction): u64 {
-    return this.traverse(<u64>Number.parseInt(gwCoord, 16), direction)
+  static traverse_hex(gwCoord: string, direction: Direction): string {
+    return this.traverse(<u64>Number.parseInt(gwCoord, 16), direction).toString(16)
   }
 
   static traverse(gwCoord: u64, direction: Direction): u64 {
