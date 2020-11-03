@@ -242,3 +242,18 @@ describe('GeoWebCoordinatePath', () => {
     expect(result.path == newPath).toBeTruthy();
   })
 })
+
+describe('u256', () => {
+  test('should convert fromUint8ArrayLE', () => {
+    let path = new Uint8Array(32)
+    path.fill(0)
+
+    path[31] = 10
+
+    let convertedPath = u256.fromUint8ArrayLE(path)
+    expect(convertedPath.lo1).toBe(0);
+    expect(convertedPath.lo2).toBe(0);
+    expect(convertedPath.hi1).toBe(0);
+    expect(convertedPath.hi2).toBe(720575940379279360);
+  })
+})
