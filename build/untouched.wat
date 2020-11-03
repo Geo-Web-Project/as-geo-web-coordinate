@@ -1,20 +1,22 @@
 (module
- (type $i32_i32_=>_none (func (param i32 i32)))
  (type $i32_=>_i32 (func (param i32) (result i32)))
+ (type $i32_i32_=>_none (func (param i32 i32)))
  (type $i32_i32_=>_i32 (func (param i32 i32) (result i32)))
  (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
  (type $i32_=>_none (func (param i32)))
  (type $i32_i32_i32_=>_none (func (param i32 i32 i32)))
+ (type $none_=>_none (func))
  (type $f64_i32_i32_=>_i32 (func (param f64 i32 i32) (result i32)))
  (type $i32_i32_=>_f64 (func (param i32 i32) (result f64)))
- (type $none_=>_none (func))
  (type $i32_i32_i32_i32_=>_none (func (param i32 i32 i32 i32)))
  (type $i32_i32_i32_i32_=>_i32 (func (param i32 i32 i32 i32) (result i32)))
  (type $i32_i64_i32_i64_i32_i64_i32_=>_i32 (func (param i32 i64 i32 i64 i32 i64 i32) (result i32)))
+ (type $i32_i64_i64_i64_i64_=>_i32 (func (param i32 i64 i64 i64 i64) (result i32)))
  (type $i32_f64_=>_i32 (func (param i32 f64) (result i32)))
  (type $i64_=>_i32 (func (param i64) (result i32)))
  (type $f64_=>_i32 (func (param f64) (result i32)))
  (type $f64_i32_=>_i32 (func (param f64 i32) (result i32)))
+ (type $i32_=>_i64 (func (param i32) (result i64)))
  (type $i32_i32_=>_i64 (func (param i32 i32) (result i64)))
  (type $i64_i32_=>_i64 (func (param i64 i32) (result i64)))
  (type $f64_f64_=>_i64 (func (param f64 f64) (result i64)))
@@ -37,11 +39,11 @@
  (data (i32.const 1536) "<\fbW\fbr\fb\8c\fb\a7\fb\c1\fb\dc\fb\f6\fb\11\fc,\fcF\fca\fc{\fc\96\fc\b1\fc\cb\fc\e6\fc\00\fd\1b\fd5\fdP\fdk\fd\85\fd\a0\fd\ba\fd\d5\fd\ef\fd\n\fe%\fe?\feZ\fet\fe\8f\fe\a9\fe\c4\fe\df\fe\f9\fe\14\ff.\ffI\ffc\ff~\ff\99\ff\b3\ff\ce\ff\e8\ff\03\00\1e\008\00S\00m\00\88\00\a2\00\bd\00\d8\00\f2\00\0d\01\'\01B\01\\\01w\01\92\01\ac\01\c7\01\e1\01\fc\01\16\021\02L\02f\02\81\02\9b\02\b6\02\d0\02\eb\02\06\03 \03;\03U\03p\03\8b\03\a5\03\c0\03\da\03\f5\03\0f\04*\04")
  (data (i32.const 1712) "\01\00\00\00\n\00\00\00d\00\00\00\e8\03\00\00\10\'\00\00\a0\86\01\00@B\0f\00\80\96\98\00\00\e1\f5\05\00\ca\9a;")
  (data (i32.const 1752) "0\000\000\001\000\002\000\003\000\004\000\005\000\006\000\007\000\008\000\009\001\000\001\001\001\002\001\003\001\004\001\005\001\006\001\007\001\008\001\009\002\000\002\001\002\002\002\003\002\004\002\005\002\006\002\007\002\008\002\009\003\000\003\001\003\002\003\003\003\004\003\005\003\006\003\007\003\008\003\009\004\000\004\001\004\002\004\003\004\004\004\005\004\006\004\007\004\008\004\009\005\000\005\001\005\002\005\003\005\004\005\005\005\006\005\007\005\008\005\009\006\000\006\001\006\002\006\003\006\004\006\005\006\006\006\007\006\008\006\009\007\000\007\001\007\002\007\003\007\004\007\005\007\006\007\007\007\008\007\009\008\000\008\001\008\002\008\003\008\004\008\005\008\006\008\007\008\008\008\009\009\000\009\001\009\002\009\003\009\004\009\005\009\006\009\007\009\008\009\009\00")
- (data (i32.const 2156) "\08\00\00\00\01\00\00\00\00\00\00\00\07\00\00\00\08\00\00\00\01\00\00\00\00\00\00\00")
+ (data (i32.const 2156) "\08\00\00\00\01\00\00\00\00\00\00\00\08\00\00\00\08\00\00\00\01\00\00\00\00\00\00\00")
  (data (i32.const 2188) "8\00\00\00\01\00\00\00\00\00\00\00\01\00\00\008\00\00\00D\00i\00r\00e\00c\00t\00i\00o\00n\00 \00w\00e\00n\00t\00 \00t\00o\00o\00 \00f\00a\00r\00 \00n\00o\00r\00t\00h\00")
  (data (i32.const 2268) "8\00\00\00\01\00\00\00\00\00\00\00\01\00\00\008\00\00\00D\00i\00r\00e\00c\00t\00i\00o\00n\00 \00w\00e\00n\00t\00 \00t\00o\00o\00 \00f\00a\00r\00 \00s\00o\00u\00t\00h\00")
  (data (i32.const 2348) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\00U\00n\00k\00n\00o\00w\00n\00 \00d\00i\00r\00e\00c\00t\00i\00o\00n\00")
- (data (i32.const 2416) "\08\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00")
+ (data (i32.const 2416) "\0b\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00")
  (table $0 2 funcref)
  (elem (i32.const 1) $assembly/index/GeoWebCoordinate.to_gps_hex~anonymous|0)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
@@ -50,6 +52,9 @@
  (global $assembly/index/GW_MAX_LAT i32 (i32.const 8388607))
  (global $assembly/index/GW_MAX_LON i32 (i32.const 16777215))
  (global $assembly/index/GW_INCRE f64 (f64.const 2.1457672119140625e-05))
+ (global $~lib/builtins/u64.MAX_VALUE i64 (i64.const -1))
+ (global $assembly/index/INNER_PATH_MASK (mut i32) (i32.const 0))
+ (global $assembly/index/PATH_SEGMENT_MASK (mut i32) (i32.const 0))
  (global $assembly/index/Direction.North i32 (i32.const 0))
  (global $assembly/index/Direction.South i32 (i32.const 1))
  (global $assembly/index/Direction.East i32 (i32.const 2))
@@ -62,8 +67,10 @@
  (global $~lib/util/number/_exp_pow (mut i32) (i32.const 0))
  (global $~argumentsLength (mut i32) (i32.const 0))
  (global $~lib/rt/__rtti_base i32 (i32.const 2416))
- (global $~lib/memory/__heap_base i32 (i32.const 2484))
- (global $assembly/index/GeoWebCoordinate i32 (i32.const 3))
+ (global $~lib/memory/__heap_base i32 (i32.const 2508))
+ (global $assembly/index/GeoWebCoordinate i32 (i32.const 4))
+ (global $assembly/index/DirectionPath i32 (i32.const 9))
+ (global $assembly/index/GeoWebCoordinatePath i32 (i32.const 10))
  (export "memory" (memory $0))
  (export "__new" (func $~lib/rt/pure/__new))
  (export "__renew" (func $~lib/rt/pure/__renew))
@@ -81,6 +88,18 @@
  (export "GeoWebCoordinate.to_gps" (func $assembly/index/GeoWebCoordinate.to_gps))
  (export "GeoWebCoordinate.traverse" (func $assembly/index/GeoWebCoordinate.traverse))
  (export "GeoWebCoordinate.make_gw_coord" (func $assembly/index/GeoWebCoordinate.make_gw_coord))
+ (export "DirectionPath" (global $assembly/index/DirectionPath))
+ (export "DirectionPath#get:direction" (func $assembly/index/DirectionPath#get:direction))
+ (export "DirectionPath#set:direction" (func $assembly/index/DirectionPath#set:direction))
+ (export "DirectionPath#get:path" (func $assembly/index/DirectionPath#get:path))
+ (export "DirectionPath#set:path" (func $assembly/index/DirectionPath#set:path))
+ (export "DirectionPath#constructor" (func $assembly/index/DirectionPath#constructor))
+ (export "GeoWebCoordinatePath" (global $assembly/index/GeoWebCoordinatePath))
+ (export "GeoWebCoordinatePath#constructor" (func $assembly/index/GeoWebCoordinatePath#constructor))
+ (export "GeoWebCoordinatePath.length" (func $assembly/index/GeoWebCoordinatePath.length))
+ (export "GeoWebCoordinatePath.hasNext" (func $assembly/index/GeoWebCoordinatePath.hasNext))
+ (export "GeoWebCoordinatePath.nextDirection" (func $assembly/index/GeoWebCoordinatePath.nextDirection))
+ (start $~start)
  (func $~lib/rt/tlsf/removeBlock (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -3040,6 +3059,194 @@
    call $~lib/rt/pure/decrement
   end
  )
+ (func $~lib/as-bignum/integer/u256/u256#constructor (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i64) (param $4 i64) (result i32)
+  local.get $0
+  i32.eqz
+  if
+   i32.const 32
+   i32.const 3
+   call $~lib/rt/pure/__new
+   call $~lib/rt/pure/__retain
+   local.set $0
+  end
+  local.get $0
+  local.get $1
+  i64.store
+  local.get $0
+  local.get $2
+  i64.store offset=8
+  local.get $0
+  local.get $3
+  i64.store offset=16
+  local.get $0
+  local.get $4
+  i64.store offset=24
+  local.get $0
+ )
+ (func $~lib/as-bignum/integer/u256/u256.sub (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i64)
+  (local $3 i64)
+  (local $4 i64)
+  (local $5 i64)
+  (local $6 i64)
+  (local $7 i64)
+  (local $8 i64)
+  (local $9 i64)
+  (local $10 i64)
+  (local $11 i64)
+  (local $12 i64)
+  (local $13 i64)
+  (local $14 i64)
+  (local $15 i32)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $1
+  call $~lib/rt/pure/__retain
+  local.set $1
+  local.get $0
+  i64.load
+  local.set $2
+  local.get $0
+  i64.load offset=8
+  local.set $3
+  local.get $0
+  i64.load offset=16
+  local.set $4
+  local.get $0
+  i64.load offset=24
+  local.set $5
+  local.get $1
+  i64.load
+  local.set $6
+  local.get $1
+  i64.load offset=8
+  local.set $7
+  local.get $1
+  i64.load offset=16
+  local.set $8
+  local.get $1
+  i64.load offset=24
+  local.set $9
+  local.get $2
+  local.get $6
+  i64.sub
+  local.set $10
+  local.get $10
+  local.get $2
+  i64.gt_u
+  i64.extend_i32_u
+  local.set $11
+  local.get $3
+  local.get $7
+  i64.sub
+  local.get $11
+  i64.sub
+  local.set $12
+  local.get $3
+  i64.const -1
+  i64.xor
+  local.get $7
+  i64.and
+  local.get $3
+  i64.const -1
+  i64.xor
+  local.get $7
+  i64.or
+  local.get $12
+  i64.and
+  i64.or
+  i64.const 63
+  i64.shr_u
+  local.set $11
+  local.get $4
+  local.get $8
+  i64.sub
+  local.get $11
+  i64.sub
+  local.set $13
+  local.get $4
+  i64.const -1
+  i64.xor
+  local.get $8
+  i64.and
+  local.get $4
+  i64.const -1
+  i64.xor
+  local.get $8
+  i64.or
+  local.get $13
+  i64.and
+  i64.or
+  i64.const 63
+  i64.shr_u
+  local.set $11
+  local.get $5
+  local.get $9
+  i64.sub
+  local.get $11
+  i64.sub
+  local.set $14
+  i32.const 0
+  local.get $10
+  local.get $12
+  local.get $13
+  local.get $14
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $15
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $15
+ )
+ (func $start:assembly/index
+  (local $0 i32)
+  (local $1 i64)
+  (local $2 i32)
+  (local $3 i32)
+  i32.const 0
+  global.get $~lib/builtins/u64.MAX_VALUE
+  global.get $~lib/builtins/u64.MAX_VALUE
+  global.get $~lib/builtins/u64.MAX_VALUE
+  i64.const 1
+  i64.const 56
+  i64.shl
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.tee $0
+  i64.const 1
+  local.set $1
+  i32.const 0
+  local.get $1
+  i64.const 0
+  i64.const 0
+  i64.const 0
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.tee $2
+  call $~lib/as-bignum/integer/u256/u256.sub
+  local.tee $3
+  call $~lib/rt/pure/__retain
+  global.set $assembly/index/INNER_PATH_MASK
+  i64.const 1
+  i64.const 2
+  i64.shl
+  i64.const 1
+  i64.sub
+  local.set $1
+  i32.const 0
+  local.get $1
+  i64.const 0
+  i64.const 0
+  i64.const 0
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  global.set $assembly/index/PATH_SEGMENT_MASK
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $2
+  call $~lib/rt/pure/__release
+  local.get $3
+  call $~lib/rt/pure/__release
+ )
  (func $assembly/index/GeoWebCoordinate.from_gps (param $0 f64) (param $1 f64) (result i64)
   (local $2 i32)
   (local $3 i32)
@@ -3056,7 +3263,7 @@
   if
    i32.const 224
    i32.const 320
-   i32.const 15
+   i32.const 19
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -3074,7 +3281,7 @@
   if
    i32.const 384
    i32.const 320
-   i32.const 18
+   i32.const 22
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -3615,7 +3822,7 @@
   if
    i32.const 496
    i32.const 320
-   i32.const 39
+   i32.const 43
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -3626,7 +3833,7 @@
   if
    i32.const 576
    i32.const 320
-   i32.const 43
+   i32.const 47
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -3663,7 +3870,7 @@
   local.set $10
   i32.const 8
   i32.const 3
-  i32.const 5
+  i32.const 6
   i32.const 0
   call $~lib/rt/__newArray
   call $~lib/rt/pure/__retain
@@ -5226,7 +5433,7 @@
   local.set $2
   local.get $2
   i32.const 2
-  i32.const 4
+  i32.const 5
   i32.const 0
   call $~lib/rt/__newArray
   call $~lib/rt/pure/__retain
@@ -5586,7 +5793,7 @@
        if
         i32.const 2208
         i32.const 320
-        i32.const 74
+        i32.const 78
         i32.const 11
         call $~lib/builtins/abort
         unreachable
@@ -5599,7 +5806,7 @@
       if
        i32.const 2288
        i32.const 320
-       i32.const 79
+       i32.const 83
        i32.const 11
        call $~lib/builtins/abort
        unreachable
@@ -5640,7 +5847,7 @@
    end
    i32.const 2368
    i32.const 320
-   i32.const 100
+   i32.const 104
    i32.const 9
    call $~lib/builtins/abort
    unreachable
@@ -5654,12 +5861,474 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 3
+   i32.const 4
    call $~lib/rt/pure/__new
    call $~lib/rt/pure/__retain
    local.set $0
   end
   local.get $0
+ )
+ (func $assembly/index/DirectionPath#constructor (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  local.get $0
+  i32.eqz
+  if
+   i32.const 8
+   i32.const 9
+   call $~lib/rt/pure/__new
+   call $~lib/rt/pure/__retain
+   local.set $0
+  end
+  local.get $0
+  i32.const 0
+  i32.store
+  local.get $0
+  i32.const 0
+  i32.store offset=4
+  local.get $2
+  call $~lib/rt/pure/__retain
+  local.set $2
+  local.get $0
+  local.get $1
+  i32.store
+  local.get $0
+  local.tee $3
+  local.get $2
+  local.tee $4
+  local.get $3
+  i32.load offset=4
+  local.tee $5
+  i32.ne
+  if
+   local.get $4
+   call $~lib/rt/pure/__retain
+   local.set $4
+   local.get $5
+   call $~lib/rt/pure/__release
+  end
+  local.get $4
+  i32.store offset=4
+  local.get $2
+  call $~lib/rt/pure/__release
+  local.get $0
+ )
+ (func $assembly/index/DirectionPath#get:direction (param $0 i32) (result i32)
+  local.get $0
+  i32.load
+ )
+ (func $assembly/index/DirectionPath#set:direction (param $0 i32) (param $1 i32)
+  local.get $0
+  local.get $1
+  i32.store
+ )
+ (func $assembly/index/DirectionPath#get:path (param $0 i32) (result i32)
+  local.get $0
+  i32.load offset=4
+  call $~lib/rt/pure/__retain
+ )
+ (func $assembly/index/DirectionPath#set:path (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  local.get $0
+  local.get $1
+  local.get $0
+  i32.load offset=4
+  local.tee $2
+  i32.ne
+  if
+   local.get $1
+   call $~lib/rt/pure/__retain
+   drop
+   local.get $2
+   call $~lib/rt/pure/__release
+  end
+  local.get $1
+  i32.store offset=4
+ )
+ (func $assembly/index/GeoWebCoordinatePath.length (param $0 i32) (result i64)
+  (local $1 i64)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $0
+  i64.load offset=24
+  i64.const 56
+  i64.shr_u
+  local.set $1
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+ )
+ (func $assembly/index/GeoWebCoordinatePath.hasNext (param $0 i32) (result i32)
+  (local $1 i32)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $0
+  call $assembly/index/GeoWebCoordinatePath.length
+  i64.const 0
+  i64.gt_u
+  local.set $1
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+ )
+ (func $~lib/as-bignum/integer/u256/u256.shr (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i64)
+  (local $3 i64)
+  (local $4 i64)
+  (local $5 i64)
+  (local $6 i64)
+  (local $7 i32)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $1
+  i32.const 255
+  i32.and
+  local.set $1
+  local.get $1
+  i64.extend_i32_s
+  local.set $2
+  local.get $1
+  i32.const 64
+  i32.le_s
+  if
+   local.get $1
+   i32.const 0
+   i32.eq
+   if
+    local.get $0
+    return
+   end
+   local.get $0
+   i64.load offset=24
+   local.get $2
+   i64.shr_u
+   local.set $3
+   local.get $0
+   i64.load offset=16
+   local.get $2
+   i64.shr_u
+   local.get $3
+   i64.const 64
+   local.get $2
+   i64.sub
+   i64.shl
+   i64.or
+   local.set $4
+   local.get $0
+   i64.load offset=8
+   local.get $2
+   i64.shr_u
+   local.get $4
+   i64.const 64
+   local.get $2
+   i64.sub
+   i64.shl
+   i64.or
+   local.set $5
+   local.get $0
+   i64.load
+   local.get $2
+   i64.shr_u
+   local.get $5
+   i64.const 64
+   local.get $2
+   i64.sub
+   i64.shl
+   i64.or
+   local.set $6
+   i32.const 0
+   local.get $6
+   local.get $5
+   local.get $4
+   local.get $3
+   call $~lib/as-bignum/integer/u256/u256#constructor
+   local.set $7
+   local.get $0
+   call $~lib/rt/pure/__release
+   local.get $7
+   return
+  else
+   local.get $1
+   i32.const 64
+   i32.gt_s
+   if (result i32)
+    local.get $1
+    i32.const 128
+    i32.le_s
+   else
+    i32.const 0
+   end
+   if
+    local.get $0
+    i64.load offset=24
+    i64.const 128
+    local.get $2
+    i64.sub
+    i64.shr_u
+    local.set $6
+    i32.const 0
+    local.get $0
+    i64.load offset=8
+    local.get $0
+    i64.load offset=16
+    local.get $6
+    i64.const 0
+    call $~lib/as-bignum/integer/u256/u256#constructor
+    local.set $7
+    local.get $0
+    call $~lib/rt/pure/__release
+    local.get $7
+    return
+   else
+    local.get $1
+    i32.const 128
+    i32.gt_s
+    if (result i32)
+     local.get $1
+     i32.const 192
+     i32.le_s
+    else
+     i32.const 0
+    end
+    if
+     local.get $0
+     i64.load offset=24
+     i64.const 192
+     local.get $2
+     i64.sub
+     i64.shr_u
+     local.set $6
+     i32.const 0
+     local.get $0
+     i64.load offset=16
+     local.get $6
+     i64.const 0
+     i64.const 0
+     call $~lib/as-bignum/integer/u256/u256#constructor
+     local.set $7
+     local.get $0
+     call $~lib/rt/pure/__release
+     local.get $7
+     return
+    else
+     i32.const 0
+     local.get $0
+     i64.load offset=24
+     i64.const 256
+     local.get $2
+     i64.sub
+     i64.shr_u
+     i64.const 0
+     i64.const 0
+     i64.const 0
+     call $~lib/as-bignum/integer/u256/u256#constructor
+     local.set $7
+     local.get $0
+     call $~lib/rt/pure/__release
+     local.get $7
+     return
+    end
+    unreachable
+   end
+   unreachable
+  end
+  unreachable
+ )
+ (func $assembly/index/GeoWebCoordinatePath.nextDirection (param $0 i32) (result i32)
+  (local $1 i64)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i32)
+  (local $9 i32)
+  (local $10 i32)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $0
+  call $assembly/index/GeoWebCoordinatePath.length
+  local.set $1
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $3
+  global.get $assembly/index/INNER_PATH_MASK
+  call $~lib/rt/pure/__retain
+  local.set $2
+  i32.const 0
+  local.get $3
+  i64.load
+  local.get $2
+  i64.load
+  i64.and
+  local.get $3
+  i64.load offset=8
+  local.get $2
+  i64.load offset=8
+  i64.and
+  local.get $3
+  i64.load offset=16
+  local.get $2
+  i64.load offset=16
+  i64.and
+  local.get $3
+  i64.load offset=24
+  local.get $2
+  i64.load offset=24
+  i64.and
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $4
+  local.get $2
+  call $~lib/rt/pure/__release
+  local.get $3
+  call $~lib/rt/pure/__release
+  local.get $4
+  local.tee $3
+  call $~lib/rt/pure/__retain
+  local.set $2
+  local.get $2
+  call $~lib/rt/pure/__retain
+  local.set $5
+  global.get $assembly/index/PATH_SEGMENT_MASK
+  call $~lib/rt/pure/__retain
+  local.set $4
+  i32.const 0
+  local.get $5
+  i64.load
+  local.get $4
+  i64.load
+  i64.and
+  local.get $5
+  i64.load offset=8
+  local.get $4
+  i64.load offset=8
+  i64.and
+  local.get $5
+  i64.load offset=16
+  local.get $4
+  i64.load offset=16
+  i64.and
+  local.get $5
+  i64.load offset=24
+  local.get $4
+  i64.load offset=24
+  i64.and
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $6
+  local.get $4
+  call $~lib/rt/pure/__release
+  local.get $5
+  call $~lib/rt/pure/__release
+  local.get $6
+  local.tee $5
+  local.set $6
+  local.get $6
+  local.set $4
+  local.get $4
+  i64.load
+  i64.const 9223372036854775807
+  i64.and
+  local.get $4
+  i64.load offset=24
+  i64.const -9223372036854775808
+  i64.and
+  i64.or
+  i32.wrap_i64
+  local.set $6
+  i32.const 0
+  i64.const 0
+  i64.const 0
+  i64.const 0
+  local.get $1
+  i64.const 1
+  i64.sub
+  i64.const 56
+  i64.shl
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $4
+  local.get $2
+  i32.const 2
+  call $~lib/as-bignum/integer/u256/u256.shr
+  local.tee $7
+  call $~lib/rt/pure/__retain
+  local.set $9
+  local.get $4
+  call $~lib/rt/pure/__retain
+  local.set $8
+  i32.const 0
+  local.get $9
+  i64.load
+  local.get $8
+  i64.load
+  i64.or
+  local.get $9
+  i64.load offset=8
+  local.get $8
+  i64.load offset=8
+  i64.or
+  local.get $9
+  i64.load offset=16
+  local.get $8
+  i64.load offset=16
+  i64.or
+  local.get $9
+  i64.load offset=24
+  local.get $8
+  i64.load offset=24
+  i64.or
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $10
+  local.get $8
+  call $~lib/rt/pure/__release
+  local.get $9
+  call $~lib/rt/pure/__release
+  local.get $10
+  local.tee $9
+  call $~lib/rt/pure/__retain
+  local.set $8
+  i32.const 0
+  local.get $6
+  local.get $8
+  call $assembly/index/DirectionPath#constructor
+  local.set $10
+  local.get $3
+  call $~lib/rt/pure/__release
+  local.get $2
+  call $~lib/rt/pure/__release
+  local.get $5
+  call $~lib/rt/pure/__release
+  local.get $4
+  call $~lib/rt/pure/__release
+  local.get $7
+  call $~lib/rt/pure/__release
+  local.get $9
+  call $~lib/rt/pure/__release
+  local.get $8
+  call $~lib/rt/pure/__release
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $10
+ )
+ (func $assembly/index/GeoWebCoordinatePath#constructor (param $0 i32) (result i32)
+  local.get $0
+  i32.eqz
+  if
+   i32.const 0
+   i32.const 10
+   call $~lib/rt/pure/__new
+   call $~lib/rt/pure/__retain
+   local.set $0
+  end
+  local.get $0
+ )
+ (func $~start
+  call $start:assembly/index
  )
  (func $~lib/rt/pure/finalize (param $0 i32)
   i32.const 0
@@ -5852,48 +6521,59 @@
  (func $~lib/rt/__visit_members (param $0 i32) (param $1 i32)
   (local $2 i32)
   block $switch$1$default
-   block $switch$1$case$9
-    block $switch$1$case$8
-     block $switch$1$case$7
-      block $switch$1$case$6
-       block $switch$1$case$4
-        block $switch$1$case$2
-         local.get $0
-         i32.const 8
-         i32.sub
-         i32.load
-         br_table $switch$1$case$2 $switch$1$case$2 $switch$1$case$4 $switch$1$case$2 $switch$1$case$6 $switch$1$case$7 $switch$1$case$8 $switch$1$case$9 $switch$1$default
+   block $switch$1$case$11
+    block $switch$1$case$10
+     block $switch$1$case$9
+      block $switch$1$case$8
+       block $switch$1$case$7
+        block $switch$1$case$4
+         block $switch$1$case$2
+          local.get $0
+          i32.const 8
+          i32.sub
+          i32.load
+          br_table $switch$1$case$2 $switch$1$case$2 $switch$1$case$4 $switch$1$case$2 $switch$1$case$2 $switch$1$case$7 $switch$1$case$8 $switch$1$case$9 $switch$1$case$10 $switch$1$case$11 $switch$1$case$2 $switch$1$default
+         end
+         return
+        end
+        local.get $0
+        i32.load
+        local.tee $2
+        if
+         local.get $2
+         local.get $1
+         call $~lib/rt/pure/__visit
         end
         return
        end
        local.get $0
-       i32.load
-       local.tee $2
-       if
-        local.get $2
-        local.get $1
-        call $~lib/rt/pure/__visit
-       end
+       local.get $1
+       call $~lib/array/Array<~lib/string/String>#__visit_impl
        return
       end
       local.get $0
       local.get $1
-      call $~lib/array/Array<~lib/string/String>#__visit_impl
+      call $~lib/array/Array<f64>#__visit_impl
       return
      end
      local.get $0
      local.get $1
-     call $~lib/array/Array<f64>#__visit_impl
+     call $~lib/array/Array<i32>#__visit_impl
      return
     end
     local.get $0
     local.get $1
-    call $~lib/array/Array<i32>#__visit_impl
+    call $~lib/function/Function<%28f64%2Ci32%2C~lib/array/Array<f64>%29=>~lib/string/String>#__visit_impl
     return
    end
    local.get $0
-   local.get $1
-   call $~lib/function/Function<%28f64%2Ci32%2C~lib/array/Array<f64>%29=>~lib/string/String>#__visit_impl
+   i32.load offset=4
+   local.tee $2
+   if
+    local.get $2
+    local.get $1
+    call $~lib/rt/pure/__visit
+   end
    return
   end
   unreachable

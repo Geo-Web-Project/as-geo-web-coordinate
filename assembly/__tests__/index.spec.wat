@@ -18,6 +18,8 @@
  (type $i32_i32_i32_i32_i32_i32_i32_i32_i32_i32_i32_i32_i32_=>_i32 (func (param i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32) (result i32)))
  (type $i32_i32_i32_i32_f64_=>_i32 (func (param i32 i32 i32 i32 f64) (result i32)))
  (type $i64_i32_i64_i32_i64_i32_=>_i32 (func (param i64 i32 i64 i32 i64 i32) (result i32)))
+ (type $i64_i64_i64_i64_=>_i32 (func (param i64 i64 i64 i64) (result i32)))
+ (type $i32_=>_i64 (func (param i32) (result i64)))
  (type $i32_i32_=>_i64 (func (param i32 i32) (result i64)))
  (type $i64_i32_=>_i64 (func (param i64 i32) (result i64)))
  (type $f64_f64_=>_i64 (func (param f64 f64) (result i64)))
@@ -37,46 +39,46 @@
  (data (i32.const 1692) "&\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
  (data (i32.const 1756) "t\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00t\00\00\00n\00o\00d\00e\00_\00m\00o\00d\00u\00l\00e\00s\00/\00@\00a\00s\00-\00p\00e\00c\00t\00/\00a\00s\00s\00e\00m\00b\00l\00y\00/\00a\00s\00s\00e\00m\00b\00l\00y\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00a\00s\00s\00e\00r\00t\00.\00t\00s")
  (data (i32.const 1904) "\01\00\00\00\00\00\00\00\01")
- (data (i32.const 1932) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\01")
+ (data (i32.const 1932) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\01")
  (data (i32.const 1964) "*\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00*\00\00\00s\00h\00o\00u\00l\00d\00 \00c\00o\00n\00v\00e\00r\00t\00 \00o\00r\00i\00g\00i\00n")
- (data (i32.const 2028) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\02")
+ (data (i32.const 2028) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\02")
  (data (i32.const 2060) ">\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00>\00\00\00s\00h\00o\00u\00l\00d\00 \00c\00o\00n\00v\00e\00r\00t\00 \00m\00e\00r\00i\00d\00i\00a\00n\00 \00e\00q\00u\00a\00t\00o\00r")
- (data (i32.const 2156) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\03")
+ (data (i32.const 2156) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\03")
  (data (i32.const 2188) ".\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00.\00\00\00s\00h\00o\00u\00l\00d\00 \00c\00o\00n\00v\00e\00r\00t\00 \00m\00e\00r\00i\00d\00i\00a\00n")
- (data (i32.const 2268) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\04")
+ (data (i32.const 2268) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\04")
  (data (i32.const 2300) "2\00\00\00\01\00\00\00\00\00\00\00\01\00\00\002\00\00\00s\00h\00o\00u\00l\00d\00 \00c\00o\00n\00v\00e\00r\00t\00 \00n\00o\00r\00t\00h\00 \00p\00o\00l\00e")
- (data (i32.const 2380) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\05")
+ (data (i32.const 2380) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\05")
  (data (i32.const 2412) "L\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00L\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00o\00n\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s\00 \001")
- (data (i32.const 2508) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\06")
+ (data (i32.const 2508) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\06")
  (data (i32.const 2540) "\0c\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\0c\00\00\00T\00h\00r\00o\00w\00s")
  (data (i32.const 2572) "\14\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\14\00\00\00N\00o\00t\00 \00T\00h\00r\00o\00w\00s")
  (data (i32.const 2620) "\0c\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\0c\00\00\00S\00t\00r\00i\00n\00g")
  (data (i32.const 2652) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\00K\00e\00y\00 \00d\00o\00e\00s\00 \00n\00o\00t\00 \00e\00x\00i\00s\00t")
  (data (i32.const 2716) "\16\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\16\00\00\00~\00l\00i\00b\00/\00m\00a\00p\00.\00t\00s")
- (data (i32.const 2764) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\07")
+ (data (i32.const 2764) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\07")
  (data (i32.const 2796) "L\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00L\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00o\00n\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s\00 \002")
- (data (i32.const 2892) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\08")
- (data (i32.const 2924) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\t")
+ (data (i32.const 2892) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\08")
+ (data (i32.const 2924) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\t")
  (data (i32.const 2956) "L\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00L\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00o\00n\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s\00 \003")
- (data (i32.const 3052) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\n")
- (data (i32.const 3084) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\0b")
+ (data (i32.const 3052) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\n")
+ (data (i32.const 3084) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\0b")
  (data (i32.const 3116) "L\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00L\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00a\00t\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s\00 \001")
- (data (i32.const 3212) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\0c")
- (data (i32.const 3244) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\0d")
+ (data (i32.const 3212) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\0c")
+ (data (i32.const 3244) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\0d")
  (data (i32.const 3276) "L\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00L\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00a\00t\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s\00 \002")
- (data (i32.const 3372) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\0e")
- (data (i32.const 3404) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\0f")
+ (data (i32.const 3372) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\0e")
+ (data (i32.const 3404) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\0f")
  (data (i32.const 3436) "L\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00L\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00a\00t\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s\00 \003")
- (data (i32.const 3532) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\10")
- (data (i32.const 3564) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\11")
- (data (i32.const 3596) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\12")
+ (data (i32.const 3532) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\10")
+ (data (i32.const 3564) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\11")
+ (data (i32.const 3596) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\12")
  (data (i32.const 3628) "\0c\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\0c\00\00\00t\00o\00_\00g\00p\00s")
  (data (i32.const 3660) "4\00\00\00\01\00\00\00\00\00\00\00\01\00\00\004\00\00\00L\00o\00n\00g\00i\00t\00u\00d\00e\00 \00i\00s\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
  (data (i32.const 3740) "2\00\00\00\01\00\00\00\00\00\00\00\01\00\00\002\00\00\00L\00a\00t\00i\00t\00u\00d\00e\00 \00i\00s\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
  (data (i32.const 3820) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\00I\00n\00d\00e\00x\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e")
  (data (i32.const 3884) "\1a\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1a\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
  (data (i32.const 3932) "\06\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\06\00\00\00f\006\004")
- (data (i32.const 3964) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\13")
+ (data (i32.const 3964) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\13")
  (data (i32.const 3996) "0\00\00\00\01\00\00\00\00\00\00\00\01\00\00\000\00\00\00s\00h\00o\00u\00l\00d\00 \00c\00o\00n\00v\00e\00r\00t\00 \00b\00a\00s\00i\00c\00 \00h\00e\00x")
  (data (i32.const 4076) "d\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00d\00\00\00t\00o\00S\00t\00r\00i\00n\00g\00(\00)\00 \00r\00a\00d\00i\00x\00 \00a\00r\00g\00u\00m\00e\00n\00t\00 \00m\00u\00s\00t\00 \00b\00e\00 \00b\00e\00t\00w\00e\00e\00n\00 \002\00 \00a\00n\00d\00 \003\006")
  (data (i32.const 4204) "&\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00u\00t\00i\00l\00/\00n\00u\00m\00b\00e\00r\00.\00t\00s")
@@ -89,7 +91,7 @@
  (data (i32.const 4600) "\88\02\1c\08\a0\d5\8f\fav\bf>\a2\7f\e1\ae\bav\acU0 \fb\16\8b\ea5\ce]J\89B\cf-;eU\aa\b0k\9a\dfE\1a=\03\cf\1a\e6\ca\c6\9a\c7\17\fep\abO\dc\bc\be\fc\b1w\ff\0c\d6kA\ef\91V\be<\fc\7f\90\ad\1f\d0\8d\83\9aU1(\\Q\d3\b5\c9\a6\ad\8f\acq\9d\cb\8b\ee#w\"\9c\eamSx@\91I\cc\aeW\ce\b6]y\12<\827V\fbM6\94\10\c2O\98H8o\ea\96\90\c7:\82%\cb\85t\d7\f4\97\bf\97\cd\cf\86\a0\e5\ac*\17\98\n4\ef\8e\b25*\fbg8\b2;?\c6\d2\df\d4\c8\84\ba\cd\d3\1a\'D\dd\c5\96\c9%\bb\ce\9fk\93\84\a5b}$l\ac\db\f6\da_\0dXf\ab\a3&\f1\c3\de\93\f8\e2\f3\b8\80\ff\aa\a8\ad\b5\b5\8bJ|l\05_b\87S0\c14`\ff\bc\c9U&\ba\91\8c\85N\96\bd~)p$w\f9\df\8f\b8\e5\b8\9f\bd\df\a6\94}t\88\cf_\a9\f8\cf\9b\a8\8f\93pD\b9k\15\0f\bf\f8\f0\08\8a\b611eU%\b0\cd\ac\7f{\d0\c6\e2?\99\06;+*\c4\10\\\e4\d3\92si\99$$\aa\0e\ca\00\83\f2\b5\87\fd\eb\1a\11\92d\08\e5\bc\cc\88Po\t\cc\bc\8c,e\19\e2X\17\b7\d1\00\00\00\00\00\00@\9c\00\00\00\00\10\a5\d4\e8\00\00b\ac\c5\ebx\ad\84\t\94\f8x9?\81\b3\15\07\c9{\ce\97\c0p\\\ea{\ce2~\8fh\80\e9\ab\a48\d2\d5E\"\9a\17&\'O\9f\'\fb\c4\d41\a2c\ed\a8\ad\c8\8c8e\de\b0\dbe\ab\1a\8e\08\c7\83\9a\1dqB\f9\1d]\c4X\e7\1b\a6,iM\92\ea\8dp\1ad\ee\01\daJw\ef\9a\99\a3m\a2\85k}\b4{x\t\f2w\18\ddy\a1\e4T\b4\c2\c5\9b[\92\86[\86=]\96\c8\c5S5\c8\b3\a0\97\fa\\\b4*\95\e3_\a0\99\bd\9fF\de%\8c9\db4\c2\9b\a5\\\9f\98\a3r\9a\c6\f6\ce\be\e9TS\bf\dc\b7\e2A\"\f2\17\f3\fc\88\a5x\\\d3\9b\ce \cc\dfS!{\f3Z\16\98:0\1f\97\dc\b5\a0\e2\96\b3\e3\\S\d1\d9\a8<D\a7\a4\d9|\9b\fb\10D\a4\a7LLv\bb\1a\9c@\b6\ef\8e\ab\8b,\84W\a6\10\ef\1f\d0)1\91\e9\e5\a4\10\9b\9d\0c\9c\a1\fb\9b\10\e7)\f4;b\d9 (\ac\85\cf\a7z^KD\80-\dd\ac\03@\e4!\bf\8f\ffD^/\9cg\8eA\b8\8c\9c\9d\173\d4\a9\1b\e3\b4\92\db\19\9e\d9w\df\ban\bf\96\ebk\ee\f0\9b;\02\87\af")
  (data (i32.const 5296) "<\fbW\fbr\fb\8c\fb\a7\fb\c1\fb\dc\fb\f6\fb\11\fc,\fcF\fca\fc{\fc\96\fc\b1\fc\cb\fc\e6\fc\00\fd\1b\fd5\fdP\fdk\fd\85\fd\a0\fd\ba\fd\d5\fd\ef\fd\n\fe%\fe?\feZ\fet\fe\8f\fe\a9\fe\c4\fe\df\fe\f9\fe\14\ff.\ffI\ffc\ff~\ff\99\ff\b3\ff\ce\ff\e8\ff\03\00\1e\008\00S\00m\00\88\00\a2\00\bd\00\d8\00\f2\00\0d\01\'\01B\01\\\01w\01\92\01\ac\01\c7\01\e1\01\fc\01\16\021\02L\02f\02\81\02\9b\02\b6\02\d0\02\eb\02\06\03 \03;\03U\03p\03\8b\03\a5\03\c0\03\da\03\f5\03\0f\04*\04")
  (data (i32.const 5472) "\01\00\00\00\n\00\00\00d\00\00\00\e8\03\00\00\10\'\00\00\a0\86\01\00@B\0f\00\80\96\98\00\00\e1\f5\05\00\ca\9a;")
- (data (i32.const 5516) "\08\00\00\00\01\00\00\00\00\00\00\00\0b\00\00\00\08\00\00\00\14")
+ (data (i32.const 5516) "\08\00\00\00\01\00\00\00\00\00\00\00\0c\00\00\00\08\00\00\00\14")
  (data (i32.const 5548) "^\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00^\00\00\00E\00l\00e\00m\00e\00n\00t\00 \00t\00y\00p\00e\00 \00m\00u\00s\00t\00 \00b\00e\00 \00n\00u\00l\00l\00a\00b\00l\00e\00 \00i\00f\00 \00a\00r\00r\00a\00y\00 \00i\00s\00 \00h\00o\00l\00e\00y")
  (data (i32.const 5676) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\001\000\009\00.\009\009\009\009\008\008\000\007\009\000\007\001\000\005")
  (data (i32.const 5740) "4\00\00\00\01\00\00\00\00\00\00\00\01\00\00\004\00\00\00c\00a\00c\00h\00e\00L\00e\00n\00g\00t\00h\00 \00s\00h\00o\00u\00l\00d\00 \00b\00e\00 \00e\00v\00e\00n")
@@ -99,46 +101,54 @@
  (data (i32.const 5964) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\003\007\00.\009\009\009\009\009\002\003\007\000\006\000\005\004\007")
  (data (i32.const 6028) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\001\001\000\00.\000\000\000\000\000\009\005\003\006\007\004\003\001\007")
  (data (i32.const 6092) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\003\008\00.\000\000\000\000\001\003\008\002\008\002\007\007\005\009")
- (data (i32.const 6156) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\15")
+ (data (i32.const 6156) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\15")
  (data (i32.const 6188) "@\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00@\00\00\00s\00h\00o\00u\00l\00d\00 \00c\00o\00n\00v\00e\00r\00t\00 \00b\00a\00s\00i\00c\00 \00h\00e\00x\00 \00w\00i\00t\00h\00 \000\00x")
  (data (i32.const 6284) " \00\00\00\01\00\00\00\00\00\00\00\01\00\00\00 \00\00\000\00x\00c\00e\003\008\00e\003\000\000\005\00b\000\005\00b\000")
- (data (i32.const 6348) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\16")
- (data (i32.const 6380) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\17")
- (data (i32.const 6412) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\18")
- (data (i32.const 6444) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\19")
- (data (i32.const 6476) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1a")
+ (data (i32.const 6348) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\16")
+ (data (i32.const 6380) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\17")
+ (data (i32.const 6412) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\18")
+ (data (i32.const 6444) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\19")
+ (data (i32.const 6476) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\1a")
  (data (i32.const 6508) "H\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00H\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00o\00n\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
- (data (i32.const 6604) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1b")
- (data (i32.const 6636) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1c")
+ (data (i32.const 6604) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\1b")
+ (data (i32.const 6636) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\1c")
  (data (i32.const 6668) "H\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00H\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00c\00o\00n\00v\00e\00r\00t\00 \00l\00a\00t\00 \00o\00u\00t\00 \00o\00f\00 \00b\00o\00u\00n\00d\00s")
- (data (i32.const 6764) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1d")
- (data (i32.const 6796) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1e")
- (data (i32.const 6828) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\1f")
+ (data (i32.const 6764) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\1d")
+ (data (i32.const 6796) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\1e")
+ (data (i32.const 6828) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\1f")
  (data (i32.const 6860) "\10\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\10\00\00\00t\00r\00a\00v\00e\00r\00s\00e")
  (data (i32.const 6908) "*\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00*\00\00\00s\00h\00o\00u\00l\00d\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00n\00o\00r\00t\00h")
  (data (i32.const 6972) "8\00\00\00\01\00\00\00\00\00\00\00\01\00\00\008\00\00\00D\00i\00r\00e\00c\00t\00i\00o\00n\00 \00w\00e\00n\00t\00 \00t\00o\00o\00 \00f\00a\00r\00 \00n\00o\00r\00t\00h")
  (data (i32.const 7052) "8\00\00\00\01\00\00\00\00\00\00\00\01\00\00\008\00\00\00D\00i\00r\00e\00c\00t\00i\00o\00n\00 \00w\00e\00n\00t\00 \00t\00o\00o\00 \00f\00a\00r\00 \00s\00o\00u\00t\00h")
  (data (i32.const 7132) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\00U\00n\00k\00n\00o\00w\00n\00 \00d\00i\00r\00e\00c\00t\00i\00o\00n")
- (data (i32.const 7196) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00 ")
+ (data (i32.const 7196) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00 ")
  (data (i32.const 7228) "*\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00*\00\00\00s\00h\00o\00u\00l\00d\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00s\00o\00u\00t\00h")
- (data (i32.const 7292) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00!")
+ (data (i32.const 7292) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00!")
  (data (i32.const 7324) "(\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00(\00\00\00s\00h\00o\00u\00l\00d\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00e\00a\00s\00t")
- (data (i32.const 7388) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\"")
+ (data (i32.const 7388) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\"")
  (data (i32.const 7420) "(\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00(\00\00\00s\00h\00o\00u\00l\00d\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00w\00e\00s\00t")
- (data (i32.const 7484) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00#")
+ (data (i32.const 7484) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00#")
  (data (i32.const 7516) "B\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00B\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00t\00o\00o\00 \00f\00a\00r\00 \00n\00o\00r\00t\00h")
- (data (i32.const 7612) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00$")
- (data (i32.const 7644) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00%")
+ (data (i32.const 7612) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00$")
+ (data (i32.const 7644) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00%")
  (data (i32.const 7676) "B\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00B\00\00\00s\00h\00o\00u\00l\00d\00 \00n\00o\00t\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00t\00o\00o\00 \00f\00a\00r\00 \00s\00o\00u\00t\00h")
- (data (i32.const 7772) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00&")
- (data (i32.const 7804) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\'")
+ (data (i32.const 7772) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00&")
+ (data (i32.const 7804) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00\'")
  (data (i32.const 7836) "J\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00J\00\00\00s\00h\00o\00u\00l\00d\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00m\00e\00r\00i\00d\00i\00a\00n\00 \00e\00a\00s\00t\00 \00-\00>\00 \00w\00e\00s\00t")
- (data (i32.const 7932) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00(")
+ (data (i32.const 7932) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00(")
  (data (i32.const 7964) "J\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00J\00\00\00s\00h\00o\00u\00l\00d\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00m\00e\00r\00i\00d\00i\00a\00n\00 \00w\00e\00s\00t\00 \00-\00>\00 \00e\00a\00s\00t")
- (data (i32.const 8060) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00)")
- (data (i32.const 8092) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00*")
- (data (i32.const 8124) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00+")
- (data (i32.const 8160) "\0e\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\000\t\02\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\01")
+ (data (i32.const 8060) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00)")
+ (data (i32.const 8092) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00*")
+ (data (i32.const 8124) "(\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00(\00\00\00G\00e\00o\00W\00e\00b\00C\00o\00o\00r\00d\00i\00n\00a\00t\00e\00P\00a\00t\00h")
+ (data (i32.const 8188) ":\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00:\00\00\00s\00h\00o\00u\00l\00d\00 \00p\00a\00r\00s\00e\00 \00l\00e\00n\00g\00t\00h\00 \00f\00r\00o\00m\00 \00p\00a\00t\00h")
+ (data (i32.const 8268) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00+")
+ (data (i32.const 8300) "@\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00@\00\00\00s\00h\00o\00u\00l\00d\00 \00p\00a\00r\00s\00e\00 \00d\00i\00r\00e\00c\00t\00i\00o\00n\00 \00f\00r\00o\00m\00 \00p\00a\00t\00h")
+ (data (i32.const 8396) "\06\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\06\00\00\00i\003\002")
+ (data (i32.const 8428) "\08\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\08\00\00\00b\00o\00o\00l")
+ (data (i32.const 8460) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00,")
+ (data (i32.const 8492) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00-")
+ (data (i32.const 8524) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00.")
+ (data (i32.const 8560) "\12\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\000\t\02\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\01\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 ")
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
  (import "__aspect" "createReflectedLong" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedLong (param i32 i32 i32 i32 i32 i32) (result i32)))
  (import "__aspect" "attachStackTraceToReflectedValue" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/attachStackTraceToReflectedValue (param i32)))
@@ -151,9 +161,12 @@
  (import "__aspect" "createReflectedValue" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedValue (param i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32) (result i32)))
  (import "__aspect" "reportGroupTypeNode" (func $node_modules/@as-pect/assembly/assembly/internal/Test/describe (param i32 i32)))
  (import "__aspect" "createReflectedNumber" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedNumber (param i32 i32 i32 i32 f64) (result i32)))
- (table $0 44 funcref)
- (elem (i32.const 1) $start:assembly/__tests__/index.spec~anonymous|0~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10 $start:assembly/__tests__/index.spec~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|0 $assembly//index/GeoWebCoordinate.to_gps_hex~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|2 $start:node_modules/@as-pect/assembly/assembly/internal/noOp~anonymous|0)
+ (import "__aspect" "reportExpectedTruthy" (func $node_modules/@as-pect/assembly/assembly/internal/Expected/reportExpectedTruthy (param i32)))
+ (table $0 47 funcref)
+ (elem (i32.const 1) $start:assembly/__tests__/index.spec~anonymous|0~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10 $start:assembly/__tests__/index.spec~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|0 $assembly//index/GeoWebCoordinate.to_gps_hex~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|3~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|3~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|3 $start:node_modules/@as-pect/assembly/assembly/internal/noOp~anonymous|0)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
+ (global $assembly//index/INNER_PATH_MASK (mut i32) (i32.const 0))
+ (global $assembly//index/PATH_SEGMENT_MASK (mut i32) (i32.const 0))
  (global $~argumentsLength (mut i32) (i32.const 0))
  (global $~lib/util/number/_frc_plus (mut i64) (i64.const 0))
  (global $~lib/util/number/_frc_minus (mut i64) (i64.const 0))
@@ -162,7 +175,7 @@
  (global $~lib/util/number/_frc_pow (mut i64) (i64.const 0))
  (global $~lib/util/number/_exp_pow (mut i32) (i32.const 0))
  (global $~started (mut i32) (i32.const 0))
- (global $~lib/rt/__rtti_base i32 (i32.const 8160))
+ (global $~lib/rt/__rtti_base i32 (i32.const 8560))
  (export "_start" (func $~start))
  (export "memory" (memory $0))
  (export "table" (table $0))
@@ -742,10 +755,10 @@
   if
    unreachable
   end
-  i32.const 8288
+  i32.const 8720
   i32.const 0
   i32.store
-  i32.const 9856
+  i32.const 10288
   i32.const 0
   i32.store
   loop $for-loop|0
@@ -756,7 +769,7 @@
     local.get $1
     i32.const 2
     i32.shl
-    i32.const 8288
+    i32.const 8720
     i32.add
     i32.const 0
     i32.store offset=4
@@ -774,7 +787,7 @@
       i32.add
       i32.const 2
       i32.shl
-      i32.const 8288
+      i32.const 8720
       i32.add
       i32.const 0
       i32.store offset=96
@@ -792,13 +805,13 @@
     br $for-loop|0
    end
   end
-  i32.const 8288
-  i32.const 9860
+  i32.const 8720
+  i32.const 10292
   memory.size
   i32.const 16
   i32.shl
   call $~lib/rt/tlsf/addMemory
-  i32.const 8288
+  i32.const 8720
   global.set $~lib/rt/tlsf/ROOT
  )
  (func $~lib/rt/tlsf/prepareSize (param $0 i32) (result i32)
@@ -1420,7 +1433,7 @@
   i32.and
   call $~lib/memory/memory.copy
   local.get $1
-  i32.const 8276
+  i32.const 8708
   i32.ge_u
   if
    local.get $0
@@ -1462,7 +1475,7 @@
   i32.add
   local.set $2
   local.get $0
-  i32.const 8276
+  i32.const 8708
   i32.lt_u
   if
    global.get $~lib/rt/tlsf/ROOT
@@ -1557,7 +1570,7 @@
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  i32.const 8276
+  i32.const 8708
   i32.gt_u
   if
    local.get $0
@@ -1604,7 +1617,7 @@
  )
  (func $~lib/rt/pure/__release (param $0 i32)
   local.get $0
-  i32.const 8276
+  i32.const 8708
   i32.gt_u
   if
    local.get $0
@@ -1612,6 +1625,110 @@
    i32.sub
    call $~lib/rt/pure/decrement
   end
+ )
+ (func $~lib/as-bignum/integer/u256/u256#constructor (param $0 i64) (param $1 i64) (param $2 i64) (param $3 i64) (result i32)
+  (local $4 i32)
+  i32.const 32
+  i32.const 3
+  call $~lib/rt/pure/__new
+  call $~lib/rt/pure/__retain
+  local.tee $4
+  local.get $0
+  i64.store
+  local.get $4
+  local.get $1
+  i64.store offset=8
+  local.get $4
+  local.get $2
+  i64.store offset=16
+  local.get $4
+  local.get $3
+  i64.store offset=24
+  local.get $4
+ )
+ (func $~lib/as-bignum/integer/u256/u256.sub (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i64)
+  (local $3 i64)
+  (local $4 i64)
+  (local $5 i64)
+  (local $6 i64)
+  (local $7 i32)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $1
+  call $~lib/rt/pure/__retain
+  local.set $1
+  local.get $0
+  i64.load offset=8
+  local.tee $2
+  i64.const -1
+  i64.xor
+  local.set $3
+  local.get $2
+  local.get $1
+  i64.load offset=8
+  local.tee $2
+  i64.sub
+  local.get $0
+  i64.load
+  local.tee $4
+  local.get $1
+  i64.load
+  i64.sub
+  local.tee $5
+  local.get $4
+  i64.gt_u
+  i64.extend_i32_u
+  i64.sub
+  local.set $4
+  local.get $5
+  local.get $4
+  local.get $0
+  i64.load offset=16
+  local.tee $6
+  local.get $1
+  i64.load offset=16
+  local.tee $5
+  i64.sub
+  local.get $2
+  local.get $3
+  i64.and
+  local.get $4
+  local.get $2
+  local.get $3
+  i64.or
+  i64.and
+  i64.or
+  i64.const 63
+  i64.shr_u
+  i64.sub
+  local.tee $3
+  local.get $0
+  i64.load offset=24
+  local.get $1
+  i64.load offset=24
+  i64.sub
+  local.get $5
+  local.get $6
+  i64.const -1
+  i64.xor
+  local.tee $2
+  i64.and
+  local.get $3
+  local.get $2
+  local.get $5
+  i64.or
+  i64.and
+  i64.or
+  i64.const 63
+  i64.shr_u
+  i64.sub
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+  call $~lib/rt/pure/__release
  )
  (func $assembly//index/GeoWebCoordinate.from_gps (param $0 f64) (param $1 f64) (result i64)
   i32.const 1
@@ -1625,7 +1742,7 @@
   if
    i32.const 1360
    i32.const 1456
-   i32.const 15
+   i32.const 19
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -1641,7 +1758,7 @@
   if
    i32.const 1520
    i32.const 1456
-   i32.const 18
+   i32.const 22
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -1667,7 +1784,7 @@
  (func $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64> (param $0 i64) (result i32)
   (local $1 i32)
   i32.const 16
-  i32.const 3
+  i32.const 4
   call $~lib/rt/pure/__new
   call $~lib/rt/pure/__retain
   local.tee $1
@@ -1873,7 +1990,7 @@
  (func $~lib/map/Map<usize,i32>#constructor (result i32)
   (local $0 i32)
   i32.const 24
-  i32.const 4
+  i32.const 5
   call $~lib/rt/pure/__new
   call $~lib/rt/pure/__retain
   local.tee $0
@@ -2079,7 +2196,7 @@
   call $~lib/rt/pure/__retain
   local.set $2
   i32.const 8
-  i32.const 6
+  i32.const 7
   call $~lib/rt/pure/__new
   call $~lib/rt/pure/__retain
   local.tee $0
@@ -2777,7 +2894,7 @@
   if
    i32.const 3680
    i32.const 1456
-   i32.const 39
+   i32.const 43
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -2788,7 +2905,7 @@
   if
    i32.const 3760
    i32.const 1456
-   i32.const 43
+   i32.const 47
    i32.const 7
    call $~lib/builtins/abort
    unreachable
@@ -2815,7 +2932,7 @@
   local.set $6
   i32.const 8
   i32.const 3
-  i32.const 7
+  i32.const 8
   i32.const 0
   call $~lib/rt/__newArray
   call $~lib/rt/pure/__retain
@@ -2871,7 +2988,7 @@
  (func $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64> (param $0 f64) (result i32)
   (local $1 i32)
   i32.const 16
-  i32.const 9
+  i32.const 10
   call $~lib/rt/pure/__new
   call $~lib/rt/pure/__retain
   local.tee $1
@@ -4328,7 +4445,7 @@
   i32.load offset=12
   local.tee $4
   i32.const 2
-  i32.const 10
+  i32.const 11
   i32.const 0
   call $~lib/rt/__newArray
   call $~lib/rt/pure/__retain
@@ -4434,7 +4551,7 @@
   call $~lib/rt/pure/__retain
   local.set $2
   i32.const 8
-  i32.const 12
+  i32.const 13
   call $~lib/rt/pure/__new
   call $~lib/rt/pure/__retain
   local.tee $0
@@ -4735,14 +4852,14 @@
    local.get $1
    i32.const 0
    i32.const 2
-   i32.const 13
+   i32.const 14
    i32.const 5840
    call $~lib/rt/__newArray
    call $~lib/rt/pure/__retain
    local.tee $4
    i32.const 0
    i32.const 2
-   i32.const 13
+   i32.const 14
    i32.const 5872
    call $~lib/rt/__newArray
    call $~lib/rt/pure/__retain
@@ -5566,7 +5683,7 @@
        if
         i32.const 6992
         i32.const 1456
-        i32.const 74
+        i32.const 78
         i32.const 11
         call $~lib/builtins/abort
         unreachable
@@ -5579,7 +5696,7 @@
       if
        i32.const 7072
        i32.const 1456
-       i32.const 79
+       i32.const 83
        i32.const 11
        call $~lib/builtins/abort
        unreachable
@@ -5612,7 +5729,7 @@
    end
    i32.const 7152
    i32.const 1456
-   i32.const 100
+   i32.const 104
    i32.const 9
    call $~lib/builtins/abort
    unreachable
@@ -5786,6 +5903,486 @@
   i32.const 8080
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
  )
+ (func $assembly//index/GeoWebCoordinatePath.length (param $0 i32) (result i64)
+  (local $1 i64)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.tee $0
+  i64.load offset=24
+  i64.const 56
+  i64.shr_u
+  local.get $0
+  call $~lib/rt/pure/__release
+ )
+ (func $start:assembly/__tests__/index.spec~anonymous|3~anonymous|0
+  (local $0 i32)
+  (local $1 i32)
+  i64.const 14
+  i64.const 0
+  i64.const 0
+  i64.const 144115188075855872
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.tee $0
+  call $assembly//index/GeoWebCoordinatePath.length
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
+  local.tee $1
+  i64.const 2
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<u64>#toBe
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+  call $~lib/rt/pure/__release
+ )
+ (func $assembly//index/GeoWebCoordinatePath.nextDirection (param $0 i32) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i64)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i32)
+  (local $9 i32)
+  (local $10 i32)
+  (local $11 i64)
+  (local $12 i32)
+  (local $13 i32)
+  (local $14 i64)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.tee $7
+  call $assembly//index/GeoWebCoordinatePath.length
+  local.set $5
+  local.get $7
+  call $~lib/rt/pure/__retain
+  local.set $1
+  global.get $assembly//index/INNER_PATH_MASK
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $1
+  i64.load
+  local.get $0
+  i64.load
+  i64.and
+  local.get $1
+  i64.load offset=8
+  local.get $0
+  i64.load offset=8
+  i64.and
+  local.get $1
+  i64.load offset=16
+  local.get $0
+  i64.load offset=16
+  i64.and
+  local.get $1
+  i64.load offset=24
+  local.get $0
+  i64.load offset=24
+  i64.and
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $8
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $8
+  call $~lib/rt/pure/__retain
+  local.tee $9
+  call $~lib/rt/pure/__retain
+  local.set $1
+  global.get $assembly//index/PATH_SEGMENT_MASK
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $1
+  i64.load
+  local.get $0
+  i64.load
+  i64.and
+  local.get $1
+  i64.load offset=8
+  local.get $0
+  i64.load offset=8
+  i64.and
+  local.get $1
+  i64.load offset=16
+  local.get $0
+  i64.load offset=16
+  i64.and
+  local.get $1
+  i64.load offset=24
+  local.get $0
+  i64.load offset=24
+  i64.and
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $6
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $6
+  i64.load
+  i64.const 9223372036854775807
+  i64.and
+  local.get $6
+  i64.load offset=24
+  i64.const -9223372036854775808
+  i64.and
+  i64.or
+  i32.wrap_i64
+  local.set $2
+  i64.const 0
+  i64.const 0
+  i64.const 0
+  local.get $5
+  i64.const 1
+  i64.sub
+  i64.const 56
+  i64.shl
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $10
+  local.get $9
+  call $~lib/rt/pure/__retain
+  local.tee $1
+  i64.load offset=24
+  i64.const 2
+  i64.shr_u
+  local.tee $14
+  i64.const 62
+  i64.shl
+  local.get $1
+  i64.load offset=16
+  i64.const 2
+  i64.shr_u
+  i64.or
+  local.tee $5
+  i64.const 62
+  i64.shl
+  local.get $1
+  i64.load offset=8
+  i64.const 2
+  i64.shr_u
+  i64.or
+  local.tee $11
+  i64.const 62
+  i64.shl
+  local.get $1
+  i64.load
+  i64.const 2
+  i64.shr_u
+  i64.or
+  local.get $11
+  local.get $5
+  local.get $14
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $0
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $3
+  local.get $10
+  call $~lib/rt/pure/__retain
+  local.set $1
+  local.get $3
+  i64.load
+  local.get $1
+  i64.load
+  i64.or
+  local.get $3
+  i64.load offset=8
+  local.get $1
+  i64.load offset=8
+  i64.or
+  local.get $3
+  i64.load offset=16
+  local.get $1
+  i64.load offset=16
+  i64.or
+  local.get $3
+  i64.load offset=24
+  local.get $1
+  i64.load offset=24
+  i64.or
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $12
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $3
+  call $~lib/rt/pure/__release
+  local.get $12
+  call $~lib/rt/pure/__retain
+  local.set $13
+  i32.const 8
+  i32.const 15
+  call $~lib/rt/pure/__new
+  call $~lib/rt/pure/__retain
+  local.tee $4
+  i32.const 0
+  i32.store
+  local.get $4
+  i32.const 0
+  i32.store offset=4
+  local.get $13
+  call $~lib/rt/pure/__retain
+  local.set $1
+  local.get $4
+  local.get $2
+  i32.store
+  local.get $1
+  local.tee $2
+  local.get $4
+  i32.load offset=4
+  local.tee $3
+  i32.ne
+  if
+   local.get $2
+   call $~lib/rt/pure/__retain
+   local.set $2
+   local.get $3
+   call $~lib/rt/pure/__release
+  end
+  local.get $4
+  local.get $2
+  i32.store offset=4
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $8
+  call $~lib/rt/pure/__release
+  local.get $9
+  call $~lib/rt/pure/__release
+  local.get $6
+  call $~lib/rt/pure/__release
+  local.get $10
+  call $~lib/rt/pure/__release
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $12
+  call $~lib/rt/pure/__release
+  local.get $13
+  call $~lib/rt/pure/__release
+  local.get $7
+  call $~lib/rt/pure/__release
+  local.get $4
+ )
+ (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/Reflect.toReflectedValue<i32>@varargs (param $0 i32) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  block $1of1
+   block $0of1
+    block $outOfRange
+     global.get $~argumentsLength
+     i32.const 1
+     i32.sub
+     br_table $0of1 $1of1 $outOfRange
+    end
+    unreachable
+   end
+   call $~lib/map/Map<usize,i32>#constructor
+   local.tee $2
+   local.set $1
+  end
+  local.get $1
+  call $~lib/rt/pure/__retain
+  i32.const 1
+  i32.const 4
+  i32.const 7
+  i32.const 8416
+  local.get $0
+  f64.convert_i32_s
+  call $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedNumber
+  local.set $0
+  call $~lib/rt/pure/__release
+  local.get $2
+  call $~lib/rt/pure/__release
+  local.get $0
+ )
+ (func $start:assembly/__tests__/index.spec~anonymous|3~anonymous|1
+  (local $0 i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i32)
+  i64.const 14
+  i64.const 0
+  i64.const 0
+  i64.const 144115188075855872
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $4
+  i64.const 3
+  i64.const 0
+  i64.const 0
+  i64.const 72057594037927936
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.set $5
+  local.get $4
+  call $assembly//index/GeoWebCoordinatePath.nextDirection
+  local.tee $6
+  i32.load
+  local.set $0
+  i32.const 8
+  i32.const 16
+  call $~lib/rt/pure/__new
+  call $~lib/rt/pure/__retain
+  local.tee $3
+  i32.const 0
+  i32.store
+  local.get $3
+  i32.const 0
+  i32.store offset=4
+  local.get $3
+  local.get $0
+  i32.store offset=4
+  local.get $3
+  i32.load offset=4
+  local.tee $2
+  i32.const 2
+  i32.eq
+  local.get $3
+  i32.load
+  local.set $1
+  i32.const 1
+  global.set $~argumentsLength
+  local.get $2
+  call $node_modules/@as-pect/assembly/assembly/internal/Reflect/Reflect.toReflectedValue<i32>@varargs
+  local.tee $2
+  call $node_modules/@as-pect/assembly/assembly/internal/Reflect/attachStackTraceToReflectedValue
+  local.get $2
+  call $node_modules/@as-pect/assembly/assembly/internal/Actual/reportActualReflectedValue
+  i32.const 1
+  global.set $~argumentsLength
+  i32.const 2
+  call $node_modules/@as-pect/assembly/assembly/internal/Reflect/Reflect.toReflectedValue<i32>@varargs
+  local.tee $2
+  call $node_modules/@as-pect/assembly/assembly/internal/Reflect/attachStackTraceToReflectedValue
+  local.get $2
+  local.get $1
+  call $node_modules/@as-pect/assembly/assembly/internal/Expected/reportExpectedReflectedValue
+  local.get $1
+  i32.xor
+  i32.const 1920
+  call $node_modules/@as-pect/assembly/assembly/internal/assert/assert
+  call $node_modules/@as-pect/assembly/assembly/internal/Actual/clearActual
+  call $node_modules/@as-pect/assembly/assembly/internal/Expected/clearExpected
+  i32.const 1920
+  call $~lib/rt/pure/__release
+  local.get $6
+  i32.load offset=4
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $5
+  call $~lib/rt/pure/__retain
+  local.set $1
+  local.get $0
+  i64.load
+  local.get $1
+  i64.load
+  i64.eq
+  if (result i32)
+   local.get $0
+   i64.load offset=8
+   local.get $1
+   i64.load offset=8
+   i64.eq
+  else
+   i32.const 0
+  end
+  if (result i32)
+   local.get $0
+   i64.load offset=16
+   local.get $1
+   i64.load offset=16
+   i64.eq
+  else
+   i32.const 0
+  end
+  if (result i32)
+   local.get $0
+   i64.load offset=24
+   local.get $1
+   i64.load offset=24
+   i64.eq
+  else
+   i32.const 0
+  end
+  local.set $2
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $0
+  call $~lib/rt/pure/__release
+  i32.const 5
+  i32.const 17
+  call $~lib/rt/pure/__new
+  call $~lib/rt/pure/__retain
+  local.tee $0
+  i32.const 0
+  i32.store
+  local.get $0
+  i32.const 0
+  i32.store8 offset=4
+  local.get $0
+  local.get $2
+  i32.store8 offset=4
+  local.get $0
+  i32.load8_u offset=4
+  local.set $7
+  i32.const 1
+  global.set $~argumentsLength
+  call $~lib/map/Map<usize,i32>#constructor
+  local.tee $2
+  call $~lib/rt/pure/__retain
+  i32.const 0
+  i32.const 1
+  i32.const 9
+  i32.const 8448
+  local.get $7
+  f64.convert_i32_u
+  call $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedNumber
+  local.set $1
+  call $~lib/rt/pure/__release
+  local.get $2
+  call $~lib/rt/pure/__release
+  local.get $1
+  call $node_modules/@as-pect/assembly/assembly/internal/Reflect/attachStackTraceToReflectedValue
+  local.get $1
+  call $node_modules/@as-pect/assembly/assembly/internal/Actual/reportActualReflectedValue
+  local.get $0
+  i32.load
+  local.tee $1
+  call $node_modules/@as-pect/assembly/assembly/internal/Expected/reportExpectedTruthy
+  local.get $1
+  local.get $7
+  i32.const 0
+  i32.ne
+  i32.xor
+  i32.const 1920
+  call $node_modules/@as-pect/assembly/assembly/internal/assert/assert
+  call $node_modules/@as-pect/assembly/assembly/internal/Actual/clearActual
+  call $node_modules/@as-pect/assembly/assembly/internal/Expected/clearExpected
+  i32.const 1920
+  call $~lib/rt/pure/__release
+  local.get $4
+  call $~lib/rt/pure/__release
+  local.get $5
+  call $~lib/rt/pure/__release
+  local.get $6
+  call $~lib/rt/pure/__release
+  local.get $3
+  call $~lib/rt/pure/__release
+  local.get $0
+  call $~lib/rt/pure/__release
+ )
+ (func $start:assembly/__tests__/index.spec~anonymous|3
+  i32.const 8208
+  i32.const 8288
+  call $node_modules/@as-pect/assembly/assembly/internal/Test/test
+  i32.const 8320
+  i32.const 8480
+  call $node_modules/@as-pect/assembly/assembly/internal/Test/test
+ )
  (func $start:node_modules/@as-pect/assembly/assembly/internal/noOp~anonymous|0
   nop
  )
@@ -5805,9 +6402,12 @@
   nop
  )
  (func $node_modules/@as-pect/assembly/assembly/internal/RTrace/__getUsizeArrayId (result i32)
-  i32.const 13
+  i32.const 14
  )
  (func $~start
+  (local $0 i32)
+  (local $1 i32)
+  (local $2 i32)
   global.get $~started
   if
    return
@@ -5815,6 +6415,34 @@
    i32.const 1
    global.set $~started
   end
+  i64.const -1
+  i64.const -1
+  i64.const -1
+  i64.const 72057594037927936
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.tee $0
+  i64.const 1
+  i64.const 0
+  i64.const 0
+  i64.const 0
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  local.tee $1
+  call $~lib/as-bignum/integer/u256/u256.sub
+  local.tee $2
+  call $~lib/rt/pure/__retain
+  global.set $assembly//index/INNER_PATH_MASK
+  i64.const 3
+  i64.const 0
+  i64.const 0
+  i64.const 0
+  call $~lib/as-bignum/integer/u256/u256#constructor
+  global.set $assembly//index/PATH_SEGMENT_MASK
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $2
+  call $~lib/rt/pure/__release
   i32.const 1248
   i32.const 3616
   call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
@@ -5823,6 +6451,9 @@
   call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
   i32.const 6880
   i32.const 8112
+  call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
+  i32.const 8144
+  i32.const 8512
   call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
  )
  (func $~lib/rt/pure/decrement (param $0 i32)
@@ -5855,17 +6486,17 @@
    block $__inlined_func$~lib/rt/__visit_members
     block $folding-inner0
      block $switch$1$default
-      block $switch$1$case$13
-       block $switch$1$case$12
-        block $switch$1$case$8
-         block $switch$1$case$7
-          block $switch$1$case$6
+      block $switch$1$case$14
+       block $switch$1$case$13
+        block $switch$1$case$9
+         block $switch$1$case$8
+          block $switch$1$case$7
            block $switch$1$case$4
             local.get $0
             i32.const 12
             i32.add
             i32.load
-            br_table $__inlined_func$~lib/rt/__visit_members $__inlined_func$~lib/rt/__visit_members $switch$1$case$4 $__inlined_func$~lib/rt/__visit_members $switch$1$case$6 $switch$1$case$7 $switch$1$case$8 $folding-inner0 $folding-inner0 $__inlined_func$~lib/rt/__visit_members $switch$1$case$12 $switch$1$case$13 $switch$1$case$8 $folding-inner0 $switch$1$default
+            br_table $__inlined_func$~lib/rt/__visit_members $__inlined_func$~lib/rt/__visit_members $switch$1$case$4 $__inlined_func$~lib/rt/__visit_members $__inlined_func$~lib/rt/__visit_members $switch$1$case$7 $switch$1$case$8 $switch$1$case$9 $folding-inner0 $folding-inner0 $__inlined_func$~lib/rt/__visit_members $switch$1$case$13 $switch$1$case$14 $switch$1$case$9 $folding-inner0 $switch$1$case$9 $__inlined_func$~lib/rt/__visit_members $__inlined_func$~lib/rt/__visit_members $switch$1$default
            end
            local.get $0
            i32.load offset=20
@@ -5981,7 +6612,7 @@
  )
  (func $~lib/rt/pure/__visit (param $0 i32)
   local.get $0
-  i32.const 8276
+  i32.const 8708
   i32.lt_u
   if
    return
