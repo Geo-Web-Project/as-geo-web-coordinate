@@ -1,6 +1,10 @@
+import { u256 } from "as-bignum";
+
 const GW_MAX_LAT: u32 = (1 << 23) - 1;
 const GW_MAX_LON: u32 = (1 << 24) - 1;
 const GW_INCRE = 0.000021457672119140625;
+const INNER_PATH_MASK: u256 = (new u256(u64.MAX_VALUE, u64.MAX_VALUE, u64.MAX_VALUE, (1 << 56)) - u256.fromU64(1));
+const PATH_SEGMENT_MASK: u256 = u256.fromU64((1 << 2) - 1);
 
 export enum Direction {
   North = 0,
@@ -106,5 +110,36 @@ export class GeoWebCoordinate {
 
   static make_gw_coord(x: u32, y: u32): u64 {
     return u64(x) << 32 | y;
+  }
+}
+
+export class DirectionPath {
+  direction: Direction;
+  path: u256;
+
+  constructor(direction: Direction, path: u256) {
+    this.direction = direction;
+    this.path = path;
+  }
+}
+
+export class GeoWebCoordinatePath {
+  static length(path: u256): u64 {
+    return (path.hi2 >> 56);
+  }
+
+  static hasNext(path: u256): bool {
+    return this.length(path) > 0;
+  }
+
+  static nextDirection(path: u256): DirectionPath {
+    let _length = this.length(path);
+    let _path = (path & INNER_PATH_MASK);
+    let direction = (_path & PATH_SEGMENT_MASK).toI32();
+
+    let lengthMask = new u256(0, 0, 0, (_length - 1) << 56);
+    let newPath = (_path >> 2) | lengthMask;
+    
+    return new DirectionPath(direction, newPath);
   }
 }
