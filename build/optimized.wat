@@ -49,10 +49,12 @@
  (data (i32.const 3228) "\02\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\02\00\00\000")
  (data (i32.const 3260) "H\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00H\00\00\000\001\002\003\004\005\006\007\008\009\00a\00b\00c\00d\00e\00f\00g\00h\00i\00j\00k\00l\00m\00n\00o\00p\00q\00r\00s\00t\00u\00v\00w\00x\00y\00z")
  (data (i32.const 3356) " \00\00\00\01\00\00\00\00\00\00\00\01\00\00\00 \00\00\00a\00s\00s\00e\00m\00b\00l\00y\00/\00u\002\005\006\00.\00t\00s")
- (data (i32.const 3420) "\1c\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1c\00\00\00I\00n\00v\00a\00l\00i\00d\00 \00l\00e\00n\00g\00t\00h")
- (data (i32.const 3468) "\1a\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1a\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
- (data (i32.const 3516) "&\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
- (data (i32.const 3584) "\0d\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00b\00\00\00\00\00\00\00a\00\00\00\02")
+ (data (i32.const 3420) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\00I\00n\00d\00e\00x\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e")
+ (data (i32.const 3484) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\00~\00l\00i\00b\00/\00t\00y\00p\00e\00d\00a\00r\00r\00a\00y\00.\00t\00s")
+ (data (i32.const 3548) "\1c\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1c\00\00\00I\00n\00v\00a\00l\00i\00d\00 \00l\00e\00n\00g\00t\00h")
+ (data (i32.const 3596) "\1a\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1a\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
+ (data (i32.const 3644) "&\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
+ (data (i32.const 3712) "\0d\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00b\00\00\00\00\00\00\00a\00\00\00\02")
  (table $0 2 funcref)
  (elem (i32.const 1) $assembly/index/GeoWebCoordinate.to_gps_hex~anonymous|0)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
@@ -67,7 +69,7 @@
  (global $~lib/util/number/_frc_pow (mut i64) (i64.const 0))
  (global $~lib/util/number/_exp_pow (mut i32) (i32.const 0))
  (global $~argumentsLength (mut i32) (i32.const 0))
- (global $~lib/rt/__rtti_base i32 (i32.const 3584))
+ (global $~lib/rt/__rtti_base i32 (i32.const 3712))
  (global $assembly/index/GeoWebCoordinate i32 (i32.const 3))
  (global $assembly/index/DirectionPath i32 (i32.const 8))
  (global $assembly/index/GeoWebCoordinatePath i32 (i32.const 10))
@@ -146,7 +148,6 @@
  (export "u256.fromBytesLE" (func $assembly/u256/u256.fromBytesLE))
  (export "u256.fromBytesBE" (func $assembly/u256/u256.fromBytesBE))
  (export "u256.fromUint8ArrayLE" (func $assembly/u256/u256.fromUint8ArrayLE))
- (export "u256.fromUint8ArrayBE" (func $assembly/u256/u256.fromUint8ArrayBE))
  (export "u256.fromF64" (func $assembly/u256/u256.fromF64))
  (export "u256.fromF32" (func $assembly/u256/u256.fromF32))
  (export "u256.isEmpty" (func $assembly/u256/u256.isEmpty))
@@ -734,10 +735,10 @@
   if
    unreachable
   end
-  i32.const 3696
+  i32.const 3824
   i32.const 0
   i32.store
-  i32.const 5264
+  i32.const 5392
   i32.const 0
   i32.store
   loop $for-loop|0
@@ -748,7 +749,7 @@
     local.get $1
     i32.const 2
     i32.shl
-    i32.const 3696
+    i32.const 3824
     i32.add
     i32.const 0
     i32.store offset=4
@@ -766,7 +767,7 @@
       i32.add
       i32.const 2
       i32.shl
-      i32.const 3696
+      i32.const 3824
       i32.add
       i32.const 0
       i32.store offset=96
@@ -784,13 +785,13 @@
     br $for-loop|0
    end
   end
-  i32.const 3696
-  i32.const 5268
+  i32.const 3824
+  i32.const 5396
   memory.size
   i32.const 16
   i32.shl
   call $~lib/rt/tlsf/addMemory
-  i32.const 3696
+  i32.const 3824
   global.set $~lib/rt/tlsf/ROOT
  )
  (func $~lib/rt/tlsf/prepareSize (param $0 i32) (result i32)
@@ -1412,7 +1413,7 @@
   i32.and
   call $~lib/memory/memory.copy
   local.get $1
-  i32.const 3692
+  i32.const 3820
   i32.ge_u
   if
    local.get $0
@@ -1454,7 +1455,7 @@
   i32.add
   local.set $2
   local.get $0
-  i32.const 3692
+  i32.const 3820
   i32.lt_u
   if
    global.get $~lib/rt/tlsf/ROOT
@@ -1549,7 +1550,7 @@
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  i32.const 3692
+  i32.const 3820
   i32.gt_u
   if
    local.get $0
@@ -1596,7 +1597,7 @@
  )
  (func $~lib/rt/pure/__release (param $0 i32)
   local.get $0
-  i32.const 3692
+  i32.const 3820
   i32.gt_u
   if
    local.get $0
@@ -4111,12 +4112,17 @@
  )
  (func $assembly/u256/u256.fromUint8ArrayLE (param $0 i32) (result i32)
   (local $1 i32)
+  (local $2 i32)
+  (local $3 i64)
+  (local $4 i64)
+  (local $5 i64)
+  (local $6 i64)
   local.get $0
   call $~lib/rt/pure/__retain
-  local.tee $0
+  local.tee $2
   i32.load offset=8
   if (result i32)
-   local.get $0
+   local.get $2
    i32.load offset=8
    i32.const 31
    i32.and
@@ -4133,62 +4139,90 @@
    call $~lib/builtins/abort
    unreachable
   end
-  i32.const 0
-  local.get $0
-  i32.load offset=4
-  local.tee $1
-  i64.load
-  local.get $1
-  i64.load offset=8
-  local.get $1
-  i64.load offset=16
-  local.get $1
-  i64.load offset=24
-  call $assembly/u256/u256#constructor
-  local.get $0
-  call $~lib/rt/pure/__release
- )
- (func $assembly/u256/u256.fromUint8ArrayBE (param $0 i32) (result i32)
-  (local $1 i32)
-  local.get $0
-  call $~lib/rt/pure/__retain
-  local.tee $0
-  i32.load offset=8
-  if (result i32)
-   local.get $0
+  loop $for-loop|0
+   local.get $1
+   local.get $2
    i32.load offset=8
-   i32.const 31
-   i32.and
-   i32.eqz
-  else
-   i32.const 0
-  end
-  i32.eqz
-  if
-   i32.const 0
-   i32.const 3376
-   i32.const 107
-   i32.const 5
-   call $~lib/builtins/abort
-   unreachable
+   i32.lt_s
+   if
+    local.get $1
+    local.get $2
+    i32.load offset=8
+    i32.ge_u
+    if
+     i32.const 3440
+     i32.const 3504
+     i32.const 152
+     i32.const 45
+     call $~lib/builtins/abort
+     unreachable
+    end
+    local.get $1
+    local.get $2
+    i32.load offset=4
+    i32.add
+    i32.load8_u
+    local.set $0
+    local.get $1
+    i32.const 8
+    i32.lt_s
+    if
+     local.get $0
+     i64.extend_i32_u
+     local.get $3
+     i64.const 8
+     i64.shl
+     i64.or
+     local.set $3
+    else
+     local.get $1
+     i32.const 16
+     i32.lt_s
+     if
+      local.get $0
+      i64.extend_i32_u
+      local.get $4
+      i64.const 8
+      i64.shl
+      i64.or
+      local.set $4
+     else
+      local.get $1
+      i32.const 24
+      i32.lt_s
+      if
+       local.get $0
+       i64.extend_i32_u
+       local.get $5
+       i64.const 8
+       i64.shl
+       i64.or
+       local.set $5
+      else
+       local.get $0
+       i64.extend_i32_u
+       local.get $6
+       i64.const 8
+       i64.shl
+       i64.or
+       local.set $6
+      end
+     end
+    end
+    local.get $1
+    i32.const 1
+    i32.add
+    local.set $1
+    br $for-loop|0
+   end
   end
   i32.const 0
-  local.get $0
-  i32.load offset=4
-  local.tee $1
-  i64.load offset=24
-  call $~lib/polyfills/bswap<u64>
-  local.get $1
-  i64.load offset=16
-  call $~lib/polyfills/bswap<u64>
-  local.get $1
-  i64.load offset=8
-  call $~lib/polyfills/bswap<u64>
-  local.get $1
-  i64.load
-  call $~lib/polyfills/bswap<u64>
+  local.get $3
+  local.get $4
+  local.get $5
+  local.get $6
   call $assembly/u256/u256#constructor
-  local.get $0
+  local.get $2
   call $~lib/rt/pure/__release
  )
  (func $assembly/u256/u256.fromF64 (param $0 f64) (result i32)
@@ -5579,7 +5613,7 @@
  )
  (func $~lib/rt/pure/__visit (param $0 i32)
   local.get $0
-  i32.const 3692
+  i32.const 3820
   i32.lt_u
   if
    return

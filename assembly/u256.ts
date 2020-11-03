@@ -93,25 +93,29 @@ export class u256 {
 
   static fromUint8ArrayLE(array: Uint8Array): u256 {
     assert(array.length && (array.length & 31) == 0);
-    // @ts-ignore
-    var buffer = array.dataStart;
-    return new u256(
-        load<u64>(buffer, 0 * sizeof<u64>()),
-        load<u64>(buffer, 1 * sizeof<u64>()),
-        load<u64>(buffer, 2 * sizeof<u64>()),
-        load<u64>(buffer, 3 * sizeof<u64>())
-    );
-  }
 
-  static fromUint8ArrayBE(array: Uint8Array): u256 {
-    assert(array.length && (array.length & 31) == 0);
-    // @ts-ignore
-    var buffer = array.dataStart;
+    let lo1: u64 = 0;
+    let lo2: u64 = 0;
+    let hi1: u64 = 0;
+    let hi2: u64 = 0;
+    for (let i = 0; i < array.length; i++) {
+      const element: u8 = array[i];
+      if (i < 8) {
+        lo1 = (lo1 << 8) | element;
+      } else if (i < 16) {
+        lo2 = (lo2 << 8) | element;
+      } else if (i < 24) {
+        hi1 = (hi1 << 8) | element;
+      } else {
+        hi2 = (hi2 << 8) | element;
+      }
+    }
+
     return new u256(
-        bswap<u64>(load<u64>(buffer, 3 * sizeof<u64>())),
-        bswap<u64>(load<u64>(buffer, 2 * sizeof<u64>())),
-        bswap<u64>(load<u64>(buffer, 1 * sizeof<u64>())),
-        bswap<u64>(load<u64>(buffer, 0 * sizeof<u64>()))
+      lo1,
+      lo2,
+      hi1,
+      hi2
     );
   }
 
