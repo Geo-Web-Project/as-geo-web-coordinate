@@ -1,5 +1,4 @@
-import { GeoWebCoordinate, Direction, GeoWebCoordinatePath } from '../';
-import { u256 } from "as-bignum";
+import { GeoWebCoordinate, Direction, GeoWebCoordinatePath, u256 } from '../';
 
 describe('from_gps', () => {
   test('should convert basic', () => {
@@ -215,6 +214,14 @@ describe('traverse', () => {
     let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.West);
   
     expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(u32((2 ** 24)-1), 0));
+  })
+
+  test('should traverse hex', () => {
+    let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
+
+    let newGwCoord = GeoWebCoordinate.traverse_hex(gwCoord.toString(16), Direction.North);
+  
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 1));
   })
 })
 

@@ -1,4 +1,4 @@
-import { u256 } from "as-bignum";
+import { u256 } from "./u256";
 
 const GW_MAX_LAT: u32 = (1 << 23) - 1;
 const GW_MAX_LON: u32 = (1 << 24) - 1;
@@ -65,6 +65,10 @@ export class GeoWebCoordinate {
       tr_lon, tr_lat,
       tl_lon, tl_lat,
     ];
+  }
+
+  static traverse_hex(gwCoord: string, direction: Direction): u64 {
+    return this.traverse(<u64>Number.parseInt(gwCoord, 16), direction)
   }
 
   static traverse(gwCoord: u64, direction: Direction): u64 {
@@ -143,3 +147,5 @@ export class GeoWebCoordinatePath {
     return new DirectionPath(direction, newPath);
   }
 }
+
+export * from './u256';

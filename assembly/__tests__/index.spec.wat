@@ -11,6 +11,7 @@
  (type $none_=>_i32 (func (result i32)))
  (type $i32_i32_i32_i32_=>_i32 (func (param i32 i32 i32 i32) (result i32)))
  (type $f64_i32_i32_=>_i32 (func (param f64 i32 i32) (result i32)))
+ (type $i32_=>_f64 (func (param i32) (result f64)))
  (type $i32_i32_i32_i32_=>_none (func (param i32 i32 i32 i32)))
  (type $i32_i64_=>_none (func (param i32 i64)))
  (type $i32_f64_=>_none (func (param i32 f64)))
@@ -23,7 +24,6 @@
  (type $i32_i32_=>_i64 (func (param i32 i32) (result i64)))
  (type $i64_i32_=>_i64 (func (param i64 i32) (result i64)))
  (type $f64_f64_=>_i64 (func (param f64 f64) (result i64)))
- (type $i32_=>_f64 (func (param i32) (result f64)))
  (type $i32_i32_=>_f64 (func (param i32 i32) (result f64)))
  (import "env" "memory" (memory $0 1))
  (data (i32.const 1036) "(\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00(\00\00\00a\00l\00l\00o\00c\00a\00t\00i\00o\00n\00 \00t\00o\00o\00 \00l\00a\00r\00g\00e")
@@ -138,17 +138,19 @@
  (data (i32.const 7932) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00(")
  (data (i32.const 7964) "J\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00J\00\00\00s\00h\00o\00u\00l\00d\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00m\00e\00r\00i\00d\00i\00a\00n\00 \00w\00e\00s\00t\00 \00-\00>\00 \00e\00a\00s\00t")
  (data (i32.const 8060) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00)")
- (data (i32.const 8092) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00*")
- (data (i32.const 8124) "(\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00(\00\00\00G\00e\00o\00W\00e\00b\00C\00o\00o\00r\00d\00i\00n\00a\00t\00e\00P\00a\00t\00h")
- (data (i32.const 8188) ":\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00:\00\00\00s\00h\00o\00u\00l\00d\00 \00p\00a\00r\00s\00e\00 \00l\00e\00n\00g\00t\00h\00 \00f\00r\00o\00m\00 \00p\00a\00t\00h")
- (data (i32.const 8268) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00+")
- (data (i32.const 8300) "@\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00@\00\00\00s\00h\00o\00u\00l\00d\00 \00p\00a\00r\00s\00e\00 \00d\00i\00r\00e\00c\00t\00i\00o\00n\00 \00f\00r\00o\00m\00 \00p\00a\00t\00h")
- (data (i32.const 8396) "\06\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\06\00\00\00i\003\002")
- (data (i32.const 8428) "\08\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\08\00\00\00b\00o\00o\00l")
- (data (i32.const 8460) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00,")
- (data (i32.const 8492) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00-")
- (data (i32.const 8524) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00.")
- (data (i32.const 8560) "\12\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\000\t\02\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\01\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 ")
+ (data (i32.const 8092) "&\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00&\00\00\00s\00h\00o\00u\00l\00d\00 \00t\00r\00a\00v\00e\00r\00s\00e\00 \00h\00e\00x")
+ (data (i32.const 8156) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00*")
+ (data (i32.const 8188) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00+")
+ (data (i32.const 8220) "(\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00(\00\00\00G\00e\00o\00W\00e\00b\00C\00o\00o\00r\00d\00i\00n\00a\00t\00e\00P\00a\00t\00h")
+ (data (i32.const 8284) ":\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00:\00\00\00s\00h\00o\00u\00l\00d\00 \00p\00a\00r\00s\00e\00 \00l\00e\00n\00g\00t\00h\00 \00f\00r\00o\00m\00 \00p\00a\00t\00h")
+ (data (i32.const 8364) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00,")
+ (data (i32.const 8396) "@\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00@\00\00\00s\00h\00o\00u\00l\00d\00 \00p\00a\00r\00s\00e\00 \00d\00i\00r\00e\00c\00t\00i\00o\00n\00 \00f\00r\00o\00m\00 \00p\00a\00t\00h")
+ (data (i32.const 8492) "\06\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\06\00\00\00i\003\002")
+ (data (i32.const 8524) "\08\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\08\00\00\00b\00o\00o\00l")
+ (data (i32.const 8556) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00-")
+ (data (i32.const 8588) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00.")
+ (data (i32.const 8620) "\08\00\00\00\01\00\00\00\00\00\00\00\06\00\00\00\08\00\00\00/")
+ (data (i32.const 8656) "\12\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\000\t\02\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\1a\00\00\00\00\00\00\"\t\00\00\00\00\00\00 \00\00\00\00\00\00\00\"A\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\"\01\00\00\00\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00 ")
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
  (import "__aspect" "createReflectedLong" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedLong (param i32 i32 i32 i32 i32 i32) (result i32)))
  (import "__aspect" "attachStackTraceToReflectedValue" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/attachStackTraceToReflectedValue (param i32)))
@@ -162,8 +164,8 @@
  (import "__aspect" "reportGroupTypeNode" (func $node_modules/@as-pect/assembly/assembly/internal/Test/describe (param i32 i32)))
  (import "__aspect" "createReflectedNumber" (func $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedNumber (param i32 i32 i32 i32 f64) (result i32)))
  (import "__aspect" "reportExpectedTruthy" (func $node_modules/@as-pect/assembly/assembly/internal/Expected/reportExpectedTruthy (param i32)))
- (table $0 47 funcref)
- (elem (i32.const 1) $start:assembly/__tests__/index.spec~anonymous|0~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10 $start:assembly/__tests__/index.spec~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|0 $assembly//index/GeoWebCoordinate.to_gps_hex~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|3~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|3~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|3 $start:node_modules/@as-pect/assembly/assembly/internal/noOp~anonymous|0)
+ (table $0 48 funcref)
+ (elem (i32.const 1) $start:assembly/__tests__/index.spec~anonymous|0~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|9 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|0~anonymous|10 $start:assembly/__tests__/index.spec~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|0 $assembly//index/GeoWebCoordinate.to_gps_hex~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|3 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|5~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|5 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|6 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|7 $start:assembly/__tests__/index.spec~anonymous|2~anonymous|8 $start:assembly/__tests__/index.spec~anonymous|2 $start:assembly/__tests__/index.spec~anonymous|3~anonymous|0 $start:assembly/__tests__/index.spec~anonymous|3~anonymous|1 $start:assembly/__tests__/index.spec~anonymous|3 $start:node_modules/@as-pect/assembly/assembly/internal/noOp~anonymous|0)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
  (global $assembly//index/INNER_PATH_MASK (mut i32) (i32.const 0))
  (global $assembly//index/PATH_SEGMENT_MASK (mut i32) (i32.const 0))
@@ -175,7 +177,7 @@
  (global $~lib/util/number/_frc_pow (mut i64) (i64.const 0))
  (global $~lib/util/number/_exp_pow (mut i32) (i32.const 0))
  (global $~started (mut i32) (i32.const 0))
- (global $~lib/rt/__rtti_base i32 (i32.const 8560))
+ (global $~lib/rt/__rtti_base i32 (i32.const 8656))
  (export "_start" (func $~start))
  (export "memory" (memory $0))
  (export "table" (table $0))
@@ -755,10 +757,10 @@
   if
    unreachable
   end
-  i32.const 8720
+  i32.const 8816
   i32.const 0
   i32.store
-  i32.const 10288
+  i32.const 10384
   i32.const 0
   i32.store
   loop $for-loop|0
@@ -769,7 +771,7 @@
     local.get $1
     i32.const 2
     i32.shl
-    i32.const 8720
+    i32.const 8816
     i32.add
     i32.const 0
     i32.store offset=4
@@ -787,7 +789,7 @@
       i32.add
       i32.const 2
       i32.shl
-      i32.const 8720
+      i32.const 8816
       i32.add
       i32.const 0
       i32.store offset=96
@@ -805,13 +807,13 @@
     br $for-loop|0
    end
   end
-  i32.const 8720
-  i32.const 10292
+  i32.const 8816
+  i32.const 10388
   memory.size
   i32.const 16
   i32.shl
   call $~lib/rt/tlsf/addMemory
-  i32.const 8720
+  i32.const 8816
   global.set $~lib/rt/tlsf/ROOT
  )
  (func $~lib/rt/tlsf/prepareSize (param $0 i32) (result i32)
@@ -1433,7 +1435,7 @@
   i32.and
   call $~lib/memory/memory.copy
   local.get $1
-  i32.const 8708
+  i32.const 8804
   i32.ge_u
   if
    local.get $0
@@ -1475,7 +1477,7 @@
   i32.add
   local.set $2
   local.get $0
-  i32.const 8708
+  i32.const 8804
   i32.lt_u
   if
    global.get $~lib/rt/tlsf/ROOT
@@ -1570,7 +1572,7 @@
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  i32.const 8708
+  i32.const 8804
   i32.gt_u
   if
    local.get $0
@@ -1617,7 +1619,7 @@
  )
  (func $~lib/rt/pure/__release (param $0 i32)
   local.get $0
-  i32.const 8708
+  i32.const 8804
   i32.gt_u
   if
    local.get $0
@@ -1626,7 +1628,7 @@
    call $~lib/rt/pure/decrement
   end
  )
- (func $~lib/as-bignum/integer/u256/u256#constructor (param $0 i64) (param $1 i64) (param $2 i64) (param $3 i64) (result i32)
+ (func $assembly//u256/u256#constructor (param $0 i64) (param $1 i64) (param $2 i64) (param $3 i64) (result i32)
   (local $4 i32)
   i32.const 32
   i32.const 3
@@ -1646,7 +1648,7 @@
   i64.store offset=24
   local.get $4
  )
- (func $~lib/as-bignum/integer/u256/u256.sub (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly//u256/u256.sub (param $0 i32) (param $1 i32) (result i32)
   (local $2 i64)
   (local $3 i64)
   (local $4 i64)
@@ -1724,7 +1726,7 @@
   i64.const 63
   i64.shr_u
   i64.sub
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.get $0
   call $~lib/rt/pure/__release
   local.get $1
@@ -3232,6 +3234,67 @@
    br_if $do-continue|0
   end
  )
+ (func $~lib/util/number/utoa64 (param $0 i64) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i64)
+  local.get $0
+  i64.eqz
+  if
+   i32.const 4288
+   return
+  end
+  i32.const 63
+  local.get $0
+  i64.clz
+  i32.wrap_i64
+  i32.sub
+  i32.const 2
+  i32.shr_s
+  i32.const 1
+  i32.add
+  local.tee $1
+  i32.const 1
+  i32.shl
+  i32.const 1
+  call $~lib/rt/pure/__new
+  local.tee $2
+  local.set $3
+  loop $do-continue|0
+   local.get $3
+   local.get $1
+   i32.const 1
+   i32.sub
+   local.tee $1
+   i32.const 1
+   i32.shl
+   i32.add
+   local.get $0
+   i64.const 15
+   i64.and
+   i64.const 48
+   i64.or
+   local.tee $4
+   i64.const 39
+   i64.const 0
+   local.get $4
+   i64.const 57
+   i64.gt_u
+   select
+   i64.add
+   i64.store16
+   local.get $0
+   i64.const 4
+   i64.shr_u
+   local.tee $0
+   i64.const 0
+   i64.ne
+   br_if $do-continue|0
+  end
+  local.get $2
+  call $~lib/rt/pure/__retain
+ )
  (func $~lib/util/string/strtol<f64> (param $0 i32) (result f64)
   (local $1 i32)
   (local $2 i32)
@@ -3466,6 +3529,15 @@
   local.get $2
   call $~lib/rt/pure/__release
   f64.const nan:0x8000000000000
+ )
+ (func $~lib/number/F64.parseInt (param $0 i32) (result f64)
+  (local $1 f64)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.tee $0
+  call $~lib/util/string/strtol<f64>
+  local.get $0
+  call $~lib/rt/pure/__release
  )
  (func $~lib/util/number/genDigits (param $0 i64) (param $1 i32) (param $2 i64) (param $3 i32) (param $4 i64) (param $5 i32) (result i32)
   (local $6 i64)
@@ -4424,26 +4496,27 @@
  )
  (func $assembly//index/GeoWebCoordinate.to_gps_hex (param $0 i32) (result i32)
   (local $1 i32)
-  (local $2 f64)
+  (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
   (local $7 i32)
-  (local $8 i32)
+  (local $8 f64)
+  (local $9 i32)
   local.get $0
   call $~lib/rt/pure/__retain
-  local.tee $5
-  call $~lib/rt/pure/__retain
-  local.tee $0
-  call $~lib/util/string/strtol<f64>
-  local.get $0
-  call $~lib/rt/pure/__release
+  local.tee $4
+  call $~lib/number/F64.parseInt
   i64.trunc_f64_u
   call $assembly//index/GeoWebCoordinate.to_gps
-  local.tee $0
+  local.tee $5
+  local.set $1
+  i32.const 0
+  local.set $0
+  local.get $1
   i32.load offset=12
-  local.tee $4
+  local.tee $3
   i32.const 2
   i32.const 11
   i32.const 0
@@ -4453,59 +4526,59 @@
   i32.load offset=4
   local.set $7
   loop $for-loop|0
-   local.get $1
-   local.get $4
    local.get $0
-   i32.load offset=12
-   local.tee $3
-   local.get $4
    local.get $3
+   local.get $1
+   i32.load offset=12
+   local.tee $2
+   local.get $3
+   local.get $2
    i32.lt_s
    select
    i32.lt_s
    if
-    local.get $0
-    i32.load offset=4
     local.get $1
+    i32.load offset=4
+    local.get $0
     i32.const 3
     i32.shl
     i32.add
     f64.load
-    local.set $2
+    local.set $8
     i32.const 3
     global.set $~argumentsLength
     local.get $7
-    local.get $1
+    local.get $0
     i32.const 2
     i32.shl
     i32.add
-    local.get $2
-    local.get $1
+    local.get $8
     local.get $0
+    local.get $1
     i32.const 5536
     i32.load
     call_indirect (type $f64_i32_i32_=>_i32)
-    local.tee $3
+    local.tee $2
     call $~lib/rt/pure/__retain
-    local.tee $8
+    local.tee $9
     call $~lib/rt/pure/__retain
     i32.store
-    local.get $3
+    local.get $2
     call $~lib/rt/pure/__release
-    local.get $8
+    local.get $9
     call $~lib/rt/pure/__release
-    local.get $1
+    local.get $0
     i32.const 1
     i32.add
-    local.set $1
+    local.set $0
     br $for-loop|0
    end
   end
   i32.const 5536
   call $~lib/rt/pure/__release
-  local.get $0
-  call $~lib/rt/pure/__release
   local.get $5
+  call $~lib/rt/pure/__release
+  local.get $4
   call $~lib/rt/pure/__release
   local.get $6
  )
@@ -4899,10 +4972,10 @@
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|1
   (local $0 i32)
-  (local $1 i64)
+  (local $1 i32)
   (local $2 i32)
   (local $3 i32)
-  (local $4 i64)
+  (local $4 i32)
   (local $5 i32)
   (local $6 i32)
   (local $7 i32)
@@ -4916,138 +4989,85 @@
   (local $15 i32)
   (local $16 i32)
   (local $17 i32)
-  (local $18 i32)
-  (local $19 i32)
-  block $__inlined_func$~lib/util/number/utoa64 (result i32)
-   i32.const 4288
-   i32.const 13514979
-   i32.const 5965232
-   call $assembly//index/GeoWebCoordinate.make_gw_coord
-   local.tee $1
-   i64.eqz
-   br_if $__inlined_func$~lib/util/number/utoa64
-   drop
-   i32.const 63
-   local.get $1
-   i64.clz
-   i32.wrap_i64
-   i32.sub
-   i32.const 2
-   i32.shr_s
-   i32.const 1
-   i32.add
-   local.tee $0
-   i32.const 1
-   i32.shl
-   i32.const 1
-   call $~lib/rt/pure/__new
-   local.tee $2
-   local.set $3
-   loop $do-continue|0
-    local.get $3
-    local.get $0
-    i32.const 1
-    i32.sub
-    local.tee $0
-    i32.const 1
-    i32.shl
-    i32.add
-    local.get $1
-    i64.const 15
-    i64.and
-    i64.const 48
-    i64.or
-    local.tee $4
-    i64.const 39
-    i64.const 0
-    local.get $4
-    i64.const 57
-    i64.gt_u
-    select
-    i64.add
-    i64.store16
-    local.get $1
-    i64.const 4
-    i64.shr_u
-    local.tee $1
-    i64.const 0
-    i64.ne
-    br_if $do-continue|0
-   end
-   local.get $2
-   call $~lib/rt/pure/__retain
-  end
-  local.tee $2
+  i32.const 13514979
+  i32.const 5965232
+  call $assembly//index/GeoWebCoordinate.make_gw_coord
+  call $~lib/util/number/utoa64
+  local.tee $1
   call $assembly//index/GeoWebCoordinate.to_gps_hex
   local.tee $0
   i32.const 0
   call $~lib/array/Array<~lib/string/String>#__get
-  local.tee $3
+  local.tee $2
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
-  local.tee $5
+  local.tee $3
   i32.const 5696
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
   local.get $0
   i32.const 1
   call $~lib/array/Array<~lib/string/String>#__get
-  local.tee $6
+  local.tee $4
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
-  local.tee $7
+  local.tee $5
   i32.const 5984
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
   local.get $0
   i32.const 2
   call $~lib/array/Array<~lib/string/String>#__get
-  local.tee $8
+  local.tee $6
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
-  local.tee $9
+  local.tee $7
   i32.const 6048
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
   local.get $0
   i32.const 3
   call $~lib/array/Array<~lib/string/String>#__get
-  local.tee $10
+  local.tee $8
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
-  local.tee $11
+  local.tee $9
   i32.const 5984
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
   local.get $0
   i32.const 4
   call $~lib/array/Array<~lib/string/String>#__get
-  local.tee $12
+  local.tee $10
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
-  local.tee $13
+  local.tee $11
   i32.const 6048
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
   local.get $0
   i32.const 5
   call $~lib/array/Array<~lib/string/String>#__get
-  local.tee $14
+  local.tee $12
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
-  local.tee $15
+  local.tee $13
   i32.const 6112
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
   local.get $0
   i32.const 6
   call $~lib/array/Array<~lib/string/String>#__get
-  local.tee $16
+  local.tee $14
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
-  local.tee $17
+  local.tee $15
   i32.const 5696
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
   local.get $0
   i32.const 7
   call $~lib/array/Array<~lib/string/String>#__get
-  local.tee $18
+  local.tee $16
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<~lib/string/String>
-  local.tee $19
+  local.tee $17
   i32.const 6112
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<~lib/string/String>#toBe
-  local.get $2
+  local.get $1
   call $~lib/rt/pure/__release
   local.get $0
   call $~lib/rt/pure/__release
+  local.get $2
+  call $~lib/rt/pure/__release
   local.get $3
+  call $~lib/rt/pure/__release
+  local.get $4
   call $~lib/rt/pure/__release
   local.get $5
   call $~lib/rt/pure/__release
@@ -5074,10 +5094,6 @@
   local.get $16
   call $~lib/rt/pure/__release
   local.get $17
-  call $~lib/rt/pure/__release
-  local.get $18
-  call $~lib/rt/pure/__release
-  local.get $19
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|2
@@ -5683,7 +5699,7 @@
        if
         i32.const 6992
         i32.const 1456
-        i32.const 78
+        i32.const 82
         i32.const 11
         call $~lib/builtins/abort
         unreachable
@@ -5696,7 +5712,7 @@
       if
        i32.const 7072
        i32.const 1456
-       i32.const 83
+       i32.const 87
        i32.const 11
        call $~lib/builtins/abort
        unreachable
@@ -5729,7 +5745,7 @@
    end
    i32.const 7152
    i32.const 1456
-   i32.const 104
+   i32.const 108
    i32.const 9
    call $~lib/builtins/abort
    unreachable
@@ -5877,6 +5893,34 @@
   local.get $0
   call $~lib/rt/pure/__release
  )
+ (func $start:assembly/__tests__/index.spec~anonymous|2~anonymous|8
+  (local $0 i32)
+  (local $1 i32)
+  (local $2 i64)
+  i32.const 0
+  i32.const 0
+  call $assembly//index/GeoWebCoordinate.make_gw_coord
+  call $~lib/util/number/utoa64
+  local.tee $1
+  call $~lib/rt/pure/__retain
+  local.tee $0
+  call $~lib/number/F64.parseInt
+  i64.trunc_f64_u
+  i32.const 0
+  call $assembly//index/GeoWebCoordinate.traverse
+  local.get $0
+  call $~lib/rt/pure/__release
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
+  local.tee $0
+  i32.const 0
+  i32.const 1
+  call $assembly//index/GeoWebCoordinate.make_gw_coord
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<u64>#toBe
+  local.get $1
+  call $~lib/rt/pure/__release
+  local.get $0
+  call $~lib/rt/pure/__release
+ )
  (func $start:assembly/__tests__/index.spec~anonymous|2
   i32.const 6928
   i32.const 7216
@@ -5902,6 +5946,9 @@
   i32.const 7984
   i32.const 8080
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
+  i32.const 8112
+  i32.const 8176
+  call $node_modules/@as-pect/assembly/assembly/internal/Test/test
  )
  (func $assembly//index/GeoWebCoordinatePath.length (param $0 i32) (result i64)
   (local $1 i64)
@@ -5921,7 +5968,7 @@
   i64.const 0
   i64.const 0
   i64.const 144115188075855872
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.tee $0
   call $assembly//index/GeoWebCoordinatePath.length
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
@@ -5979,7 +6026,7 @@
   local.get $0
   i64.load offset=24
   i64.and
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $8
   local.get $0
   call $~lib/rt/pure/__release
@@ -6013,7 +6060,7 @@
   local.get $0
   i64.load offset=24
   i64.and
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $6
   local.get $0
   call $~lib/rt/pure/__release
@@ -6038,7 +6085,7 @@
   i64.sub
   i64.const 56
   i64.shl
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $10
   local.get $9
   call $~lib/rt/pure/__retain
@@ -6073,7 +6120,7 @@
   local.get $11
   local.get $5
   local.get $14
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $0
   local.get $1
   call $~lib/rt/pure/__release
@@ -6103,7 +6150,7 @@
   local.get $1
   i64.load offset=24
   i64.or
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $12
   local.get $1
   call $~lib/rt/pure/__release
@@ -6186,7 +6233,7 @@
   i32.const 1
   i32.const 4
   i32.const 7
-  i32.const 8416
+  i32.const 8512
   local.get $0
   f64.convert_i32_s
   call $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedNumber
@@ -6210,13 +6257,13 @@
   i64.const 0
   i64.const 0
   i64.const 144115188075855872
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $4
   i64.const 3
   i64.const 0
   i64.const 0
   i64.const 72057594037927936
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $5
   local.get $4
   call $assembly//index/GeoWebCoordinatePath.nextDirection
@@ -6337,7 +6384,7 @@
   i32.const 0
   i32.const 1
   i32.const 9
-  i32.const 8448
+  i32.const 8544
   local.get $7
   f64.convert_i32_u
   call $node_modules/@as-pect/assembly/assembly/internal/Reflect/createReflectedNumber
@@ -6376,11 +6423,11 @@
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|3
-  i32.const 8208
-  i32.const 8288
+  i32.const 8304
+  i32.const 8384
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
-  i32.const 8320
-  i32.const 8480
+  i32.const 8416
+  i32.const 8576
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
  )
  (func $start:node_modules/@as-pect/assembly/assembly/internal/noOp~anonymous|0
@@ -6419,15 +6466,15 @@
   i64.const -1
   i64.const -1
   i64.const 72057594037927936
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.tee $0
   i64.const 1
   i64.const 0
   i64.const 0
   i64.const 0
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.tee $1
-  call $~lib/as-bignum/integer/u256/u256.sub
+  call $assembly//u256/u256.sub
   local.tee $2
   call $~lib/rt/pure/__retain
   global.set $assembly//index/INNER_PATH_MASK
@@ -6435,7 +6482,7 @@
   i64.const 0
   i64.const 0
   i64.const 0
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   global.set $assembly//index/PATH_SEGMENT_MASK
   local.get $0
   call $~lib/rt/pure/__release
@@ -6450,10 +6497,10 @@
   i32.const 6848
   call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
   i32.const 6880
-  i32.const 8112
+  i32.const 8208
   call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
-  i32.const 8144
-  i32.const 8512
+  i32.const 8240
+  i32.const 8608
   call $node_modules/@as-pect/assembly/assembly/internal/Test/describe
  )
  (func $~lib/rt/pure/decrement (param $0 i32)
@@ -6612,7 +6659,7 @@
  )
  (func $~lib/rt/pure/__visit (param $0 i32)
   local.get $0
-  i32.const 8708
+  i32.const 8804
   i32.lt_u
   if
    return
