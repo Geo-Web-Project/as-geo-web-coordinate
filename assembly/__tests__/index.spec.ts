@@ -1,5 +1,4 @@
-import { GeoWebCoordinate, Direction, GeoWebCoordinatePath } from '../';
-import { u256 } from "as-bignum";
+import { GeoWebCoordinate, Direction, GeoWebCoordinatePath, u256 } from '../';
 
 describe('from_gps', () => {
   test('should convert basic', () => {

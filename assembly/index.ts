@@ -1,4 +1,4 @@
-import { u256 } from "as-bignum";
+import { u256 } from "./u256";
 
 const GW_MAX_LAT: u32 = (1 << 23) - 1;
 const GW_MAX_LON: u32 = (1 << 24) - 1;
@@ -147,3 +147,5 @@ export class GeoWebCoordinatePath {
     return new DirectionPath(direction, newPath);
   }
 }
+
+export * from './u256';

@@ -15,8 +15,7 @@
   "author": "Cody Hatfield <cody.hatfield@me.com>",
   "license": "MIT",
   "dependencies": {
-    "@assemblyscript/loader": "^0.17.0",
-    "as-bignum": "^0.2.6"
+    "@assemblyscript/loader": "^0.17.0"
   },
   "devDependencies": {
     "@as-pect/cli": "^4.0.0",

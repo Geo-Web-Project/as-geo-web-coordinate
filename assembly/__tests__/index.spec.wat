@@ -1628,7 +1628,7 @@
    call $~lib/rt/pure/decrement
   end
  )
- (func $~lib/as-bignum/integer/u256/u256#constructor (param $0 i64) (param $1 i64) (param $2 i64) (param $3 i64) (result i32)
+ (func $assembly//u256/u256#constructor (param $0 i64) (param $1 i64) (param $2 i64) (param $3 i64) (result i32)
   (local $4 i32)
   i32.const 32
   i32.const 3
@@ -1648,7 +1648,7 @@
   i64.store offset=24
   local.get $4
  )
- (func $~lib/as-bignum/integer/u256/u256.sub (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly//u256/u256.sub (param $0 i32) (param $1 i32) (result i32)
   (local $2 i64)
   (local $3 i64)
   (local $4 i64)
@@ -1726,7 +1726,7 @@
   i64.const 63
   i64.shr_u
   i64.sub
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.get $0
   call $~lib/rt/pure/__release
   local.get $1
@@ -5968,7 +5968,7 @@
   i64.const 0
   i64.const 0
   i64.const 144115188075855872
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.tee $0
   call $assembly//index/GeoWebCoordinatePath.length
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
@@ -6026,7 +6026,7 @@
   local.get $0
   i64.load offset=24
   i64.and
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $8
   local.get $0
   call $~lib/rt/pure/__release
@@ -6060,7 +6060,7 @@
   local.get $0
   i64.load offset=24
   i64.and
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $6
   local.get $0
   call $~lib/rt/pure/__release
@@ -6085,7 +6085,7 @@
   i64.sub
   i64.const 56
   i64.shl
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $10
   local.get $9
   call $~lib/rt/pure/__retain
@@ -6120,7 +6120,7 @@
   local.get $11
   local.get $5
   local.get $14
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $0
   local.get $1
   call $~lib/rt/pure/__release
@@ -6150,7 +6150,7 @@
   local.get $1
   i64.load offset=24
   i64.or
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $12
   local.get $1
   call $~lib/rt/pure/__release
@@ -6257,13 +6257,13 @@
   i64.const 0
   i64.const 0
   i64.const 144115188075855872
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $4
   i64.const 3
   i64.const 0
   i64.const 0
   i64.const 72057594037927936
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.set $5
   local.get $4
   call $assembly//index/GeoWebCoordinatePath.nextDirection
@@ -6466,15 +6466,15 @@
   i64.const -1
   i64.const -1
   i64.const 72057594037927936
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.tee $0
   i64.const 1
   i64.const 0
   i64.const 0
   i64.const 0
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   local.tee $1
-  call $~lib/as-bignum/integer/u256/u256.sub
+  call $assembly//u256/u256.sub
   local.tee $2
   call $~lib/rt/pure/__retain
   global.set $assembly//index/INNER_PATH_MASK
@@ -6482,7 +6482,7 @@
   i64.const 0
   i64.const 0
   i64.const 0
-  call $~lib/as-bignum/integer/u256/u256#constructor
+  call $assembly//u256/u256#constructor
   global.set $assembly//index/PATH_SEGMENT_MASK
   local.get $0
   call $~lib/rt/pure/__release
