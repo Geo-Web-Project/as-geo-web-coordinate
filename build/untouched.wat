@@ -7361,7 +7361,7 @@
     if
      local.get $1
      i64.const 8
-     i64.shl
+     i64.shr_u
      local.get $7
      i64.extend_i32_u
      i64.or
@@ -7373,7 +7373,7 @@
      if
       local.get $2
       i64.const 8
-      i64.shl
+      i64.shr_u
       local.get $7
       i64.extend_i32_u
       i64.or
@@ -7385,7 +7385,7 @@
       if
        local.get $3
        i64.const 8
-       i64.shl
+       i64.shr_u
        local.get $7
        i64.extend_i32_u
        i64.or
@@ -7393,7 +7393,7 @@
       else
        local.get $4
        i64.const 8
-       i64.shl
+       i64.shr_u
        local.get $7
        i64.extend_i32_u
        i64.or

@@ -4171,7 +4171,7 @@
      i64.extend_i32_u
      local.get $3
      i64.const 8
-     i64.shl
+     i64.shr_u
      i64.or
      local.set $3
     else
@@ -4183,7 +4183,7 @@
       i64.extend_i32_u
       local.get $4
       i64.const 8
-      i64.shl
+      i64.shr_u
       i64.or
       local.set $4
      else
@@ -4195,7 +4195,7 @@
        i64.extend_i32_u
        local.get $5
        i64.const 8
-       i64.shl
+       i64.shr_u
        i64.or
        local.set $5
       else
@@ -4203,7 +4203,7 @@
        i64.extend_i32_u
        local.get $6
        i64.const 8
-       i64.shl
+       i64.shr_u
        i64.or
        local.set $6
       end

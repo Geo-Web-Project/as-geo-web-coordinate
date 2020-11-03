@@ -101,13 +101,13 @@ export class u256 {
     for (let i = 0; i < array.length; i++) {
       let element: u8 = array[i];
       if (i < 8) {
-        lo1 = (lo1 << 8) | element;
+        lo1 = (lo1 >> 8) | element;
       } else if (i < 16) {
-        lo2 = (lo2 << 8) | element;
+        lo2 = (lo2 >> 8) | element;
       } else if (i < 24) {
-        hi1 = (hi1 << 8) | element;
+        hi1 = (hi1 >> 8) | element;
       } else {
-        hi2 = (hi2 << 8) | element;
+        hi2 = (hi2 >> 8) | element;
       }
     }
 
