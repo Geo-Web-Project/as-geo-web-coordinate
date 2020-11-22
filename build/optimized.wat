@@ -3458,91 +3458,6 @@
   i64.store offset=24
   local.get $0
  )
- (func $assembly/u256/u256.sub (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i64)
-  (local $3 i64)
-  (local $4 i64)
-  (local $5 i64)
-  (local $6 i64)
-  (local $7 i32)
-  local.get $0
-  call $~lib/rt/pure/__retain
-  local.set $0
-  local.get $1
-  call $~lib/rt/pure/__retain
-  local.set $1
-  local.get $0
-  i64.load offset=8
-  local.tee $2
-  i64.const -1
-  i64.xor
-  local.set $3
-  local.get $2
-  local.get $1
-  i64.load offset=8
-  local.tee $2
-  i64.sub
-  local.get $0
-  i64.load
-  local.tee $4
-  local.get $1
-  i64.load
-  i64.sub
-  local.tee $5
-  local.get $4
-  i64.gt_u
-  i64.extend_i32_u
-  i64.sub
-  local.set $4
-  i32.const 0
-  local.get $5
-  local.get $4
-  local.get $0
-  i64.load offset=16
-  local.tee $6
-  local.get $1
-  i64.load offset=16
-  local.tee $5
-  i64.sub
-  local.get $2
-  local.get $3
-  i64.and
-  local.get $4
-  local.get $2
-  local.get $3
-  i64.or
-  i64.and
-  i64.or
-  i64.const 63
-  i64.shr_u
-  i64.sub
-  local.tee $3
-  local.get $0
-  i64.load offset=24
-  local.get $1
-  i64.load offset=24
-  i64.sub
-  local.get $5
-  local.get $6
-  i64.const -1
-  i64.xor
-  local.tee $2
-  i64.and
-  local.get $3
-  local.get $2
-  local.get $5
-  i64.or
-  i64.and
-  i64.or
-  i64.const 63
-  i64.shr_u
-  i64.sub
-  call $assembly/u256/u256#constructor
-  local.get $0
-  call $~lib/rt/pure/__release
-  local.get $1
-  call $~lib/rt/pure/__release
- )
  (func $assembly/u256/u256.shr (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i64)
@@ -3682,44 +3597,30 @@
   (local $10 i32)
   (local $11 i32)
   (local $12 i32)
-  (local $13 i32)
-  (local $14 i32)
-  (local $15 i32)
   local.get $0
   call $~lib/rt/pure/__retain
-  local.set $15
+  local.set $12
   i32.const 0
   i64.const -1
   i64.const -1
   i64.const -1
   i64.const 72057594037927936
   call $assembly/u256/u256#constructor
-  local.tee $10
-  i32.const 0
-  i64.const 1
-  i64.const 0
-  i64.const 0
-  i64.const 0
-  call $assembly/u256/u256#constructor
-  local.tee $9
-  call $assembly/u256/u256.sub
-  local.tee $8
-  call $~lib/rt/pure/__retain
-  local.set $14
+  local.set $11
   i32.const 0
   i64.const 3
   i64.const 0
   i64.const 0
   i64.const 0
   call $assembly/u256/u256#constructor
-  local.set $13
-  local.get $15
+  local.set $10
+  local.get $12
   call $assembly/index/GeoWebCoordinatePath.length
   local.set $7
-  local.get $15
+  local.get $12
   call $~lib/rt/pure/__retain
   local.set $0
-  local.get $14
+  local.get $11
   call $~lib/rt/pure/__retain
   local.set $5
   i32.const 0
@@ -3750,10 +3651,10 @@
   call $~lib/rt/pure/__release
   local.tee $3
   call $~lib/rt/pure/__retain
-  local.tee $12
+  local.tee $9
   call $~lib/rt/pure/__retain
   local.set $0
-  local.get $13
+  local.get $10
   call $~lib/rt/pure/__retain
   local.set $5
   i32.const 0
@@ -3795,14 +3696,14 @@
   i64.const 56
   i64.shl
   call $assembly/u256/u256#constructor
-  local.set $11
-  local.get $12
+  local.set $8
+  local.get $9
   i32.const 2
   call $assembly/u256/u256.shr
   local.tee $6
   call $~lib/rt/pure/__retain
   local.set $0
-  local.get $11
+  local.get $8
   call $~lib/rt/pure/__retain
   local.set $5
   i32.const 0
@@ -3847,25 +3748,19 @@
   i32.wrap_i64
   local.get $0
   call $assembly/index/DirectionPath#constructor
+  local.get $11
+  call $~lib/rt/pure/__release
   local.get $10
-  call $~lib/rt/pure/__release
-  local.get $9
-  call $~lib/rt/pure/__release
-  local.get $8
-  call $~lib/rt/pure/__release
-  local.get $14
-  call $~lib/rt/pure/__release
-  local.get $13
   call $~lib/rt/pure/__release
   local.get $3
   call $~lib/rt/pure/__release
-  local.get $12
+  local.get $9
   call $~lib/rt/pure/__release
   local.get $2
   call $~lib/rt/pure/__release
   local.get $1
   call $~lib/rt/pure/__release
-  local.get $11
+  local.get $8
   call $~lib/rt/pure/__release
   local.get $6
   call $~lib/rt/pure/__release
@@ -3873,7 +3768,7 @@
   call $~lib/rt/pure/__release
   local.get $0
   call $~lib/rt/pure/__release
-  local.get $15
+  local.get $12
   call $~lib/rt/pure/__release
  )
  (func $assembly/index/GeoWebCoordinatePath#constructor (param $0 i32) (result i32)
@@ -4119,10 +4014,10 @@
   (local $6 i64)
   local.get $0
   call $~lib/rt/pure/__retain
-  local.tee $2
+  local.tee $1
   i32.load offset=8
   if (result i32)
-   local.get $2
+   local.get $1
    i32.load offset=8
    i32.const 31
    i32.and
@@ -4139,14 +4034,18 @@
    call $~lib/builtins/abort
    unreachable
   end
+  local.get $1
+  i32.load offset=8
+  i32.const 1
+  i32.sub
+  local.set $0
   loop $for-loop|0
-   local.get $1
-   local.get $2
-   i32.load offset=8
-   i32.lt_s
+   local.get $0
+   i32.const 0
+   i32.ge_s
    if
+    local.get $0
     local.get $1
-    local.get $2
     i32.load offset=8
     i32.ge_u
     if
@@ -4157,62 +4056,62 @@
      call $~lib/builtins/abort
      unreachable
     end
+    local.get $0
     local.get $1
-    local.get $2
     i32.load offset=4
     i32.add
     i32.load8_u
-    local.set $0
-    local.get $1
+    local.set $2
+    local.get $0
     i32.const 8
     i32.lt_s
     if
-     local.get $0
+     local.get $2
      i64.extend_i32_u
      local.get $3
      i64.const 8
-     i64.shr_u
+     i64.shl
      i64.or
      local.set $3
     else
-     local.get $1
+     local.get $0
      i32.const 16
      i32.lt_s
      if
-      local.get $0
+      local.get $2
       i64.extend_i32_u
       local.get $4
       i64.const 8
-      i64.shr_u
+      i64.shl
       i64.or
       local.set $4
      else
-      local.get $1
+      local.get $0
       i32.const 24
       i32.lt_s
       if
-       local.get $0
+       local.get $2
        i64.extend_i32_u
        local.get $5
        i64.const 8
-       i64.shr_u
+       i64.shl
        i64.or
        local.set $5
       else
-       local.get $0
+       local.get $2
        i64.extend_i32_u
        local.get $6
        i64.const 8
-       i64.shr_u
+       i64.shl
        i64.or
        local.set $6
       end
      end
     end
-    local.get $1
+    local.get $0
     i32.const 1
-    i32.add
-    local.set $1
+    i32.sub
+    local.set $0
     br $for-loop|0
    end
   end
@@ -4222,7 +4121,7 @@
   local.get $5
   local.get $6
   call $assembly/u256/u256#constructor
-  local.get $2
+  local.get $1
   call $~lib/rt/pure/__release
  )
  (func $assembly/u256/u256.fromF64 (param $0 f64) (result i32)
@@ -4354,6 +4253,91 @@
   i64.const 63
   i64.shr_u
   i64.add
+  call $assembly/u256/u256#constructor
+  local.get $0
+  call $~lib/rt/pure/__release
+  local.get $1
+  call $~lib/rt/pure/__release
+ )
+ (func $assembly/u256/u256.sub (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i64)
+  (local $3 i64)
+  (local $4 i64)
+  (local $5 i64)
+  (local $6 i64)
+  (local $7 i32)
+  local.get $0
+  call $~lib/rt/pure/__retain
+  local.set $0
+  local.get $1
+  call $~lib/rt/pure/__retain
+  local.set $1
+  local.get $0
+  i64.load offset=8
+  local.tee $2
+  i64.const -1
+  i64.xor
+  local.set $3
+  local.get $2
+  local.get $1
+  i64.load offset=8
+  local.tee $2
+  i64.sub
+  local.get $0
+  i64.load
+  local.tee $4
+  local.get $1
+  i64.load
+  i64.sub
+  local.tee $5
+  local.get $4
+  i64.gt_u
+  i64.extend_i32_u
+  i64.sub
+  local.set $4
+  i32.const 0
+  local.get $5
+  local.get $4
+  local.get $0
+  i64.load offset=16
+  local.tee $6
+  local.get $1
+  i64.load offset=16
+  local.tee $5
+  i64.sub
+  local.get $2
+  local.get $3
+  i64.and
+  local.get $4
+  local.get $2
+  local.get $3
+  i64.or
+  i64.and
+  i64.or
+  i64.const 63
+  i64.shr_u
+  i64.sub
+  local.tee $3
+  local.get $0
+  i64.load offset=24
+  local.get $1
+  i64.load offset=24
+  i64.sub
+  local.get $5
+  local.get $6
+  i64.const -1
+  i64.xor
+  local.tee $2
+  i64.and
+  local.get $3
+  local.get $2
+  local.get $5
+  i64.or
+  i64.and
+  i64.or
+  i64.const 63
+  i64.shr_u
+  i64.sub
   call $assembly/u256/u256#constructor
   local.get $0
   call $~lib/rt/pure/__release

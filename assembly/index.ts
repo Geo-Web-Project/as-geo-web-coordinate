@@ -135,7 +135,7 @@ export class GeoWebCoordinatePath {
   }
 
   static nextDirection(path: u256): DirectionPath {
-    let INNER_PATH_MASK: u256 = (new u256(u64.MAX_VALUE, u64.MAX_VALUE, u64.MAX_VALUE, (1 << 56)) - u256.fromU64(1));
+    let INNER_PATH_MASK: u256 = new u256(u64.MAX_VALUE, u64.MAX_VALUE, u64.MAX_VALUE, (1 << 56));
     let PATH_SEGMENT_MASK: u256 = u256.fromU64((1 << 2) - 1);
 
     let _length = this.length(path);
