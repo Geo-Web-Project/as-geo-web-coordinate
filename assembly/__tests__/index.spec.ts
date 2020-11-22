@@ -271,6 +271,16 @@ describe('GeoWebCoordinatePath', () => {
     expect(result.direction).toBe(Direction.West);
     expect(result.path == newPath).toBeTruthy();
   })
+
+  test('should parse direction from path > 64 bits', () => {
+    let path = new u256(0b1111, 0b1100, 0, (34 << 56))
+    let newPath = new u256(0b11, 0b11, 0, (33 << 56))
+
+    let result = GeoWebCoordinatePath.nextDirection(path)
+  
+    expect(result.direction).toBe(Direction.West);
+    expect(result.path == newPath).toBeTruthy();
+  })
 })
 
 describe('u256', () => {
@@ -285,5 +295,15 @@ describe('u256', () => {
     expect(convertedPath.lo2).toBe(0);
     expect(convertedPath.hi1).toBe(0);
     expect(convertedPath.hi2).toBe(720575940379279360);
+  })
+
+  test('should shift right', () => {
+    let path = new u256(0b1111, 0b1100, 0, 0)
+    let shiftedPath = path >> 2
+
+    expect(shiftedPath.lo1).toBe(0b11);
+    expect(shiftedPath.lo2).toBe(0b11);
+    expect(shiftedPath.hi1).toBe(0);
+    expect(shiftedPath.hi2).toBe(0);
   })
 })

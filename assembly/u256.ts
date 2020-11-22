@@ -352,9 +352,9 @@ export class u256 {
     if (shift <= 64) {
       if (shift == 0) return value;
       let hi2 =  value.hi2 >> off;
-      let hi1 = (value.hi1 >> off) | (hi2 << (64 - off));
-      let lo2 = (value.lo2 >> off) | (hi1 << (64 - off));
-      let lo1 = (value.lo1 >> off) | (lo2 << (64 - off));
+      let hi1 = (value.hi1 >> off) | (value.hi2 << (64 - off));
+      let lo2 = (value.lo2 >> off) | (value.hi1 << (64 - off));
+      let lo1 = (value.lo1 >> off) | (value.lo2 << (64 - off));
       return new u256(lo1, lo2, hi1, hi2);
     } else if (shift > 64 && shift <= 128) {
       let hi1 = value.hi2 >> (128 - off);
