@@ -3462,8 +3462,6 @@
   (local $2 i32)
   (local $3 i64)
   (local $4 i64)
-  (local $5 i64)
-  (local $6 i64)
   local.get $0
   call $~lib/rt/pure/__retain
   local.set $2
@@ -3485,39 +3483,39 @@
    end
    i32.const 0
    local.get $2
+   i64.load offset=8
+   i64.const 64
+   local.get $3
+   i64.sub
+   local.tee $4
+   i64.shl
+   local.get $2
    i64.load
    local.get $3
    i64.shr_u
+   i64.or
+   local.get $2
+   i64.load offset=16
+   local.get $4
+   i64.shl
    local.get $2
    i64.load offset=8
    local.get $3
    i64.shr_u
+   i64.or
+   local.get $2
+   i64.load offset=24
+   local.get $4
+   i64.shl
    local.get $2
    i64.load offset=16
    local.get $3
    i64.shr_u
+   i64.or
    local.get $2
    i64.load offset=24
    local.get $3
    i64.shr_u
-   local.tee $4
-   i64.const 64
-   local.get $3
-   i64.sub
-   local.tee $3
-   i64.shl
-   i64.or
-   local.tee $5
-   local.get $3
-   i64.shl
-   i64.or
-   local.tee $6
-   local.get $3
-   i64.shl
-   i64.or
-   local.get $6
-   local.get $5
-   local.get $4
    call $assembly/u256/u256#constructor
   else
    local.get $0

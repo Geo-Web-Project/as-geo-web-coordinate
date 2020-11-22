@@ -6511,7 +6511,8 @@
    i64.load offset=16
    local.get $2
    i64.shr_u
-   local.get $3
+   local.get $0
+   i64.load offset=24
    i64.const 64
    local.get $2
    i64.sub
@@ -6522,7 +6523,8 @@
    i64.load offset=8
    local.get $2
    i64.shr_u
-   local.get $4
+   local.get $0
+   i64.load offset=16
    i64.const 64
    local.get $2
    i64.sub
@@ -6533,7 +6535,8 @@
    i64.load
    local.get $2
    i64.shr_u
-   local.get $5
+   local.get $0
+   i64.load offset=8
    i64.const 64
    local.get $2
    i64.sub
