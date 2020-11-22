@@ -231,14 +231,44 @@ describe('GeoWebCoordinatePath', () => {
 
     expect(GeoWebCoordinatePath.length(path)).toBe(2);
   })
+
+  test('should parse direction north from path', () => {
+    let path = new u256(0b1100, 0, 0, (2 << 56))
+    let newPath = new u256(0b11, 0, 0, (1 << 56))
+
+    let result = GeoWebCoordinatePath.nextDirection(path)
   
-  test('should parse direction from path', () => {
+    expect(result.direction).toBe(Direction.North);
+    expect(result.path == newPath).toBeTruthy();
+  })
+
+  test('should parse direction south from path', () => {
+    let path = new u256(0b1101, 0, 0, (2 << 56))
+    let newPath = new u256(0b11, 0, 0, (1 << 56))
+
+    let result = GeoWebCoordinatePath.nextDirection(path)
+  
+    expect(result.direction).toBe(Direction.South);
+    expect(result.path == newPath).toBeTruthy();
+  })
+  
+  test('should parse direction east from path', () => {
     let path = new u256(0b1110, 0, 0, (2 << 56))
     let newPath = new u256(0b11, 0, 0, (1 << 56))
 
     let result = GeoWebCoordinatePath.nextDirection(path)
   
     expect(result.direction).toBe(Direction.East);
+    expect(result.path == newPath).toBeTruthy();
+  })
+
+  test('should parse direction west from path', () => {
+    let path = new u256(0b1111, 0, 0, (2 << 56))
+    let newPath = new u256(0b11, 0, 0, (1 << 56))
+
+    let result = GeoWebCoordinatePath.nextDirection(path)
+  
+    expect(result.direction).toBe(Direction.West);
     expect(result.path == newPath).toBeTruthy();
   })
 })
