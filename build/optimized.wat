@@ -3200,7 +3200,7 @@
        if
         i32.const 2832
         i32.const 1344
-        i32.const 80
+        i32.const 77
         i32.const 11
         call $~lib/builtins/abort
         unreachable
@@ -3213,7 +3213,7 @@
       if
        i32.const 2912
        i32.const 1344
-       i32.const 85
+       i32.const 82
        i32.const 11
        call $~lib/builtins/abort
        unreachable
@@ -3246,7 +3246,7 @@
    end
    i32.const 2992
    i32.const 1344
-   i32.const 106
+   i32.const 103
    i32.const 9
    call $~lib/builtins/abort
    unreachable
@@ -3602,7 +3602,7 @@
   i64.const -1
   i64.const -1
   i64.const -1
-  i64.const 72057594037927936
+  i64.const 72057594037927935
   call $assembly/u256/u256#constructor
   local.set $11
   i32.const 0

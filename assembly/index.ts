@@ -8,7 +8,7 @@ export enum Direction {
   North = 0,
   South,
   East,
-  West
+  West,
 }
 
 export class GeoWebCoordinate {
@@ -23,14 +23,14 @@ export class GeoWebCoordinate {
     let latGW = u32((lat + 90) / GW_INCRE);
     let lonGW = u32((lon + 180) / GW_INCRE);
 
-    return u64(lonGW) << 32 | latGW;
+    return (u64(lonGW) << 32) | latGW;
   }
 
   static to_gps_hex(gwCoord: string): string[] {
-    let result = this.to_gps(<u64>Number.parseInt(gwCoord, 16))
+    let result = this.to_gps(<u64>Number.parseInt(gwCoord, 16));
     return result.map<string>((v: f64) => {
-      return v.toString()
-    })
+      return v.toString();
+    });
   }
 
   static to_gps(gwCoord: u64): f64[] {
@@ -57,21 +57,18 @@ export class GeoWebCoordinate {
     let tl_lon = bl_lon;
     let tl_lat = tr_lat;
 
-    return [
-      bl_lon, bl_lat,
-      br_lon, br_lat,
-      tr_lon, tr_lat,
-      tl_lon, tl_lat,
-    ];
+    return [bl_lon, bl_lat, br_lon, br_lat, tr_lon, tr_lat, tl_lon, tl_lat];
   }
 
   static traverse_hex(gwCoord: string, direction: Direction): string {
-    return this.traverse(<u64>Number.parseInt(gwCoord, 16), direction).toString(16)
+    return this.traverse(<u64>Number.parseInt(gwCoord, 16), direction).toString(
+      16
+    );
   }
 
   static traverse(gwCoord: u64, direction: Direction): u64 {
     let originX: u32 = u32(gwCoord >> 32);
-    let originY: u32 = u32(gwCoord & u32((2 ** 32) - 1));
+    let originY: u32 = u32(gwCoord & u32(2 ** 32 - 1));
 
     switch (direction) {
       case Direction.North:
@@ -87,7 +84,7 @@ export class GeoWebCoordinate {
         originY -= 1;
         break;
       case Direction.East:
-        if(originX >= GW_MAX_LON) {
+        if (originX >= GW_MAX_LON) {
           // Wrap to west
           originX = 0;
         } else {
@@ -95,7 +92,7 @@ export class GeoWebCoordinate {
         }
         break;
       case Direction.West:
-        if(originX == 0) {
+        if (originX == 0) {
           // Wrap to east
           originX = GW_MAX_LON;
         } else {
@@ -111,7 +108,7 @@ export class GeoWebCoordinate {
   }
 
   static make_gw_coord(x: u32, y: u32): u64 {
-    return u64(x) << 32 | y;
+    return (u64(x) << 32) | y;
   }
 }
 
@@ -127,7 +124,7 @@ export class DirectionPath {
 
 export class GeoWebCoordinatePath {
   static length(path: u256): u64 {
-    return (path.hi2 >> 56);
+    return path.hi2 >> 56;
   }
 
   static hasNext(path: u256): bool {
@@ -135,18 +132,23 @@ export class GeoWebCoordinatePath {
   }
 
   static nextDirection(path: u256): DirectionPath {
-    let INNER_PATH_MASK: u256 = new u256(u64.MAX_VALUE, u64.MAX_VALUE, u64.MAX_VALUE, (1 << 56));
+    let INNER_PATH_MASK: u256 = new u256(
+      u64.MAX_VALUE,
+      u64.MAX_VALUE,
+      u64.MAX_VALUE,
+      0b11111111111111111111111111111111111111111111111111111111
+    );
     let PATH_SEGMENT_MASK: u256 = u256.fromU64((1 << 2) - 1);
 
     let _length = this.length(path);
-    let _path: u256 = (path & INNER_PATH_MASK);
-    let direction: u256 = (_path & PATH_SEGMENT_MASK);
+    let _path: u256 = path & INNER_PATH_MASK;
+    let direction: u256 = _path & PATH_SEGMENT_MASK;
 
     let lengthMask = new u256(0, 0, 0, (_length - 1) << 56);
     let newPath = (_path >> 2) | lengthMask;
-    
+
     return new DirectionPath(direction.toI32(), newPath);
   }
 }
 
-export * from './u256';
+export * from "./u256";

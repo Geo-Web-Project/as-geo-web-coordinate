@@ -5690,7 +5690,7 @@
        if
         i32.const 2208
         i32.const 320
-        i32.const 80
+        i32.const 77
         i32.const 11
         call $~lib/builtins/abort
         unreachable
@@ -5703,7 +5703,7 @@
       if
        i32.const 2288
        i32.const 320
-       i32.const 85
+       i32.const 82
        i32.const 11
        call $~lib/builtins/abort
        unreachable
@@ -5744,7 +5744,7 @@
    end
    i32.const 2368
    i32.const 320
-   i32.const 106
+   i32.const 103
    i32.const 9
    call $~lib/builtins/abort
    unreachable
@@ -6662,9 +6662,7 @@
   global.get $~lib/builtins/u64.MAX_VALUE
   global.get $~lib/builtins/u64.MAX_VALUE
   global.get $~lib/builtins/u64.MAX_VALUE
-  i64.const 1
-  i64.const 56
-  i64.shl
+  i64.const 72057594037927935
   call $assembly/u256/u256#constructor
   local.set $1
   i64.const 1
