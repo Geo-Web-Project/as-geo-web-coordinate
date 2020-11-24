@@ -4,11 +4,11 @@
  (type $i32_i32_=>_none (func (param i32 i32)))
  (type $i32_=>_i64 (func (param i32) (result i64)))
  (type $i32_=>_none (func (param i32)))
+ (type $i64_=>_i32 (func (param i64) (result i32)))
  (type $i32_i32_i32_=>_none (func (param i32 i32 i32)))
  (type $i32_i64_=>_none (func (param i32 i64)))
  (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
  (type $none_=>_i32 (func (result i32)))
- (type $i64_=>_i32 (func (param i64) (result i32)))
  (type $i32_i64_=>_i32 (func (param i32 i64) (result i32)))
  (type $i32_i64_i64_i64_i64_=>_i32 (func (param i32 i64 i64 i64 i64) (result i32)))
  (type $f64_=>_i32 (func (param f64) (result i32)))
@@ -91,6 +91,8 @@
  (export "GeoWebCoordinate.to_gps" (func $assembly/index/GeoWebCoordinate.to_gps))
  (export "GeoWebCoordinate.traverse_hex" (func $assembly/index/GeoWebCoordinate.traverse_hex))
  (export "GeoWebCoordinate.traverse" (func $assembly/index/GeoWebCoordinate.traverse))
+ (export "GeoWebCoordinate.get_x" (func $assembly/index/GeoWebCoordinate.get_x))
+ (export "GeoWebCoordinate.get_y" (func $assembly/index/GeoWebCoordinate.get_y))
  (export "GeoWebCoordinate.make_gw_coord" (func $assembly/index/GeoWebCoordinate.make_gw_coord))
  (export "DirectionPath" (global $assembly/index/DirectionPath))
  (export "DirectionPath#get:direction" (func $assembly/index/DirectionPath#get:direction))
@@ -3126,6 +3128,53 @@
   call $~lib/rt/pure/__release
   local.get $6
  )
+ (func $assembly/index/GeoWebCoordinate.get_x (param $0 i64) (result i32)
+  local.get $0
+  i64.const 32
+  i64.shr_u
+  i32.wrap_i64
+ )
+ (func $assembly/index/GeoWebCoordinate.get_y (param $0 i64) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  i32.const 2
+  local.set $1
+  i32.const 32
+  local.set $2
+  i32.const 1
+  local.set $3
+  loop $while-continue|0
+   local.get $2
+   if
+    local.get $1
+    local.get $3
+    i32.mul
+    local.get $3
+    local.get $2
+    i32.const 1
+    i32.and
+    select
+    local.set $3
+    local.get $2
+    i32.const 1
+    i32.shr_u
+    local.set $2
+    local.get $1
+    local.get $1
+    i32.mul
+    local.set $1
+    br $while-continue|0
+   end
+  end
+  local.get $0
+  local.get $3
+  i32.const 1
+  i32.sub
+  i64.extend_i32_u
+  i64.and
+  i32.wrap_i64
+ )
  (func $assembly/index/GeoWebCoordinate.make_gw_coord (param $0 i32) (param $1 i32) (result i64)
   local.get $1
   i64.extend_i32_u
@@ -3138,50 +3187,14 @@
  (func $assembly/index/GeoWebCoordinate.traverse (param $0 i64) (param $1 i32) (result i64)
   (local $2 i32)
   (local $3 i32)
-  (local $4 i32)
-  (local $5 i32)
   local.get $0
   i64.const 32
   i64.shr_u
   i32.wrap_i64
-  local.set $3
-  i32.const 2
   local.set $2
-  i32.const 32
-  local.set $4
-  i32.const 1
-  local.set $5
-  loop $while-continue|0
-   local.get $4
-   if
-    local.get $2
-    local.get $5
-    i32.mul
-    local.get $5
-    local.get $4
-    i32.const 1
-    i32.and
-    select
-    local.set $5
-    local.get $4
-    i32.const 1
-    i32.shr_u
-    local.set $4
-    local.get $2
-    local.get $2
-    i32.mul
-    local.set $2
-    br $while-continue|0
-   end
-  end
   local.get $0
-  local.get $5
-  i32.const 1
-  i32.sub
-  i64.extend_i32_u
-  i64.and
-  i32.wrap_i64
-  local.set $2
+  call $assembly/index/GeoWebCoordinate.get_y
+  local.set $3
   block $break|0
    block $case4|0
     block $case3|0
@@ -3191,10 +3204,10 @@
         local.get $1
         br_table $case0|0 $case1|0 $case2|0 $case3|0 $case4|0
        end
-       local.get $2
+       local.get $3
        i32.const 1
        i32.add
-       local.tee $2
+       local.tee $3
        i32.const 8388607
        i32.gt_u
        if
@@ -3207,7 +3220,7 @@
        end
        br $break|0
       end
-      local.get $2
+      local.get $3
       i32.const 0
       i32.le_u
       if
@@ -3218,30 +3231,30 @@
        call $~lib/builtins/abort
        unreachable
       end
-      local.get $2
+      local.get $3
       i32.const 1
       i32.sub
-      local.set $2
+      local.set $3
       br $break|0
      end
      i32.const 0
-     local.get $3
+     local.get $2
      i32.const 1
      i32.add
-     local.get $3
+     local.get $2
      i32.const 16777215
      i32.ge_u
      select
-     local.set $3
+     local.set $2
      br $break|0
     end
-    local.get $3
+    local.get $2
     i32.const 1
     i32.sub
     i32.const 16777215
-    local.get $3
+    local.get $2
     select
-    local.set $3
+    local.set $2
     br $break|0
    end
    i32.const 2992
@@ -3251,8 +3264,8 @@
    call $~lib/builtins/abort
    unreachable
   end
-  local.get $3
   local.get $2
+  local.get $3
   call $assembly/index/GeoWebCoordinate.make_gw_coord
  )
  (func $assembly/index/GeoWebCoordinate.traverse_hex (param $0 i32) (param $1 i32) (result i32)

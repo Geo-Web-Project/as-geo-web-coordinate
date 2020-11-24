@@ -67,8 +67,8 @@ export class GeoWebCoordinate {
   }
 
   static traverse(gwCoord: u64, direction: Direction): u64 {
-    let originX: u32 = u32(gwCoord >> 32);
-    let originY: u32 = u32(gwCoord & u32(2 ** 32 - 1));
+    let originX: u32 = GeoWebCoordinate.get_x(gwCoord);
+    let originY: u32 = GeoWebCoordinate.get_y(gwCoord);
 
     switch (direction) {
       case Direction.North:
@@ -105,6 +105,14 @@ export class GeoWebCoordinate {
     }
 
     return this.make_gw_coord(originX, originY);
+  }
+
+  static get_x(gwCoord: u64): u32 {
+    return u32(gwCoord >> 32);
+  }
+
+  static get_y(gwCoord: u64): u32 {
+    return u32(gwCoord & u32(2 ** 32 - 1));
   }
 
   static make_gw_coord(x: u32, y: u32): u64 {

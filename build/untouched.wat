@@ -5,10 +5,10 @@
  (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
  (type $i32_=>_i64 (func (param i32) (result i64)))
  (type $i32_i32_i32_=>_none (func (param i32 i32 i32)))
+ (type $i64_=>_i32 (func (param i64) (result i32)))
  (type $i32_=>_none (func (param i32)))
  (type $i32_i64_=>_none (func (param i32 i64)))
  (type $none_=>_i32 (func (result i32)))
- (type $i64_=>_i32 (func (param i64) (result i32)))
  (type $i64_i32_=>_i32 (func (param i64 i32) (result i32)))
  (type $i32_i64_i32_=>_none (func (param i32 i64 i32)))
  (type $i32_i64_=>_i32 (func (param i32 i64) (result i32)))
@@ -108,6 +108,8 @@
  (export "GeoWebCoordinate.to_gps" (func $assembly/index/GeoWebCoordinate.to_gps))
  (export "GeoWebCoordinate.traverse_hex" (func $assembly/index/GeoWebCoordinate.traverse_hex))
  (export "GeoWebCoordinate.traverse" (func $assembly/index/GeoWebCoordinate.traverse))
+ (export "GeoWebCoordinate.get_x" (func $assembly/index/GeoWebCoordinate.get_x))
+ (export "GeoWebCoordinate.get_y" (func $assembly/index/GeoWebCoordinate.get_y))
  (export "GeoWebCoordinate.make_gw_coord" (func $assembly/index/GeoWebCoordinate.make_gw_coord))
  (export "DirectionPath" (global $assembly/index/DirectionPath))
  (export "DirectionPath#get:direction" (func $assembly/index/DirectionPath#get:direction))
@@ -5421,6 +5423,12 @@
   call $~lib/rt/pure/__release
   local.get $2
  )
+ (func $assembly/index/GeoWebCoordinate.get_x (param $0 i64) (result i32)
+  local.get $0
+  i64.const 32
+  i64.shr_u
+  i32.wrap_i64
+ )
  (func $~lib/math/ipow32 (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
@@ -5626,6 +5634,17 @@
   end
   local.get $2
  )
+ (func $assembly/index/GeoWebCoordinate.get_y (param $0 i64) (result i32)
+  local.get $0
+  i32.const 2
+  i32.const 32
+  call $~lib/math/ipow32
+  i32.const 1
+  i32.sub
+  i64.extend_i32_u
+  i64.and
+  i32.wrap_i64
+ )
  (func $assembly/index/GeoWebCoordinate.make_gw_coord (param $0 i32) (param $1 i32) (result i64)
   local.get $0
   i64.extend_i32_u
@@ -5640,19 +5659,10 @@
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  i64.const 32
-  i64.shr_u
-  i32.wrap_i64
+  call $assembly/index/GeoWebCoordinate.get_x
   local.set $2
   local.get $0
-  i32.const 2
-  i32.const 32
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
-  i64.extend_i32_u
-  i64.and
-  i32.wrap_i64
+  call $assembly/index/GeoWebCoordinate.get_y
   local.set $3
   block $break|0
    block $case4|0
