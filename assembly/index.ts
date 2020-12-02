@@ -1,8 +1,8 @@
 import { u256 } from "./u256";
 
-const GW_MAX_LAT: u32 = (1 << 23) - 1;
-const GW_MAX_LON: u32 = (1 << 24) - 1;
-const GW_INCRE = 0.000021457672119140625;
+export const GW_MAX_LAT: u32 = (1 << 18) - 1;
+export const GW_MAX_LON: u32 = (1 << 19) - 1;
+const GW_INCRE = 0.0006866455078125;
 
 export enum Direction {
   North = 0,
