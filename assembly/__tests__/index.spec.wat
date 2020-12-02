@@ -93,17 +93,17 @@
  (data (i32.const 5472) "\01\00\00\00\n\00\00\00d\00\00\00\e8\03\00\00\10\'\00\00\a0\86\01\00@B\0f\00\80\96\98\00\00\e1\f5\05\00\ca\9a;")
  (data (i32.const 5516) "\08\00\00\00\01\00\00\00\00\00\00\00\0b\00\00\00\08\00\00\00\14")
  (data (i32.const 5548) "^\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00^\00\00\00E\00l\00e\00m\00e\00n\00t\00 \00t\00y\00p\00e\00 \00m\00u\00s\00t\00 \00b\00e\00 \00n\00u\00l\00l\00a\00b\00l\00e\00 \00i\00f\00 \00a\00r\00r\00a\00y\00 \00i\00s\00 \00h\00o\00l\00e\00y")
- (data (i32.const 5676) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\001\000\009\00.\009\009\009\009\008\008\000\007\009\000\007\001\000\005")
+ (data (i32.const 5676) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\001\000\009\00.\009\009\009\009\002\003\007\000\006\000\005\004\006\009")
  (data (i32.const 5740) "4\00\00\00\01\00\00\00\00\00\00\00\01\00\00\004\00\00\00c\00a\00c\00h\00e\00L\00e\00n\00g\00t\00h\00 \00s\00h\00o\00u\00l\00d\00 \00b\00e\00 \00e\00v\00e\00n")
  (data (i32.const 5824) "\01")
  (data (i32.const 5856) "\01")
  (data (i32.const 5884) "2\00\00\00\01\00\00\00\00\00\00\00\01\00\00\002\00\00\00S\00e\00r\00i\00a\00l\00i\00z\00e\00s\00 \00t\00o\00 \00s\00a\00m\00e\00 \00v\00a\00l\00u\00e\00.")
- (data (i32.const 5964) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\003\007\00.\009\009\009\009\009\002\003\007\000\006\000\005\004\007")
- (data (i32.const 6028) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\001\001\000\00.\000\000\000\000\000\009\005\003\006\007\004\003\001\007")
- (data (i32.const 6092) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\003\008\00.\000\000\000\000\001\003\008\002\008\002\007\007\005\009")
+ (data (i32.const 5964) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\003\007\00.\009\009\009\006\004\009\000\004\007\008\005\001\005\006")
+ (data (i32.const 6028) "\"\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\"\00\00\001\001\000\00.\000\000\000\006\001\000\003\005\001\005\006\002\005")
+ (data (i32.const 6092) "$\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00$\00\00\003\008\00.\000\000\000\003\003\005\006\009\003\003\005\009\003\007\008")
  (data (i32.const 6156) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\15")
  (data (i32.const 6188) "@\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00@\00\00\00s\00h\00o\00u\00l\00d\00 \00c\00o\00n\00v\00e\00r\00t\00 \00b\00a\00s\00i\00c\00 \00h\00e\00x\00 \00w\00i\00t\00h\00 \000\00x")
- (data (i32.const 6284) " \00\00\00\01\00\00\00\00\00\00\00\01\00\00\00 \00\00\000\00x\00c\00e\003\008\00e\003\000\000\005\00b\000\005\00b\000")
+ (data (i32.const 6284) "\1e\00\00\00\01\00\00\00\00\00\00\00\01\00\00\00\1e\00\00\000\00x\006\007\001\00c\007\000\000\000\002\00d\008\002\00d")
  (data (i32.const 6348) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\16")
  (data (i32.const 6380) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\17")
  (data (i32.const 6412) "\08\00\00\00\01\00\00\00\00\00\00\00\05\00\00\00\08\00\00\00\18")
@@ -1680,14 +1680,14 @@
   local.get $1
   f64.const 90
   f64.add
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.div
   i32.trunc_f64_u
   i64.extend_i32_u
   local.get $0
   f64.const 180
   f64.add
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.div
   i32.trunc_f64_u
   i64.extend_i32_u
@@ -2032,8 +2032,8 @@
   call $assembly//index/GeoWebCoordinate.from_gps
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
   local.tee $0
-  i32.const 13514979
-  i32.const 5965232
+  i32.const 422343
+  i32.const 186413
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<u64>#toBe
   local.get $0
@@ -2060,8 +2060,8 @@
   call $assembly//index/GeoWebCoordinate.from_gps
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
   local.tee $0
-  i32.const 8388608
-  i32.const 4194304
+  i32.const 262144
+  i32.const 131072
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<u64>#toBe
   local.get $0
@@ -2074,8 +2074,8 @@
   call $assembly//index/GeoWebCoordinate.from_gps
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
   local.tee $0
-  i32.const 16777215
-  i32.const 4194304
+  i32.const 524287
+  i32.const 131072
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<u64>#toBe
   local.get $0
@@ -2088,8 +2088,8 @@
   call $assembly//index/GeoWebCoordinate.from_gps
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
   local.tee $0
-  i32.const 8388608
-  i32.const 8388607
+  i32.const 262144
+  i32.const 262143
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<u64>#toBe
   local.get $0
@@ -2803,7 +2803,7 @@
   i64.shr_u
   i32.wrap_i64
   local.tee $2
-  i32.const 16777215
+  i32.const 524287
   i32.gt_u
   if
    i32.const 3680
@@ -2814,7 +2814,7 @@
    unreachable
   end
   local.get $1
-  i32.const 8388607
+  i32.const 262143
   i32.gt_u
   if
    i32.const 3760
@@ -2826,22 +2826,22 @@
   end
   local.get $2
   f64.convert_i32_u
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.mul
   f64.const 180
   f64.sub
   local.tee $3
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.add
   local.set $4
   local.get $1
   f64.convert_i32_u
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.mul
   f64.const 90
   f64.sub
   local.tee $5
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.add
   local.set $6
   i32.const 8
@@ -2998,8 +2998,8 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  i32.const 13514979
-  i32.const 5965232
+  i32.const 422343
+  i32.const 186413
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
@@ -3007,56 +3007,56 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $1
-  f64.const 109.99998807907104
+  f64.const 109.99992370605469
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 1
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $2
-  f64.const 37.99999237060547
+  f64.const 37.99964904785156
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 2
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $3
-  f64.const 110.00000953674316
+  f64.const 110.0006103515625
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $4
-  f64.const 37.99999237060547
+  f64.const 37.99964904785156
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 4
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const 110.00000953674316
+  f64.const 110.0006103515625
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 5
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const 38.00001382827759
+  f64.const 38.000335693359375
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 6
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $7
-  f64.const 109.99998807907104
+  f64.const 109.99992370605469
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 7
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const 38.00001382827759
+  f64.const 38.000335693359375
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   call $~lib/rt/pure/__release
@@ -4901,8 +4901,8 @@
   (local $15 i32)
   (local $16 i32)
   (local $17 i32)
-  i32.const 13514979
-  i32.const 5965232
+  i32.const 422343
+  i32.const 186413
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $~lib/util/number/utoa64
   local.tee $1
@@ -5160,7 +5160,7 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $3
-  f64.const -179.99997854232788
+  f64.const -179.9993133544922
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
@@ -5174,14 +5174,14 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const -179.99997854232788
+  f64.const -179.9993133544922
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 5
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const -89.99997854232788
+  f64.const -89.99931335449219
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 6
@@ -5195,7 +5195,7 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const -89.99997854232788
+  f64.const -89.99931335449219
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   call $~lib/rt/pure/__release
@@ -5226,8 +5226,8 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  i32.const 8388608
-  i32.const 4194304
+  i32.const 262144
+  i32.const 131072
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
@@ -5249,7 +5249,7 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $3
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
@@ -5263,14 +5263,14 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 5
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 6
@@ -5284,7 +5284,7 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   call $~lib/rt/pure/__release
@@ -5315,8 +5315,8 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  i32.const 16777215
-  i32.const 4194304
+  i32.const 524287
+  i32.const 131072
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
@@ -5324,7 +5324,7 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $1
-  f64.const 179.99997854232788
+  f64.const 179.9993133544922
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 1
@@ -5359,21 +5359,21 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $6
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 6
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $7
-  f64.const 179.99997854232788
+  f64.const 179.9993133544922
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 7
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $8
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   call $~lib/rt/pure/__release
@@ -5404,8 +5404,8 @@
   (local $6 i32)
   (local $7 i32)
   (local $8 i32)
-  i32.const 8388608
-  i32.const 8388607
+  i32.const 262144
+  i32.const 262143
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   local.tee $0
@@ -5420,28 +5420,28 @@
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $2
-  f64.const 89.99997854232788
+  f64.const 89.99931335449219
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 2
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $3
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 3
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $4
-  f64.const 89.99997854232788
+  f64.const 89.99931335449219
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 4
   call $~lib/array/Array<f64>#__get
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<f64>
   local.tee $5
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<f64>#toBe
   local.get $0
   i32.const 5
@@ -5484,8 +5484,8 @@
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|7~anonymous|0
-  i32.const 16777216
-  i32.const 4194304
+  i32.const 524288
+  i32.const 131072
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   call $~lib/rt/pure/__release
@@ -5500,8 +5500,8 @@
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|1~anonymous|8~anonymous|0
-  i32.const 16777215
-  i32.const 8388608
+  i32.const 524287
+  i32.const 262144
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $assembly//index/GeoWebCoordinate.to_gps
   call $~lib/rt/pure/__release
@@ -5544,55 +5544,53 @@
   i32.const 6816
   call $node_modules/@as-pect/assembly/assembly/internal/Test/test
  )
- (func $~lib/math/ipow32 (param $0 i32) (result i32)
-  (local $1 i32)
-  (local $2 i32)
-  i32.const 2
-  local.set $1
-  i32.const 1
-  local.set $2
-  loop $while-continue|0
-   local.get $0
-   if
-    local.get $1
-    local.get $2
-    i32.mul
-    local.get $2
-    local.get $0
-    i32.const 1
-    i32.and
-    select
-    local.set $2
-    local.get $0
-    i32.const 1
-    i32.shr_u
-    local.set $0
-    local.get $1
-    local.get $1
-    i32.mul
-    local.set $1
-    br $while-continue|0
-   end
-  end
-  local.get $2
- )
  (func $assembly//index/GeoWebCoordinate.traverse (param $0 i64) (param $1 i32) (result i64)
   (local $2 i32)
   (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
   local.get $0
   i64.const 32
   i64.shr_u
   i32.wrap_i64
+  local.set $3
+  i32.const 2
   local.set $2
-  local.get $0
   i32.const 32
-  call $~lib/math/ipow32
+  local.set $4
+  i32.const 1
+  local.set $5
+  loop $while-continue|0
+   local.get $4
+   if
+    local.get $2
+    local.get $5
+    i32.mul
+    local.get $5
+    local.get $4
+    i32.const 1
+    i32.and
+    select
+    local.set $5
+    local.get $4
+    i32.const 1
+    i32.shr_u
+    local.set $4
+    local.get $2
+    local.get $2
+    i32.mul
+    local.set $2
+    br $while-continue|0
+   end
+  end
+  local.get $0
+  local.get $5
   i32.const 1
   i32.sub
   i64.extend_i32_u
   i64.and
   i32.wrap_i64
-  local.set $3
+  local.set $2
   block $break|0
    block $case4|0
     block $case3|0
@@ -5602,11 +5600,11 @@
         local.get $1
         br_table $case0|0 $case1|0 $case2|0 $case3|0 $case4|0
        end
-       local.get $3
+       local.get $2
        i32.const 1
        i32.add
-       local.tee $3
-       i32.const 8388607
+       local.tee $2
+       i32.const 262143
        i32.gt_u
        if
         i32.const 6992
@@ -5618,7 +5616,7 @@
        end
        br $break|0
       end
-      local.get $3
+      local.get $2
       i32.const 0
       i32.le_u
       if
@@ -5629,30 +5627,30 @@
        call $~lib/builtins/abort
        unreachable
       end
-      local.get $3
+      local.get $2
       i32.const 1
       i32.sub
-      local.set $3
+      local.set $2
       br $break|0
      end
      i32.const 0
-     local.get $2
+     local.get $3
      i32.const 1
      i32.add
-     local.get $2
-     i32.const 16777215
+     local.get $3
+     i32.const 524287
      i32.ge_u
      select
-     local.set $2
+     local.set $3
      br $break|0
     end
-    local.get $2
+    local.get $3
     i32.const 1
     i32.sub
-    i32.const 16777215
-    local.get $2
+    i32.const 524287
+    local.get $3
     select
-    local.set $2
+    local.set $3
     br $break|0
    end
    i32.const 7152
@@ -5662,8 +5660,8 @@
    call $~lib/builtins/abort
    unreachable
   end
-  local.get $2
   local.get $3
+  local.get $2
   call $assembly//index/GeoWebCoordinate.make_gw_coord
  )
  (func $start:assembly/__tests__/index.spec~anonymous|2~anonymous|0
@@ -5732,10 +5730,7 @@
  )
  (func $start:assembly/__tests__/index.spec~anonymous|2~anonymous|4~anonymous|0
   i32.const 0
-  i32.const 23
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
+  i32.const 262143
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   i32.const 0
   call $assembly//index/GeoWebCoordinate.traverse
@@ -5769,10 +5764,7 @@
  )
  (func $start:assembly/__tests__/index.spec~anonymous|2~anonymous|6
   (local $0 i32)
-  i32.const 24
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
+  i32.const 524287
   i32.const 0
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   i32.const 2
@@ -5795,10 +5787,7 @@
   call $assembly//index/GeoWebCoordinate.traverse
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<u64>
   local.tee $0
-  i32.const 24
-  call $~lib/math/ipow32
-  i32.const 1
-  i32.sub
+  i32.const 524287
   i32.const 0
   call $assembly//index/GeoWebCoordinate.make_gw_coord
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<u64>#toBe

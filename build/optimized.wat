@@ -58,6 +58,8 @@
  (table $0 2 funcref)
  (elem (i32.const 1) $assembly/index/GeoWebCoordinate.to_gps_hex~anonymous|0)
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
+ (global $assembly/index/GW_MAX_LAT i32 (i32.const 262143))
+ (global $assembly/index/GW_MAX_LON i32 (i32.const 524287))
  (global $assembly/index/Direction.North i32 (i32.const 0))
  (global $assembly/index/Direction.South i32 (i32.const 1))
  (global $assembly/index/Direction.East i32 (i32.const 2))
@@ -80,6 +82,8 @@
  (export "__retain" (func $~lib/rt/pure/__retain))
  (export "__release" (func $~lib/rt/pure/__release))
  (export "__rtti_base" (global $~lib/rt/__rtti_base))
+ (export "GW_MAX_LAT" (global $assembly/index/GW_MAX_LAT))
+ (export "GW_MAX_LON" (global $assembly/index/GW_MAX_LON))
  (export "Direction.North" (global $assembly/index/Direction.North))
  (export "Direction.South" (global $assembly/index/Direction.South))
  (export "Direction.East" (global $assembly/index/Direction.East))
@@ -1644,14 +1648,14 @@
   local.get $1
   f64.const 90
   f64.add
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.div
   i32.trunc_f64_u
   i64.extend_i32_u
   local.get $0
   f64.const 180
   f64.add
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.div
   i32.trunc_f64_u
   i64.extend_i32_u
@@ -1943,7 +1947,7 @@
   i64.shr_u
   i32.wrap_i64
   local.tee $3
-  i32.const 16777215
+  i32.const 524287
   i32.gt_u
   if
    i32.const 1520
@@ -1954,7 +1958,7 @@
    unreachable
   end
   local.get $1
-  i32.const 8388607
+  i32.const 262143
   i32.gt_u
   if
    i32.const 1600
@@ -1966,14 +1970,14 @@
   end
   local.get $3
   f64.convert_i32_u
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.mul
   f64.const 180
   f64.sub
   local.set $4
   local.get $1
   f64.convert_i32_u
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.mul
   f64.const 90
   f64.sub
@@ -1993,7 +1997,7 @@
   f64.store offset=8
   local.get $1
   local.get $4
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.add
   local.tee $5
   f64.store offset=16
@@ -2005,7 +2009,7 @@
   f64.store offset=32
   local.get $1
   local.get $2
-  f64.const 2.1457672119140625e-05
+  f64.const 0.0006866455078125
   f64.add
   local.tee $2
   f64.store offset=40
@@ -3208,7 +3212,7 @@
        i32.const 1
        i32.add
        local.tee $3
-       i32.const 8388607
+       i32.const 262143
        i32.gt_u
        if
         i32.const 2832
@@ -3242,7 +3246,7 @@
      i32.const 1
      i32.add
      local.get $2
-     i32.const 16777215
+     i32.const 524287
      i32.ge_u
      select
      local.set $2
@@ -3251,7 +3255,7 @@
     local.get $2
     i32.const 1
     i32.sub
-    i32.const 16777215
+    i32.const 524287
     local.get $2
     select
     local.set $2
