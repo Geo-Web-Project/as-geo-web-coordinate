@@ -1,9 +1,5 @@
 import { u256 } from "./u256";
 
-export const GW_MAX_LAT: u32 = (1 << 18) - 1;
-export const GW_MAX_LON: u32 = (1 << 19) - 1;
-const GW_INCRE = 0.0006866455078125;
-
 export enum Direction {
   North = 0,
   South,
@@ -11,8 +7,12 @@ export enum Direction {
   West,
 }
 
+function calculateIncre(maxLat: u32): f64 {
+  return 180 / (maxLat + 1);
+}
+
 export class GeoWebCoordinate {
-  static from_gps(lon: f64, lat: f64): u64 {
+  static from_gps(lon: f64, lat: f64, maxLat: u32): u64 {
     if (lat < -90 || lat >= 90) {
       throw new Error("Latitude must be between -90 and <90");
     }
@@ -20,36 +20,38 @@ export class GeoWebCoordinate {
       throw new Error("Longitude must be between -180 and <180");
     }
 
-    let latGW = u32((lat + 90) / GW_INCRE);
-    let lonGW = u32((lon + 180) / GW_INCRE);
+    let incre = calculateIncre(maxLat);
+    let latGW = u32((lat + 90) / incre);
+    let lonGW = u32((lon + 180) / incre);
 
     return (u64(lonGW) << 32) | latGW;
   }
 
-  static to_gps_hex(gwCoord: string): string[] {
-    let result = this.to_gps(<u64>Number.parseInt(gwCoord, 16));
+  static to_gps_hex(gwCoord: string, maxLat: u32, maxLon: u32): string[] {
+    let result = this.to_gps(<u64>Number.parseInt(gwCoord, 16), maxLat, maxLon);
     return result.map<string>((v: f64) => {
       return v.toString();
     });
   }
 
-  static to_gps(gwCoord: u64): f64[] {
+  static to_gps(gwCoord: u64, maxLat: u32, maxLon: u32): f64[] {
     let lonGW = u32(gwCoord >> 32);
     let latGW = u32(gwCoord);
 
-    if (lonGW > GW_MAX_LON) {
+    if (lonGW > maxLon) {
       throw new Error("Longitude is out of bounds");
     }
 
-    if (latGW > GW_MAX_LAT) {
+    if (latGW > maxLat) {
       throw new Error("Latitude is out of bounds");
     }
 
-    let bl_lon = lonGW * GW_INCRE - 180;
-    let bl_lat = latGW * GW_INCRE - 90;
+    let incre = calculateIncre(maxLat);
+    let bl_lon = lonGW * incre - 180;
+    let bl_lat = latGW * incre - 90;
 
-    let tr_lon = bl_lon + GW_INCRE;
-    let tr_lat = bl_lat + GW_INCRE;
+    let tr_lon = bl_lon + incre;
+    let tr_lat = bl_lat + incre;
 
     let br_lon = tr_lon;
     let br_lat = bl_lat;
@@ -60,20 +62,33 @@ export class GeoWebCoordinate {
     return [bl_lon, bl_lat, br_lon, br_lat, tr_lon, tr_lat, tl_lon, tl_lat];
   }
 
-  static traverse_hex(gwCoord: string, direction: Direction): string {
-    return this.traverse(<u64>Number.parseInt(gwCoord, 16), direction).toString(
-      16
-    );
+  static traverse_hex(
+    gwCoord: string,
+    direction: Direction,
+    maxLat: u32,
+    maxLon: u32
+  ): string {
+    return this.traverse(
+      <u64>Number.parseInt(gwCoord, 16),
+      direction,
+      maxLat,
+      maxLon
+    ).toString(16);
   }
 
-  static traverse(gwCoord: u64, direction: Direction): u64 {
+  static traverse(
+    gwCoord: u64,
+    direction: Direction,
+    maxLat: u32,
+    maxLon: u32
+  ): u64 {
     let originX: u32 = GeoWebCoordinate.get_x(gwCoord);
     let originY: u32 = GeoWebCoordinate.get_y(gwCoord);
 
     switch (direction) {
       case Direction.North:
         originY += 1;
-        if (originY > GW_MAX_LAT) {
+        if (originY > maxLat) {
           throw new Error("Direction went too far north");
         }
         break;
@@ -84,7 +99,7 @@ export class GeoWebCoordinate {
         originY -= 1;
         break;
       case Direction.East:
-        if (originX >= GW_MAX_LON) {
+        if (originX >= maxLon) {
           // Wrap to west
           originX = 0;
         } else {
@@ -94,7 +109,7 @@ export class GeoWebCoordinate {
       case Direction.West:
         if (originX == 0) {
           // Wrap to east
-          originX = GW_MAX_LON;
+          originX = maxLon;
         } else {
           originX -= 1;
         }

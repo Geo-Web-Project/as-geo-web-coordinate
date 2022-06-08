@@ -1,64 +1,73 @@
-import { GeoWebCoordinate, Direction, GeoWebCoordinatePath, u256, GW_MAX_LON, GW_MAX_LAT } from "../";
+import { GeoWebCoordinate, Direction, GeoWebCoordinatePath, u256 } from "../";
+
+const GW_MAX_LAT: u32 = (1 << 18) - 1;
+const GW_MAX_LON: u32 = (1 << 19) - 1;
 
 describe("from_gps", () => {
   test("should convert basic", () => {
-    let gwCoord = GeoWebCoordinate.from_gps(110.0, 38.0);
+    let gwCoord = GeoWebCoordinate.from_gps(110.0, 38.0, GW_MAX_LAT);
     expect(gwCoord).toBe(GeoWebCoordinate.make_gw_coord(422343, 186413));
   });
 
   test("should convert origin", () => {
-    let gwCoord = GeoWebCoordinate.from_gps(-180.0, -90.0);
+    let gwCoord = GeoWebCoordinate.from_gps(-180.0, -90.0, GW_MAX_LAT);
     expect(gwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 0));
   });
 
   test("should convert meridian equator", () => {
-    let gwCoord = GeoWebCoordinate.from_gps(0.0, 0.0);
-    expect(gwCoord).toBe(GeoWebCoordinate.make_gw_coord((GW_MAX_LON / 2) + 1, (GW_MAX_LAT / 2) + 1));
+    let gwCoord = GeoWebCoordinate.from_gps(0.0, 0.0, GW_MAX_LAT);
+    expect(gwCoord).toBe(
+      GeoWebCoordinate.make_gw_coord(GW_MAX_LON / 2 + 1, GW_MAX_LAT / 2 + 1)
+    );
   });
 
   test("should convert meridian", () => {
-    let gwCoord = GeoWebCoordinate.from_gps(179.9999785425, 0.0);
-    expect(gwCoord).toBe(GeoWebCoordinate.make_gw_coord(GW_MAX_LON, (GW_MAX_LAT / 2) + 1));
+    let gwCoord = GeoWebCoordinate.from_gps(179.9999785425, 0.0, GW_MAX_LAT);
+    expect(gwCoord).toBe(
+      GeoWebCoordinate.make_gw_coord(GW_MAX_LON, GW_MAX_LAT / 2 + 1)
+    );
   });
 
   test("should convert north pole", () => {
-    let gwCoord = GeoWebCoordinate.from_gps(0.0, 89.9999785425);
-    expect(gwCoord).toBe(GeoWebCoordinate.make_gw_coord((GW_MAX_LON / 2) + 1, GW_MAX_LAT));
+    let gwCoord = GeoWebCoordinate.from_gps(0.0, 89.9999785425, GW_MAX_LAT);
+    expect(gwCoord).toBe(
+      GeoWebCoordinate.make_gw_coord(GW_MAX_LON / 2 + 1, GW_MAX_LAT)
+    );
   });
 
   test("should not convert lon out of bounds 1", () => {
     expect(() => {
-      GeoWebCoordinate.from_gps(181.0, 0.0);
+      GeoWebCoordinate.from_gps(181.0, 0.0, GW_MAX_LAT);
     }).toThrow();
   });
 
   test("should not convert lon out of bounds 2", () => {
     expect(() => {
-      GeoWebCoordinate.from_gps(-181.0, 0.0);
+      GeoWebCoordinate.from_gps(-181.0, 0.0, GW_MAX_LAT);
     }).toThrow();
   });
 
   test("should not convert lon out of bounds 3", () => {
     expect(() => {
-      GeoWebCoordinate.from_gps(180.0, 0.0);
+      GeoWebCoordinate.from_gps(180.0, 0.0, GW_MAX_LAT);
     }).toThrow();
   });
 
   test("should not convert lat out of bounds 1", () => {
     expect(() => {
-      GeoWebCoordinate.from_gps(0.0, 91.0);
+      GeoWebCoordinate.from_gps(0.0, 91.0, GW_MAX_LAT);
     }).toThrow();
   });
 
   test("should not convert lat out of bounds 2", () => {
     expect(() => {
-      GeoWebCoordinate.from_gps(0.0, -91.0);
+      GeoWebCoordinate.from_gps(0.0, -91.0, GW_MAX_LAT);
     }).toThrow();
   });
 
   test("should not convert lat out of bounds 3", () => {
     expect(() => {
-      GeoWebCoordinate.from_gps(0.0, 90.0);
+      GeoWebCoordinate.from_gps(0.0, 90.0, GW_MAX_LAT);
     }).toThrow();
   });
 });
@@ -66,7 +75,7 @@ describe("from_gps", () => {
 describe("to_gps", () => {
   test("should convert basic", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(422343, 186413);
-    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord);
+    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
     expect(gpsCoords[0]).toBe(109.99992370605469);
     expect(gpsCoords[1]).toBe(37.99964904785156);
@@ -81,7 +90,11 @@ describe("to_gps", () => {
   test("should convert basic hex", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(422343, 186413);
 
-    let gpsCoords = GeoWebCoordinate.to_gps_hex(gwCoord.toString(16));
+    let gpsCoords = GeoWebCoordinate.to_gps_hex(
+      gwCoord.toString(16),
+      GW_MAX_LAT,
+      GW_MAX_LON
+    );
 
     expect(gpsCoords[0]).toBe("109.99992370605469");
     expect(gpsCoords[1]).toBe("37.99964904785156");
@@ -94,7 +107,11 @@ describe("to_gps", () => {
   });
 
   test("should convert basic hex with 0x", () => {
-    let gpsCoords = GeoWebCoordinate.to_gps_hex("0x671c70002d82d");
+    let gpsCoords = GeoWebCoordinate.to_gps_hex(
+      "0x671c70002d82d",
+      GW_MAX_LAT,
+      GW_MAX_LON
+    );
 
     expect(gpsCoords[0]).toBe("109.99992370605469");
     expect(gpsCoords[1]).toBe("37.99964904785156");
@@ -108,7 +125,7 @@ describe("to_gps", () => {
 
   test("should convert origin", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
-    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord);
+    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
     expect(gpsCoords[0]).toBe(-180.0);
     expect(gpsCoords[1]).toBe(-90.0);
@@ -121,8 +138,11 @@ describe("to_gps", () => {
   });
 
   test("should convert meridian equator", () => {
-    let gwCoord = GeoWebCoordinate.make_gw_coord((GW_MAX_LON / 2) + 1, (GW_MAX_LAT / 2) + 1);
-    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord);
+    let gwCoord = GeoWebCoordinate.make_gw_coord(
+      GW_MAX_LON / 2 + 1,
+      GW_MAX_LAT / 2 + 1
+    );
+    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
     expect(gpsCoords[0]).toBe(0.0);
     expect(gpsCoords[1]).toBe(0.0);
@@ -135,8 +155,11 @@ describe("to_gps", () => {
   });
 
   test("should convert meridian", () => {
-    let gwCoord = GeoWebCoordinate.make_gw_coord(GW_MAX_LON, (GW_MAX_LAT / 2) + 1);
-    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord);
+    let gwCoord = GeoWebCoordinate.make_gw_coord(
+      GW_MAX_LON,
+      GW_MAX_LAT / 2 + 1
+    );
+    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
     expect(gpsCoords[0]).toBe(179.9993133544922);
     expect(gpsCoords[1]).toBe(0.0);
@@ -149,8 +172,11 @@ describe("to_gps", () => {
   });
 
   test("should convert north pole", () => {
-    let gwCoord = GeoWebCoordinate.make_gw_coord((GW_MAX_LON / 2) + 1, GW_MAX_LAT);
-    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord);
+    let gwCoord = GeoWebCoordinate.make_gw_coord(
+      GW_MAX_LON / 2 + 1,
+      GW_MAX_LAT
+    );
+    let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
     expect(gpsCoords[0]).toBe(0.0);
     expect(gpsCoords[1]).toBe(89.99931335449219);
@@ -165,7 +191,9 @@ describe("to_gps", () => {
   test("should not convert lon out of bounds", () => {
     expect(() => {
       GeoWebCoordinate.to_gps(
-        GeoWebCoordinate.make_gw_coord(GW_MAX_LON + 1, (GW_MAX_LAT / 2) + 1)
+        GeoWebCoordinate.make_gw_coord(GW_MAX_LON + 1, GW_MAX_LAT / 2 + 1),
+        GW_MAX_LAT,
+        GW_MAX_LON
       );
     }).toThrow();
   });
@@ -173,7 +201,9 @@ describe("to_gps", () => {
   test("should not convert lat out of bounds", () => {
     expect(() => {
       GeoWebCoordinate.to_gps(
-        GeoWebCoordinate.make_gw_coord(GW_MAX_LON, (GW_MAX_LON / 2) + 1)
+        GeoWebCoordinate.make_gw_coord(GW_MAX_LON, GW_MAX_LON / 2 + 1),
+        GW_MAX_LAT,
+        GW_MAX_LON
       );
     }).toThrow();
   });
@@ -183,7 +213,12 @@ describe("traverse", () => {
   test("should traverse north", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
 
-    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.North);
+    let newGwCoord = GeoWebCoordinate.traverse(
+      gwCoord,
+      Direction.North,
+      GW_MAX_LAT,
+      GW_MAX_LON
+    );
 
     expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 1));
   });
@@ -191,7 +226,12 @@ describe("traverse", () => {
   test("should traverse south", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(0, 1);
 
-    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.South);
+    let newGwCoord = GeoWebCoordinate.traverse(
+      gwCoord,
+      Direction.South,
+      GW_MAX_LAT,
+      GW_MAX_LON
+    );
 
     expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 0));
   });
@@ -199,7 +239,12 @@ describe("traverse", () => {
   test("should traverse east", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
 
-    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.East);
+    let newGwCoord = GeoWebCoordinate.traverse(
+      gwCoord,
+      Direction.East,
+      GW_MAX_LAT,
+      GW_MAX_LON
+    );
 
     expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(1, 0));
   });
@@ -207,7 +252,12 @@ describe("traverse", () => {
   test("should traverse west", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(1, 0);
 
-    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.West);
+    let newGwCoord = GeoWebCoordinate.traverse(
+      gwCoord,
+      Direction.West,
+      GW_MAX_LAT,
+      GW_MAX_LON
+    );
 
     expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 0));
   });
@@ -216,7 +266,9 @@ describe("traverse", () => {
     expect(() => {
       GeoWebCoordinate.traverse(
         GeoWebCoordinate.make_gw_coord(0, GW_MAX_LAT),
-        Direction.North
+        Direction.North,
+        GW_MAX_LAT,
+        GW_MAX_LON
       );
     }).toThrow();
   });
@@ -225,7 +277,9 @@ describe("traverse", () => {
     expect(() => {
       GeoWebCoordinate.traverse(
         GeoWebCoordinate.make_gw_coord(0, 0),
-        Direction.South
+        Direction.South,
+        GW_MAX_LAT,
+        GW_MAX_LON
       );
     }).toThrow();
   });
@@ -233,7 +287,12 @@ describe("traverse", () => {
   test("should traverse meridian east -> west", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(GW_MAX_LON, 0);
 
-    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.East);
+    let newGwCoord = GeoWebCoordinate.traverse(
+      gwCoord,
+      Direction.East,
+      GW_MAX_LAT,
+      GW_MAX_LON
+    );
 
     expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 0));
   });
@@ -241,11 +300,14 @@ describe("traverse", () => {
   test("should traverse meridian west -> east", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
 
-    let newGwCoord = GeoWebCoordinate.traverse(gwCoord, Direction.West);
-
-    expect(newGwCoord).toBe(
-      GeoWebCoordinate.make_gw_coord(GW_MAX_LON, 0)
+    let newGwCoord = GeoWebCoordinate.traverse(
+      gwCoord,
+      Direction.West,
+      GW_MAX_LAT,
+      GW_MAX_LON
     );
+
+    expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(GW_MAX_LON, 0));
   });
 
   test("should traverse hex", () => {
@@ -253,7 +315,9 @@ describe("traverse", () => {
 
     let newGwCoord = GeoWebCoordinate.traverse_hex(
       gwCoord.toString(16),
-      Direction.North
+      Direction.North,
+      GW_MAX_LAT,
+      GW_MAX_LON
     );
 
     expect(newGwCoord).toBe(GeoWebCoordinate.make_gw_coord(0, 1).toString(16));

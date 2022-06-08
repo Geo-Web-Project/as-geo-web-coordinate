@@ -1,6 +1,6 @@
 {
   "name": "as-geo-web-coordinate",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A small library to handle Geo Web Coordinates",
   "main": "index.ts",
   "scripts": {
