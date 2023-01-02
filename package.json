@@ -1,6 +1,6 @@
 {
   "name": "as-geo-web-coordinate",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A small library to handle Geo Web Coordinates",
   "main": "index.ts",
   "scripts": {
@@ -9,7 +9,9 @@
     "asbuild:release": "asc assembly/index.ts --target release",
     "asbuild": "npm run asbuild:debug && npm run asbuild:release"
   },
-  "keywords": ["geoweb"],
+  "keywords": [
+    "geoweb"
+  ],
   "author": "Cody Hatfield <cody.hatfield@me.com>",
   "license": "MIT",
   "devDependencies": {
@@ -23,5 +25,7 @@
       "types": "./build/release.d.ts"
     }
   },
-  "files": ["build"]
+  "files": [
+    "build"
+  ]
 }
