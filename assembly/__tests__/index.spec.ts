@@ -1,4 +1,5 @@
-import { GeoWebCoordinate, Direction, GeoWebCoordinatePath, u256 } from "../";
+import * as GeoWebCoordinate from "../";
+import { Direction, u256 } from "../";
 
 const GW_MAX_LAT: u32 = (1 << 18) - 1;
 const GW_MAX_LON: u32 = (1 << 19) - 1;
@@ -77,14 +78,14 @@ describe("to_gps", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(422343, 186413);
     let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
-    expect(gpsCoords[0]).toBe(109.99992370605469);
-    expect(gpsCoords[1]).toBe(37.99964904785156);
-    expect(gpsCoords[2]).toBe(110.0006103515625);
-    expect(gpsCoords[3]).toBe(37.99964904785156);
-    expect(gpsCoords[4]).toBe(110.0006103515625);
-    expect(gpsCoords[5]).toBe(38.000335693359378);
-    expect(gpsCoords[6]).toBe(109.99992370605469);
-    expect(gpsCoords[7]).toBe(38.000335693359378);
+    expect(gpsCoords[0][0]).toBe(109.99992370605469);
+    expect(gpsCoords[0][1]).toBe(37.99964904785156);
+    expect(gpsCoords[1][0]).toBe(110.0006103515625);
+    expect(gpsCoords[1][1]).toBe(37.99964904785156);
+    expect(gpsCoords[2][0]).toBe(110.0006103515625);
+    expect(gpsCoords[2][1]).toBe(38.000335693359378);
+    expect(gpsCoords[3][0]).toBe(109.99992370605469);
+    expect(gpsCoords[3][1]).toBe(38.000335693359378);
   });
 
   test("should convert basic hex", () => {
@@ -96,14 +97,14 @@ describe("to_gps", () => {
       GW_MAX_LON
     );
 
-    expect(gpsCoords[0]).toBe("109.99992370605469");
-    expect(gpsCoords[1]).toBe("37.99964904785156");
-    expect(gpsCoords[2]).toBe("110.0006103515625");
-    expect(gpsCoords[3]).toBe("37.99964904785156");
-    expect(gpsCoords[4]).toBe("110.0006103515625");
-    expect(gpsCoords[5]).toBe("38.000335693359378");
-    expect(gpsCoords[6]).toBe("109.99992370605469");
-    expect(gpsCoords[7]).toBe("38.000335693359378");
+    expect(gpsCoords[0][0]).toBe("109.99992370605469");
+    expect(gpsCoords[0][1]).toBe("37.99964904785156");
+    expect(gpsCoords[1][0]).toBe("110.0006103515625");
+    expect(gpsCoords[1][1]).toBe("37.99964904785156");
+    expect(gpsCoords[2][0]).toBe("110.0006103515625");
+    expect(gpsCoords[2][1]).toBe("38.000335693359378");
+    expect(gpsCoords[3][0]).toBe("109.99992370605469");
+    expect(gpsCoords[3][1]).toBe("38.000335693359378");
   });
 
   test("should convert basic hex with 0x", () => {
@@ -112,29 +113,28 @@ describe("to_gps", () => {
       GW_MAX_LAT,
       GW_MAX_LON
     );
-
-    expect(gpsCoords[0]).toBe("109.99992370605469");
-    expect(gpsCoords[1]).toBe("37.99964904785156");
-    expect(gpsCoords[2]).toBe("110.0006103515625");
-    expect(gpsCoords[3]).toBe("37.99964904785156");
-    expect(gpsCoords[4]).toBe("110.0006103515625");
-    expect(gpsCoords[5]).toBe("38.000335693359378");
-    expect(gpsCoords[6]).toBe("109.99992370605469");
-    expect(gpsCoords[7]).toBe("38.000335693359378");
+    expect(gpsCoords[0][0]).toBe("109.99992370605469");
+    expect(gpsCoords[0][1]).toBe("37.99964904785156");
+    expect(gpsCoords[1][0]).toBe("110.0006103515625");
+    expect(gpsCoords[1][1]).toBe("37.99964904785156");
+    expect(gpsCoords[2][0]).toBe("110.0006103515625");
+    expect(gpsCoords[2][1]).toBe("38.000335693359378");
+    expect(gpsCoords[3][0]).toBe("109.99992370605469");
+    expect(gpsCoords[3][1]).toBe("38.000335693359378");
   });
 
   test("should convert origin", () => {
     let gwCoord = GeoWebCoordinate.make_gw_coord(0, 0);
     let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
-    expect(gpsCoords[0]).toBe(-180.0);
-    expect(gpsCoords[1]).toBe(-90.0);
-    expect(gpsCoords[2]).toBe(-179.9993133544922);
-    expect(gpsCoords[3]).toBe(-90.0);
-    expect(gpsCoords[4]).toBe(-179.9993133544922);
-    expect(gpsCoords[5]).toBe(-89.99931335449219);
-    expect(gpsCoords[6]).toBe(-180.0);
-    expect(gpsCoords[7]).toBe(-89.99931335449219);
+    expect(gpsCoords[0][0]).toBe(-180.0);
+    expect(gpsCoords[0][1]).toBe(-90.0);
+    expect(gpsCoords[1][0]).toBe(-179.9993133544922);
+    expect(gpsCoords[1][1]).toBe(-90.0);
+    expect(gpsCoords[2][0]).toBe(-179.9993133544922);
+    expect(gpsCoords[2][1]).toBe(-89.99931335449219);
+    expect(gpsCoords[3][0]).toBe(-180.0);
+    expect(gpsCoords[3][1]).toBe(-89.99931335449219);
   });
 
   test("should convert meridian equator", () => {
@@ -144,14 +144,14 @@ describe("to_gps", () => {
     );
     let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
-    expect(gpsCoords[0]).toBe(0.0);
-    expect(gpsCoords[1]).toBe(0.0);
-    expect(gpsCoords[2]).toBe(0.0006866455078125);
-    expect(gpsCoords[3]).toBe(0.0);
-    expect(gpsCoords[4]).toBe(0.0006866455078125);
-    expect(gpsCoords[5]).toBe(0.0006866455078125);
-    expect(gpsCoords[6]).toBe(0.0);
-    expect(gpsCoords[7]).toBe(0.0006866455078125);
+    expect(gpsCoords[0][0]).toBe(0.0);
+    expect(gpsCoords[0][1]).toBe(0.0);
+    expect(gpsCoords[1][0]).toBe(0.0006866455078125);
+    expect(gpsCoords[1][1]).toBe(0.0);
+    expect(gpsCoords[2][0]).toBe(0.0006866455078125);
+    expect(gpsCoords[2][1]).toBe(0.0006866455078125);
+    expect(gpsCoords[3][0]).toBe(0.0);
+    expect(gpsCoords[3][1]).toBe(0.0006866455078125);
   });
 
   test("should convert meridian", () => {
@@ -161,14 +161,14 @@ describe("to_gps", () => {
     );
     let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
-    expect(gpsCoords[0]).toBe(179.9993133544922);
-    expect(gpsCoords[1]).toBe(0.0);
-    expect(gpsCoords[2]).toBe(180.0);
-    expect(gpsCoords[3]).toBe(0.0);
-    expect(gpsCoords[4]).toBe(180.0);
-    expect(gpsCoords[5]).toBe(0.0006866455078125);
-    expect(gpsCoords[6]).toBe(179.9993133544922);
-    expect(gpsCoords[7]).toBe(0.0006866455078125);
+    expect(gpsCoords[0][0]).toBe(179.9993133544922);
+    expect(gpsCoords[0][1]).toBe(0.0);
+    expect(gpsCoords[1][0]).toBe(180.0);
+    expect(gpsCoords[1][1]).toBe(0.0);
+    expect(gpsCoords[2][0]).toBe(180.0);
+    expect(gpsCoords[2][1]).toBe(0.0006866455078125);
+    expect(gpsCoords[3][0]).toBe(179.9993133544922);
+    expect(gpsCoords[3][1]).toBe(0.0006866455078125);
   });
 
   test("should convert north pole", () => {
@@ -178,14 +178,14 @@ describe("to_gps", () => {
     );
     let gpsCoords = GeoWebCoordinate.to_gps(gwCoord, GW_MAX_LAT, GW_MAX_LON);
 
-    expect(gpsCoords[0]).toBe(0.0);
-    expect(gpsCoords[1]).toBe(89.99931335449219);
-    expect(gpsCoords[2]).toBe(0.0006866455078125);
-    expect(gpsCoords[3]).toBe(89.99931335449219);
-    expect(gpsCoords[4]).toBe(0.0006866455078125);
-    expect(gpsCoords[5]).toBe(90.0);
-    expect(gpsCoords[6]).toBe(0.0);
-    expect(gpsCoords[7]).toBe(90.0);
+    expect(gpsCoords[0][0]).toBe(0.0);
+    expect(gpsCoords[0][1]).toBe(89.99931335449219);
+    expect(gpsCoords[1][0]).toBe(0.0006866455078125);
+    expect(gpsCoords[1][1]).toBe(89.99931335449219);
+    expect(gpsCoords[2][0]).toBe(0.0006866455078125);
+    expect(gpsCoords[2][1]).toBe(90.0);
+    expect(gpsCoords[3][0]).toBe(0.0);
+    expect(gpsCoords[3][1]).toBe(90.0);
   });
 
   test("should not convert lon out of bounds", () => {
@@ -328,14 +328,14 @@ describe("GeoWebCoordinatePath", () => {
   test("should parse length from path", () => {
     let path = new u256(0b1110, 0, 0, 2 << 56);
 
-    expect(GeoWebCoordinatePath.length(path)).toBe(2);
+    expect(GeoWebCoordinate.pathLength(path)).toBe(2);
   });
 
   test("should parse direction north from path", () => {
     let path = new u256(0b1100, 0, 0, 2 << 56);
     let newPath = new u256(0b11, 0, 0, 1 << 56);
 
-    let result = GeoWebCoordinatePath.nextDirection(path);
+    let result = GeoWebCoordinate.nextDirectionPath(path);
 
     expect(result.direction).toBe(Direction.North);
     expect(result.path == newPath).toBeTruthy();
@@ -345,7 +345,7 @@ describe("GeoWebCoordinatePath", () => {
     let path = new u256(0b1101, 0, 0, 2 << 56);
     let newPath = new u256(0b11, 0, 0, 1 << 56);
 
-    let result = GeoWebCoordinatePath.nextDirection(path);
+    let result = GeoWebCoordinate.nextDirectionPath(path);
 
     expect(result.direction).toBe(Direction.South);
     expect(result.path == newPath).toBeTruthy();
@@ -355,7 +355,7 @@ describe("GeoWebCoordinatePath", () => {
     let path = new u256(0b1110, 0, 0, 2 << 56);
     let newPath = new u256(0b11, 0, 0, 1 << 56);
 
-    let result = GeoWebCoordinatePath.nextDirection(path);
+    let result = GeoWebCoordinate.nextDirectionPath(path);
 
     expect(result.direction).toBe(Direction.East);
     expect(result.path == newPath).toBeTruthy();
@@ -365,7 +365,7 @@ describe("GeoWebCoordinatePath", () => {
     let path = new u256(0b1111, 0, 0, 2 << 56);
     let newPath = new u256(0b11, 0, 0, 1 << 56);
 
-    let result = GeoWebCoordinatePath.nextDirection(path);
+    let result = GeoWebCoordinate.nextDirectionPath(path);
 
     expect(result.direction).toBe(Direction.West);
     expect(result.path == newPath).toBeTruthy();
@@ -375,7 +375,7 @@ describe("GeoWebCoordinatePath", () => {
     let path = new u256(0b1111, 0b1100, 0, 34 << 56);
     let newPath = new u256(0b11, 0b11, 0, 33 << 56);
 
-    let result = GeoWebCoordinatePath.nextDirection(path);
+    let result = GeoWebCoordinate.nextDirectionPath(path);
 
     expect(result.direction).toBe(Direction.West);
     expect(result.path == newPath).toBeTruthy();
@@ -383,27 +383,19 @@ describe("GeoWebCoordinatePath", () => {
 
   test("should parse direction from full path", () => {
     let path = new u256(
-      0b1010101010101010101010101010101010101010101010101010101010101010,
-      0b1010101010101010101010101010101010101010101010101010101010101010,
-      0b1111111111111111111111110110101010101010101010101010101010101010,
-      0b111110011111111111111111111111111111111111111111111111111111111
+      0xaaaaaaaaaaaaaaaa,
+      0xaaaaaaaaaaaaaaaa,
+      0xffffff6aaaaaaaaa,
+      0x7cffffffffffffff
     );
 
-    let result = GeoWebCoordinatePath.nextDirection(path);
+    let result = GeoWebCoordinate.nextDirectionPath(path);
 
     expect(result.direction).toBe(Direction.East);
-    expect(result.path.lo1).toBe(
-      0b1010101010101010101010101010101010101010101010101010101010101010
-    );
-    expect(result.path.lo2).toBe(
-      0b1010101010101010101010101010101010101010101010101010101010101010
-    );
-    expect(result.path.hi1).toBe(
-      0b1111111111111111111111111101101010101010101010101010101010101010
-    );
-    expect(result.path.hi2).toBe(
-      0b111101100111111111111111111111111111111111111111111111111111111
-    );
+    expect(result.path.lo1).toBe(0xaaaaaaaaaaaaaaaa);
+    expect(result.path.lo2).toBe(0xaaaaaaaaaaaaaaaa);
+    expect(result.path.hi1).toBe(0xffffffdaaaaaaaaa);
+    expect(result.path.hi2).toBe(0x7b3fffffffffffff);
   });
 });
 
@@ -426,12 +418,8 @@ describe("u256", () => {
     let shiftedPath = path >> 2;
 
     expect(shiftedPath.lo1).toBe(0b11);
-    expect(shiftedPath.lo2).toBe(
-      0b1100000000000000000000000000000000000000000000000000000000000011
-    );
-    expect(shiftedPath.hi1).toBe(
-      0b1100000000000000000000000000000000000000000000000000000000000011
-    );
+    expect(shiftedPath.lo2).toBe(0xc000000000000003);
+    expect(shiftedPath.hi1).toBe(0xc000000000000003);
     expect(shiftedPath.hi2).toBe(0b11);
   });
 });
